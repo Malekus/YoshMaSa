@@ -8,11 +8,8 @@ app.controller('MainController', function($scope, $interval){
     canvas.width = window.innerWidth;
     let size = 5;
     let sizeMoins = 4;
-    let middleHeight = Math.floor(window.innerHeight/size) / 2;
-    let middleWidth = Math.floor(window.innerWidth/size) / 2;
-
-
-    console.log(canvas.height, canvas.width);
+    let middleHeightY = Math.floor((window.innerHeight/size) / 2);
+    let middleWidthX = Math.floor((window.innerWidth/size) / 2);
 
     for (var y = 0; y < window.innerHeight/size; y++) {
         for (var x = 0; x < window.innerWidth/size; x++) {
@@ -100,16 +97,18 @@ app.controller('MainController', function($scope, $interval){
     
     creerCadreCenter = function(){
         // Play
-        creerLigneH(middleHeight - 10, middleWidth, "green", 21);
-
+        creerLigneH(Math.round(middleWidthX - 11 / 2), Math.round(middleHeightY), "green", 11);
+        creerLigneV(Math.round(middleWidthX), Math.round(middleHeightY - 9 / 2), "yellow", 9);
+        console.log(Math.round(middleWidthX - 11 / 2), middleHeightY);
+        console.log(middleWidthX, Math.round(middleHeightY - 9 / 2));
         // Ladder
         // Custom
         // Option
     }
     
     creerCadreCenter();
-    creerPixel(middleHeight, middleWidth, "red");
-    
+    creerPixel(middleWidthX, middleHeightY, "red");
+    console.log(middleWidthX, middleHeightY);
 
     //creerCadre("jouer");
 
@@ -120,13 +119,54 @@ app.controller('MainController', function($scope, $interval){
     }, 50);*/
 
 
+    bebeLettreJ = function(x, y){
+        creerLigneV(x+3, y, "black", 4);
+        creerPixel(x,y+3, "black");
+        creerLigneH(x+1, y+4, "black", 2);
+    };
     
-    
+    bebeLettreO = function(x, y){
+        creerLigneH(x+1, y, "black", 2);
+        creerLigneV(x, y+1, "black", 3);
+        creerLigneV(x+3, y+1, "black", 3);
+        creerLigneH(x+1, y+4, "black", 2);
+    }
+
+    bebeLettreU = function(x, y){
+        creerLigneV(x, y, "black", 4);
+        creerLigneV(x+3, y, "black", 4);
+        creerLigneH(x+1, y+4, "black", 2);
+    }
+
+    bebeLettreE = function(x, y){
+        creerLigneV(x, y, "black", 5);
+        creerLigneH(x, y, "black", 3);
+        creerLigneH(x, y+2, "black", 2);
+        creerLigneH(x, y+4, "black", 3);
+
+    };
+
+    bebeLettreR = function(x, y){
+        creerLigneV(x, y, "black", 5);
+        creerLigneH(x, y, "black", 3);
+        creerLigneH(x, y+2, "black", 3);
+        creerPixel(22, 11, "black");
+        creerPixel(21, 13, "black");
+        creerPixel(22, 14, "black");
+    };
+
     lettreJ(0,0);
     lettreO(6, 0);
     lettreU(12, 0);
     lettreE(18, 0);
     lettreR(24, 0);
+
+    bebeLettreJ(0,10);
+    bebeLettreO(5, 10);
+    bebeLettreU(10, 10);
+    bebeLettreE(15, 10);
+    bebeLettreR(19, 10);
+
 
     function animate(){
         requestAnimationFrame(animate);
