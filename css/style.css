@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+}
+
+
+#navbar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    line-height: 60px;
+    color: white;
+    background-color: green;
+    overflow: hidden;
+}
+
+#navbar ul{
+    position: absolute;
+    height: 100%;
+    width:100%;
+
+}
+
+#navbar li{
+    display: block;
+    float: left;
+    height: 100%;
+    width: 25%;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    border-left: 1px solid white;
+}
+
+#navbar > ul > li > a{
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+}
