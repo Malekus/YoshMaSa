@@ -51,6 +51,10 @@ app.controller('MainController', function($scope, $interval){
         } 
     }
 
+    placeMiddle = function(x,y){
+
+    };
+
     creerForme = function(tabPixel){
         tabPixel.forEach(function(element){
             creerPixel(element[0], element[1], element[2]);
@@ -95,20 +99,6 @@ app.controller('MainController', function($scope, $interval){
     };
 
     
-    creerCadreCenter = function(){
-        // Play
-        creerLigneH(Math.round(middleWidthX - 11 / 2), Math.round(middleHeightY), "green", 11);
-        creerLigneV(Math.round(middleWidthX), Math.round(middleHeightY - 9 / 2), "yellow", 9);
-        console.log(Math.round(middleWidthX - 11 / 2), middleHeightY);
-        console.log(middleWidthX, Math.round(middleHeightY - 9 / 2));
-        // Ladder
-        // Custom
-        // Option
-    }
-    
-    creerCadreCenter();
-    creerPixel(middleWidthX, middleHeightY, "red");
-    console.log(middleWidthX, middleHeightY);
 
     //creerCadre("jouer");
 
@@ -150,29 +140,70 @@ app.controller('MainController', function($scope, $interval){
         creerLigneV(x, y, "black", 5);
         creerLigneH(x, y, "black", 3);
         creerLigneH(x, y+2, "black", 3);
-        creerPixel(22, 11, "black");
-        creerPixel(21, 13, "black");
-        creerPixel(22, 14, "black");
+        creerPixel(x+3, y+1, "black");
+        creerPixel(x+2, y+3, "black");
+        creerPixel(x+3, y+4, "black");
     };
 
-    lettreJ(0,0);
-    lettreO(6, 0);
-    lettreU(12, 0);
-    lettreE(18, 0);
-    lettreR(24, 0);
+    jouer5x7 = function(){
+        lettreJ(0,0);
+        lettreO(6, 0);
+        lettreU(12, 0);
+        lettreE(18, 0);
+        lettreR(24, 0);
+    };
 
-    bebeLettreJ(0,10);
-    bebeLettreO(5, 10);
-    bebeLettreU(10, 10);
-    bebeLettreE(15, 10);
-    bebeLettreR(19, 10);
-
+    jouer4x5 = function(x, y){
+        bebeLettreJ(x + 0, y);
+        bebeLettreO(x + 5, y);
+        bebeLettreU(x + 10, y);
+        bebeLettreE(x + 15, y);
+        bebeLettreR(x + 19, y);
+    };
 
     function animate(){
         requestAnimationFrame(animate);
         creerPixel(5, 6, "red");
-        console.log("totot");
+        //console.log("totot");
     };
 
     //animate();
+
+
+    cadreMenu = function(x, y, string){
+        var size = 25;
+        for(var i = 0; i < 7; i++){
+            creerLigneH(x, y + i, "blue", size);
+        }
+        creerPixel(Math.floor((size / 2)), y + 3, "red");
+
+        jouer4x5(x + 1, y + 1);
+    };
+    
+    /*cadreMenu(0, 0, "Jouer");
+    cadreMenu(0, 8, "ladder");
+    cadreMenu(0, 16, "option");
+    cadreMenu(0, 24, "custom");*/
+
+
+    
+    creerCadreCenter = function(x, y){
+        creerLigneH(Math.round(middleWidthX - 11 / 2), Math.round(middleHeightY), "green", 11);
+        creerLigneV(Math.round(middleWidthX), Math.round(middleHeightY - 26 / 2), "yellow", 26);
+        
+        // choix Jouer
+        cadreMenu(x, y, "Jouer");
+        // choix Jouer
+        cadreMenu(x, y +8, "ladder");
+        // choix Jouer
+        cadreMenu(x, y + 16, "option");
+        // choix Jouer
+        cadreMenu(x, y + 24, "custom");
+    }
+
+    
+
+    creerCadreCenter(0, 0);
+    creerPixel(middleWidthX, middleHeightY, "red");
+    console.log(middleWidthX, middleHeightY);
 });
