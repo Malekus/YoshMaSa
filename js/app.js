@@ -386,13 +386,13 @@ app.controller('Pixel4x4Controller', function($scope){
 
     creerMarteaux2();
 });
-
+/*
 const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
 window.addEventListener('click', function(e) {
     mousePosition.x = e.pageX;
     mousePosition.y = e.pageY;
     console.log("x = "+Math.floor(mousePosition.x / 5), "y = " + Math.floor( mousePosition.y / 5));
-});
+});*/
 
 app.controller('HomeController',function($scope){
     let width, height;
@@ -401,9 +401,21 @@ app.controller('HomeController',function($scope){
     const canvas = document.getElementById('home');
     const ctx = canvas.getContext('2d');
     
+    let size = 5;
+    let sizeMoins = 4;
+
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
-
-    var x = 4
     
+    for (var y = 0; y < window.innerHeight/size; y++) {
+        for (var x = 0; x < window.innerHeight/size; x++) {
+        pixels.push([x*size, y*size, sizeMoins, sizeMoins, '#000', 1]);
+        }
+    }
+
+    for (var i = 0, l = pixels.length; i < l; i++) {
+        ctx.globalAlpha = 1; // Opacité
+        ctx.fillStyle = 'white'; // couleur du rectange
+        ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
+    }
 });

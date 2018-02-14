@@ -1,4 +1,4 @@
-app.controller('MainController', function($scope, $interval){
+app.controller('MainController', function($scope, $interval, AlphabetService){
     let width, height;
     let pixels = [];
     const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
@@ -7,9 +7,11 @@ app.controller('MainController', function($scope, $interval){
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
     let size = 5;
-    let sizeMoins = 4;
+    let sizeMoins = 5;
     let middleHeightY = Math.floor((window.innerHeight/size) / 2);
     let middleWidthX = Math.floor((window.innerWidth/size) / 2);
+
+    
 
     for (var y = 0; y < window.innerHeight/size; y++) {
         for (var x = 0; x < window.innerWidth/size; x++) {
@@ -22,6 +24,14 @@ app.controller('MainController', function($scope, $interval){
         ctx.fillStyle = 'white'; // couleur du rectange
         ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
     }
+
+    window.addEventListener('click', function(e) {
+        mousePosition.x = e.pageX;
+        mousePosition.y = e.pageY;
+        console.log(mousePosition.x, mousePosition.y);
+        console.log("x = "+Math.floor(mousePosition.x / 4), "y = " + Math.floor( mousePosition.y / 4));
+    });
+
     cleanCanvas = function(){
         for (var i = 0, l = pixels.length; i < l; i++) {
             ctx.globalAlpha = 1; // Opacité
@@ -172,12 +182,12 @@ app.controller('MainController', function($scope, $interval){
 
     cadreMenu = function(x, y, string){
         var size = 25;
+        var decalage = 1;
         for(var i = 0; i < 7; i++){
             creerLigneH(x, y + i, "blue", size);
         }
-        creerPixel(Math.floor((size / 2)), y + 3, "red");
 
-        jouer4x5(x + 1, y + 1);
+        jouer4x5(x + decalage, y + decalage);
     };
     
     /*cadreMenu(0, 0, "Jouer");
@@ -187,10 +197,9 @@ app.controller('MainController', function($scope, $interval){
 
 
     
-    creerCadreCenter = function(x, y){
-        creerLigneH(Math.round(middleWidthX - 11 / 2), Math.round(middleHeightY), "green", 11);
-        creerLigneV(Math.round(middleWidthX), Math.round(middleHeightY - 26 / 2), "yellow", 26);
-        
+    creerCadreCenter = function(x, y){     
+        x = x - Math.floor(25 / 2);
+        y = y - (2 * 7 + 1); 
         // choix Jouer
         cadreMenu(x, y, "Jouer");
         // choix Jouer
@@ -203,7 +212,16 @@ app.controller('MainController', function($scope, $interval){
 
     
 
-    creerCadreCenter(0, 0);
+    creerCadreCenter(middleWidthX, middleHeightY);
     creerPixel(middleWidthX, middleHeightY, "red");
-    console.log(middleWidthX, middleHeightY);
+
+    AlphabetService.getLettre("u");
+
+    btnPixel = function(x1, y1, x2, y2){
+        creerPixel(x1, y1, "red");
+        creerPixel(x2, y2, "green");
+    }
+
+    btnPixel(5,9,6,4);
+    
 });
