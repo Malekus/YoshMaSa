@@ -1,6 +1,7 @@
 app.controller('MainController', function($scope, $interval, AlphabetService){
     let width, height;
     let pixels = [];
+    let boutons = [];
     const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
     const canvas = document.getElementById('main');
     const ctx = canvas.getContext('2d');
@@ -29,7 +30,13 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
         mousePosition.x = e.pageX;
         mousePosition.y = e.pageY;
         console.log(mousePosition.x, mousePosition.y);
-        console.log("x = "+Math.floor(mousePosition.x / 4), "y = " + Math.floor( mousePosition.y / 4));
+        console.log("x = "+Math.floor(mousePosition.x / sizeMoins),
+        "y = " + Math.floor( mousePosition.y / sizeMoins));
+
+        /*if(){
+
+        }*/
+
     });
 
     cleanCanvas = function(){
@@ -212,16 +219,42 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
 
     
 
+    /*
     creerCadreCenter(middleWidthX, middleHeightY);
     creerPixel(middleWidthX, middleHeightY, "red");
+    */
 
     AlphabetService.getLettre("u");
 
-    btnPixel = function(x1, y1, x2, y2){
-        creerPixel(x1, y1, "red");
-        creerPixel(x2, y2, "green");
+
+
+    function plusPetit(x, y){
+        return (x < y ? x : y);
     }
 
-    btnPixel(5,9,6,4);
+    function plusGrand(x, y){
+        return (x > y ? x : y);
+    }
+
+    btnPixel = function(x1, y1, x2, y2, nom){
+
+        var tab = [];
+        for(var i = plusPetit(x1, x2); i <= plusGrand(x1, x2); i++){
+            for(var j = plusPetit(y1, y2); j <= plusGrand(y1, y2); j++){
+                tab.push([i,j]);
+                creerPixel(i, j, "black");
+            }
+        }
+        boutons.push({
+            key: nom,
+            value: tab
+        });
+        console.log(boutons);
+        creerPixel(plusPetit(x1, x2), plusPetit(y1, y2), "red");
+        creerPixel(plusGrand(x1, x2), plusGrand(y1, y2), "green");
+
+    }
+
+    btnPixel(5,9,6,4, "first");
     
 });
