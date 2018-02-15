@@ -7,7 +7,7 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
     let size = 5;
-    let sizeMoins = 5;
+    let sizeMoins = 4;
     let middleHeightY = Math.floor((window.innerHeight/size) / 2);
     let middleWidthX = Math.floor((window.innerWidth/size) / 2);
 
