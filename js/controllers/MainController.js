@@ -224,7 +224,7 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
     creerPixel(middleWidthX, middleHeightY, "red");
     */
 
-    AlphabetService.getLettre("u");
+    AlphabetService.getLettre("i")(83,61);
 
 
 
@@ -255,6 +255,6 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
 
     }
 
-    btnPixel(5,9,6,4, "first");
-    
+    //btnPixel(5,9,6,4, "first");
+
 });
