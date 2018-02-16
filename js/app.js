@@ -373,16 +373,18 @@ app.controller('Pixel4x4Controller', function($scope){
 
 
     creerHommeNafNaf = function(x,y){
-        
+        creerLigneH(83, 55, "black", 5);
+        creerLigneH(82, 56, "black", 7);
     }
+    creerHommeNafNaf(0,0);
 });
-/*
+
 const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
 window.addEventListener('click', function(e) {
     mousePosition.x = e.pageX;
     mousePosition.y = e.pageY;
-    console.log("x = "+Math.floor(mousePosition.x / 5), "y = " + Math.floor( mousePosition.y / 5));
-});*/
+    console.log("x = "+Math.floor(mousePosition.x / 4), "y = " + Math.floor( mousePosition.y / 4));
+});
 
 app.controller('HomeController',function($scope){
     let width, height;
