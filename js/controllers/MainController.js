@@ -256,5 +256,20 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
     }
 
     //btnPixel(5,9,6,4, "first");
+    lettreA = function(x,y){
+        creerLigneH(3,3,"black",3);
+        creerLigneH(3,0,"black",3);
+        creerLigneV(2,1,"black",5);
+        creerLigneV(6,1,"black",5);
+        
+    }
+    lettreA(0,0);
 
+    lettreB = function(x,y){
+        creerLigneV(10,0,"black",6);
+        creerLigneH(11,0,"black",2);
+        creerLigneH(11,5,"black",2);
+        creerLigneH(11,3,"black",2);
+    }
+    lettreB(0,0);
 });
