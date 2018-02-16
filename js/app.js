@@ -217,8 +217,6 @@ app.controller('Pixel8x8Controller', function($scope){
         
 
     };
-    
-    //creerHomme();
 
     creerMarteauBebe = function(x, y){
         creerLigneV(x + 2, y+0, 'brown', 6);
@@ -236,14 +234,6 @@ app.controller('Pixel8x8Controller', function($scope){
         creerLigneH(x, y+13,'grey', 10);
         creerLigneH(x, y+14,'grey', 10);
     }
-
-    
-
-    //creerMarteau(14, 5);
-    //creerMarteauBebe(0, 0);
-
-    creerMarteaux2(0, 0);
-
 
 });
 
@@ -381,10 +371,10 @@ app.controller('Pixel4x4Controller', function($scope){
 
     }
 
-    //creerMarteau(14, 5);
-    creerMarteau(-3, -7);
 
-    creerMarteaux2();
+    creerHommeNafNaf = function(x,y){
+        
+    }
 });
 /*
 const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
