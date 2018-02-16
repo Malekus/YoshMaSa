@@ -373,6 +373,7 @@ app.controller('Pixel4x4Controller', function($scope){
 
 
     creerHommeNafNaf = function(x,y){
+        // Tete
         creerLigneH(83, 55, "black", 5);
         creerLigneH(82, 56, "black", 7);
     }
