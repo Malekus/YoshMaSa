@@ -56,16 +56,16 @@ app.controller('CanvasController', function($scope){
 
     const drawGrid = () => {
     ctx.clearRect(0, 0, width, height); // detruire
-    
+
     for (var i = 0, l = pixels.length; i < l; i++) {
         pixels[i][4] = 0;
     }
-    
+
     for (var i = 0, l = pixels.length; i < l; i++) {
         ctx.globalAlpha = 1; // Opacité
         ctx.fillStyle = 'red'; // couleur du rectange
         ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
-        ctx.globalAlpha = pixels[i][5]; // 
+        ctx.globalAlpha = pixels[i][5]; //
         ctx.fillStyle = pixels[i][4];
         ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
     }
@@ -137,14 +137,14 @@ app.controller('Pixel8x8Controller', function($scope){
 
     creerLigneH = function(x, y, color, pas){
         for(var i = 0; i < pas; i++){
-            creerPixel(x+i, y, color);            
-        }       
+            creerPixel(x+i, y, color);
+        }
     };
 
     creerLigneV = function(x, y, color, pas){
         for(var i = 0; i < pas; i++){
-            creerPixel(x, y+i, color);            
-        } 
+            creerPixel(x, y+i, color);
+        }
     }
 
     creerForme = function(tabPixel){
@@ -153,7 +153,7 @@ app.controller('Pixel8x8Controller', function($scope){
         });
     };
 
-    creerHomme = function(){        
+    creerHomme = function(){
         creerLigneH(5,5,'green', 6);
         creerLigneH(4, 6,'green', 8);
         creerLigneH(4, 7,'brown', 8);
@@ -195,7 +195,7 @@ app.controller('Pixel8x8Controller', function($scope){
         creerPixel(11, 16, 'pink');
         creerPixel(9, 15, 'pink');
         creerPixel(6, 15, 'pink');
-        
+
         deletePixel(2,18);
         deletePixel(2,19);
         deletePixel(3,18);
@@ -214,7 +214,7 @@ app.controller('Pixel8x8Controller', function($scope){
         deletePixel(7,20);
         deletePixel(8,20);
         deletePixel(9,20);
-        
+
 
     };
 
@@ -270,14 +270,14 @@ app.controller('Pixel4x4Controller', function($scope){
 
     creerLigneH = function(x, y, color, pas){
         for(var i = 0; i < pas; i++){
-            creerPixel(x+i, y, color);            
-        }       
+            creerPixel(x+i, y, color);
+        }
     };
 
     creerLigneV = function(x, y, color, pas){
         for(var i = 0; i < pas; i++){
-            creerPixel(x, y+i, color);            
-        } 
+            creerPixel(x, y+i, color);
+        }
     }
 
     creerForme = function(tabPixel){
@@ -286,7 +286,7 @@ app.controller('Pixel4x4Controller', function($scope){
         });
     };
 
-    creerHomme = function(){        
+    creerHomme = function(){
         creerLigneH(5,5,'green', 6);
         creerLigneH(4, 6,'green', 8);
         creerLigneH(4, 7,'brown', 8);
@@ -328,7 +328,7 @@ app.controller('Pixel4x4Controller', function($scope){
         creerPixel(11, 16, 'pink');
         creerPixel(9, 15, 'pink');
         creerPixel(6, 15, 'pink');
-        
+
         deletePixel(2,18);
         deletePixel(2,19);
         deletePixel(3,18);
@@ -347,10 +347,10 @@ app.controller('Pixel4x4Controller', function($scope){
         deletePixel(7,20);
         deletePixel(8,20);
         deletePixel(9,20);
-        
+
 
     };
-    
+
 
     creerMarteau = function(x, y){
         creerLigneV(x + 5, y + 7, 'brown', 6);
@@ -375,6 +375,9 @@ app.controller('Pixel4x4Controller', function($scope){
     creerHommeNafNaf = function(x,y){
         creerLigneH(83, 55, "black", 5);
         creerLigneH(82, 56, "black", 7);
+        creerLigneV(82, 57, "black",3);
+        creerLigneV(88, 57, "black",3);
+        creerLigneH()
     }
     creerHommeNafNaf(0,0);
 });
@@ -383,7 +386,7 @@ const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
 window.addEventListener('click', function(e) {
     mousePosition.x = e.pageX;
     mousePosition.y = e.pageY;
-    console.log("x = "+Math.floor(mousePosition.x / 4), "y = " + Math.floor( mousePosition.y / 4));
+    console.log("x = "+Math.floor(mousePosition.x / 5), "y = " + Math.floor( mousePosition.y /5));
 });
 
 app.controller('HomeController',function($scope){
@@ -392,13 +395,13 @@ app.controller('HomeController',function($scope){
     const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
     const canvas = document.getElementById('home');
     const ctx = canvas.getContext('2d');
-    
+
     let size = 5;
     let sizeMoins = 4;
 
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
-    
+
     for (var y = 0; y < window.innerHeight/size; y++) {
         for (var x = 0; x < window.innerHeight/size; x++) {
         pixels.push([x*size, y*size, sizeMoins, sizeMoins, '#000', 1]);
