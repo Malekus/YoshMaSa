@@ -373,11 +373,11 @@ app.controller('Pixel4x4Controller', function($scope){
 
 
     creerHommeNafNaf = function(x,y){
-/*      for(var i = 50; i < 250; i++){
-          for (var j = 0; j < 250; i++) {
+      for(var i = 50; i < 250; i++){
+          for (var j = 50; j < 250; j++) {
             creerPixel(i,j, "green");
           }
-      }*/
+      }
         //tête
         creerLigneH(x+83,y+55, "black", 5);
         creerLigneH(x+82,y+56, "black", 7);
@@ -397,12 +397,33 @@ app.controller('Pixel4x4Controller', function($scope){
         creerLigneH(x+82,y+62, "black", 7);
         creerLigneH(x+83,y+63, "black", 5);
         creerPixel(x+85,y+62, '#411207');
-        //corps
+        //tronc
         creerPixel(x+85,y+64, 'orange');
         creerLigneH(x+83,y+65, "white", 5);
+        creerLigneH(x+82,y+66, "white", 7);
+        creerLigneH(x+82,y+67, "white", 7);
+        creerLigneH(x+82,y+68, "white", 7);
+        creerLigneH(x+82,y+69, "white", 7);
+        creerLigneH(x+82,y+70, "white", 7);
+        creerLigneH(x+82,y+71, "white", 7);
+        creerLigneH(x+82,y+72, "white", 7);
+        creerLigneH(x+82,y+73, "black", 7);
+        //bras
+        creerLigneV(x+81,y+67, "white",3);
+        creerLigneV(x+80,y+68, "white",3);
+        creerLigneV(x+79,y+69, "white",3);
+        creerLigneV(x+78,y+70, "white",3);
+        creerLigneV(x+77,y+71, "orange",3);
+        creerLigneV(x+76,y+72, "orange",1);
 
+        creerLigneV(x+89,y+67, "white",3);
+        creerLigneV(x+90,y+68, "white",3);
+        creerLigneV(x+91,y+69, "white",3);
+        creerLigneV(x+92,y+70, "white",3);
+        creerLigneV(x+93,y+71, "orange",3);
+        creerLigneV(x+94,y+72, "orange",1);
 
-
+        //jambes
 
 
     }
