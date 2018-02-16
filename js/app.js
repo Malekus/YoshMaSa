@@ -38,6 +38,10 @@ app.config(function($routeProvider){
         templateUrl: 'view/main.html',
         controller: 'MainController'
     })
+    .when('/plan',{
+        templateUrl: 'view/plan.html',
+        controller: 'PlanController'
+    })
     .otherwise({
         redirectTo: '/'
     })
@@ -56,16 +60,16 @@ app.controller('CanvasController', function($scope){
 
     const drawGrid = () => {
     ctx.clearRect(0, 0, width, height); // detruire
-    
+
     for (var i = 0, l = pixels.length; i < l; i++) {
         pixels[i][4] = 0;
     }
-    
+
     for (var i = 0, l = pixels.length; i < l; i++) {
         ctx.globalAlpha = 1; // Opacité
         ctx.fillStyle = 'red'; // couleur du rectange
         ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
-        ctx.globalAlpha = pixels[i][5]; // 
+        ctx.globalAlpha = pixels[i][5]; //
         ctx.fillStyle = pixels[i][4];
         ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
     }
@@ -137,14 +141,14 @@ app.controller('Pixel8x8Controller', function($scope){
 
     creerLigneH = function(x, y, color, pas){
         for(var i = 0; i < pas; i++){
-            creerPixel(x+i, y, color);            
-        }       
+            creerPixel(x+i, y, color);
+        }
     };
 
     creerLigneV = function(x, y, color, pas){
         for(var i = 0; i < pas; i++){
-            creerPixel(x, y+i, color);            
-        } 
+            creerPixel(x, y+i, color);
+        }
     }
 
     creerForme = function(tabPixel){
@@ -153,7 +157,7 @@ app.controller('Pixel8x8Controller', function($scope){
         });
     };
 
-    creerHomme = function(){        
+    creerHomme = function(){
         creerLigneH(5,5,'green', 6);
         creerLigneH(4, 6,'green', 8);
         creerLigneH(4, 7,'brown', 8);
@@ -195,7 +199,7 @@ app.controller('Pixel8x8Controller', function($scope){
         creerPixel(11, 16, 'pink');
         creerPixel(9, 15, 'pink');
         creerPixel(6, 15, 'pink');
-        
+
         deletePixel(2,18);
         deletePixel(2,19);
         deletePixel(3,18);
@@ -214,7 +218,7 @@ app.controller('Pixel8x8Controller', function($scope){
         deletePixel(7,20);
         deletePixel(8,20);
         deletePixel(9,20);
-        
+
 
     };
 
@@ -270,14 +274,14 @@ app.controller('Pixel4x4Controller', function($scope){
 
     creerLigneH = function(x, y, color, pas){
         for(var i = 0; i < pas; i++){
-            creerPixel(x+i, y, color);            
-        }       
+            creerPixel(x+i, y, color);
+        }
     };
 
     creerLigneV = function(x, y, color, pas){
         for(var i = 0; i < pas; i++){
-            creerPixel(x, y+i, color);            
-        } 
+            creerPixel(x, y+i, color);
+        }
     }
 
     creerForme = function(tabPixel){
@@ -286,7 +290,7 @@ app.controller('Pixel4x4Controller', function($scope){
         });
     };
 
-    creerHomme = function(){        
+    creerHomme = function(){
         creerLigneH(5,5,'green', 6);
         creerLigneH(4, 6,'green', 8);
         creerLigneH(4, 7,'brown', 8);
@@ -328,7 +332,7 @@ app.controller('Pixel4x4Controller', function($scope){
         creerPixel(11, 16, 'pink');
         creerPixel(9, 15, 'pink');
         creerPixel(6, 15, 'pink');
-        
+
         deletePixel(2,18);
         deletePixel(2,19);
         deletePixel(3,18);
@@ -347,10 +351,10 @@ app.controller('Pixel4x4Controller', function($scope){
         deletePixel(7,20);
         deletePixel(8,20);
         deletePixel(9,20);
-        
+
 
     };
-    
+
 
     creerMarteau = function(x, y){
         creerLigneV(x + 5, y + 7, 'brown', 6);
@@ -373,8 +377,59 @@ app.controller('Pixel4x4Controller', function($scope){
 
 
     creerHommeNafNaf = function(x,y){
-        creerLigneH(83, 55, "black", 5);
-        creerLigneH(82, 56, "black", 7);
+      for(var i = 50; i < 250; i++){
+          for (var j = 50; j < 250; j++) {
+            creerPixel(i,j, "green");
+          }
+      }
+        //tête
+        creerLigneH(x+83,y+55, "black", 5);
+        creerLigneH(x+82,y+56, "black", 7);
+        creerLigneV(x+82,y+57, "black",3);
+        creerLigneV(x+88,y+57, "black",3);
+        creerLigneH(x+83,y+57, "orange",5);
+        creerLigneH(x+83,y+58, "orange",5);
+        creerLigneH(x+83,y+59, "orange",5);
+        creerLigneH(x+82,y+60, "orange",7);
+        creerPixel(x+83,y+61, 'orange');
+        creerPixel(x+87,y+61, 'orange');
+        creerLigneV(x+84,y+58, "black",2);
+        creerLigneV(x+86,y+58, "black",2);
+        creerPixel(x+82,y+61, 'black');
+        creerPixel(x+88,y+61, 'black');
+        creerLigneH(x+84,y+61, "black",3);
+        creerLigneH(x+82,y+62, "black", 7);
+        creerLigneH(x+83,y+63, "black", 5);
+        creerPixel(x+85,y+62, '#411207');
+        //tronc
+        creerPixel(x+85,y+64, 'orange');
+        creerLigneH(x+83,y+65, "white", 5);
+        creerLigneH(x+82,y+66, "white", 7);
+        creerLigneH(x+82,y+67, "white", 7);
+        creerLigneH(x+82,y+68, "white", 7);
+        creerLigneH(x+82,y+69, "white", 7);
+        creerLigneH(x+82,y+70, "white", 7);
+        creerLigneH(x+82,y+71, "white", 7);
+        creerLigneH(x+82,y+72, "white", 7);
+        creerLigneH(x+82,y+73, "black", 7);
+        //bras
+        creerLigneV(x+81,y+67, "white",3);
+        creerLigneV(x+80,y+68, "white",3);
+        creerLigneV(x+79,y+69, "white",3);
+        creerLigneV(x+78,y+70, "white",3);
+        creerLigneV(x+77,y+71, "orange",3);
+        creerLigneV(x+76,y+72, "orange",1);
+
+        creerLigneV(x+89,y+67, "white",3);
+        creerLigneV(x+90,y+68, "white",3);
+        creerLigneV(x+91,y+69, "white",3);
+        creerLigneV(x+92,y+70, "white",3);
+        creerLigneV(x+93,y+71, "orange",3);
+        creerLigneV(x+94,y+72, "orange",1);
+
+        //jambes
+
+
     }
     creerHommeNafNaf(0,0);
 });
@@ -383,7 +438,7 @@ const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
 window.addEventListener('click', function(e) {
     mousePosition.x = e.pageX;
     mousePosition.y = e.pageY;
-    console.log("x = "+Math.floor(mousePosition.x / 4), "y = " + Math.floor( mousePosition.y / 4));
+    console.log("x = "+Math.floor(mousePosition.x / 5), "y = " + Math.floor( mousePosition.y /5));
 });
 
 app.controller('HomeController',function($scope){
@@ -392,13 +447,13 @@ app.controller('HomeController',function($scope){
     const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
     const canvas = document.getElementById('home');
     const ctx = canvas.getContext('2d');
-    
+
     let size = 5;
     let sizeMoins = 4;
 
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
-    
+
     for (var y = 0; y < window.innerHeight/size; y++) {
         for (var x = 0; x < window.innerHeight/size; x++) {
         pixels.push([x*size, y*size, sizeMoins, sizeMoins, '#000', 1]);
