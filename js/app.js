@@ -412,6 +412,7 @@ app.controller('Pixel4x4Controller', function($scope){
         creerLigneH(x+82,y+71, "white", 7);
         creerLigneH(x+82,y+72, "white", 7);
         creerLigneH(x+82,y+73, "black", 7);
+        creerPixel(x+85,y+79, "white");
         //bras
         creerLigneV(x+81,y+67, "white",3);
         creerLigneV(x+80,y+68, "white",3);
