@@ -412,7 +412,7 @@ app.controller('Pixel4x4Controller', function($scope){
         creerLigneH(x+82,y+71, "white", 7);
         creerLigneH(x+82,y+72, "white", 7);
         creerLigneH(x+82,y+73, "black", 7);
-        creerPixel(x+85,y+79, "white");
+        creerPixel(x+85,y+73, "white");
         //bras
         creerLigneV(x+81,y+67, "white",3);
         creerLigneV(x+80,y+68, "white",3);
@@ -429,10 +429,71 @@ app.controller('Pixel4x4Controller', function($scope){
         creerLigneV(x+94,y+72, "orange",1);
 
         //jambes
+        creerLigneH(x+82,y+74, "blue", 7);
+        creerLigneH(x+82,y+75, "blue", 7);
+        creerLigneH(x+82,y+76, "blue", 7);
+        creerLigneH(x+82,y+77, "blue", 3);
+        creerLigneH(x+86,y+77, "blue", 3);
+        creerLigneH(x+82,y+78, "blue", 2);
+        creerLigneH(x+87,y+78, "blue", 2);
+        creerLigneH(x+82,y+79, "blue", 2);
+        creerLigneH(x+87,y+79, "blue", 2);
+        creerLigneH(x+82,y+80, "blue", 2);
+        creerLigneH(x+87,y+80, "blue", 2);
+        creerLigneH(x+82,y+81, "black", 2);
+        creerLigneH(x+87,y+81, "black", 2);
+        creerLigneH(x+81,y+82, "black", 3);
+        creerLigneH(x+87,y+82, "black", 3);
+        creerLigneH(x+80,y+83, "black", 4);
+        creerLigneH(x+87,y+83, "black", 4);
 
+        // P
+        creerLigneV(x+84,y+67, "yellow",5);
+        creerLigneH(x+85,y+67, "yellow",2);
+        creerLigneH(x+85,y+69, "yellow",2);
+        creerPixel(x+87,y+68, "yellow");
+    };
 
-    }
+    creerHommeNafNafProfil = function(x,y){
+        //tête
+        creerLigneH(x+99,y+55, "black",4);
+        creerLigneH(x+98,y+56, "black",6);
+        creerLigneH(x+97,y+57, "black",3);
+        creerLigneH(x+97,y+58, "black",2);
+        creerLigneH(x+97,y+59, "black",2);
+        creerLigneH(x+97,y+60, "black",1);
+        creerLigneH(x+97,y+61, "black",2);
+        creerLigneH(x+101,y+61, "black",2);
+        creerLigneH(x+97,y+62, "black",5);
+        creerLigneH(x+98,y+63, "black",5);
+        creerPixel(x+102,y+62, '#411207');
+        creerLigneH(x+100,y+57, "orange",3);
+        creerLigneH(x+99,y+58, "orange",4);
+        creerLigneH(x+99,y+59, "orange",4);
+        creerLigneH(x+98,y+60, "orange",6);
+        creerLigneH(x+99,y+61, "orange",2);
+        creerPixel(x+100,y+64, "orange");
+        creerPixel(x+99,y+64, "orange");
+        creerLigneV(x+101,y+58, "black",2);
+        //tronc
+        creerLigneV(x+98,y+65, "white",8);
+        creerLigneV(x+99,y+65, "white",8);
+        creerLigneV(x+100,y+65, "white",8);
+        creerLigneV(x+101,y+65, "white",8);
+        creerLigneH(x+98,y+73, "black",4);
+        //jambes
+        creerLigneV(x+98,y+74, "blue",3);
+        creerLigneV(x+99,y+74, "blue",7);
+        creerLigneV(x+100,y+74, "blue",7);
+        creerLigneV(x+101,y+74, "blue",7);
+        creerLigneH(x+99,y+81, "black",3);
+        creerLigneH(x+99,y+82, "black",4);
+        creerLigneH(x+99,y+83, "black",5);        
+
+    };
+
     creerHommeNafNaf(0,0);
+    creerHommeNafNafProfil(0,0);
 });
 
 const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
