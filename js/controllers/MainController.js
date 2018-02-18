@@ -224,7 +224,7 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
     creerPixel(middleWidthX, middleHeightY, "red");
     */
 
-    AlphabetService.getLettre("i")(83,61);
+    //AlphabetService.getLettre("i")(0,0);
 
 
 
@@ -255,6 +255,78 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
 
     }
 
+<<<<<<< HEAD
+    btnPixel(5,9,48,43, "first");
+    
+=======
     //btnPixel(5,9,6,4, "first");
+    /*
+    lettreA = function(x,y){
+        creerLigneH(3,3,"black",3);
+        creerLigneH(3,0,"black",3);
+        creerLigneV(2,1,"black",5);
+        creerLigneV(6,1,"black",5);
+        
+    }
+    //lettreA(0,0);
 
+    lettreB = function(x,y){
+        creerLigneV(10,0,"black",6);
+        creerLigneV(13,1,"black",2);
+        creerLigneV(13,4,"black",1);
+        creerLigneH(11,0,"black",2);
+        creerLigneH(11,5,"black",2);
+        creerLigneH(11,3,"black",2);
+ 
+    }
+    lettreB(0,0);
+
+    lettreC = function(x,y){
+        creerLigneV(17,1,"black",4);
+        creerLigneH(18,0,"black",3);
+        creerLigneH(18,5,"black",3);
+    }
+    lettreC(0,0);
+
+    lettreD = function(x,y){
+        creerLigneV(24,0,"black",6);
+        creerLigneV(27,1,"black",4);
+        creerLigneH(25,0,"black",2);
+        creerLigneH(25,5,"black",2);
+
+    }
+    lettreD(0,0);
+
+    lettreE = function(x,y){
+        creerLigneV(30,0,"black",6);
+        creerLigneH(31,0,"black",4);
+        creerLigneH(31,2,"black",2);
+        creerLigneH(31,5,"black",4);
+        creerLigneH(31,5,"black",4);
+    }
+    lettreE(0,0);
+
+   
+
+    lettreG = function(x,y){
+        creerLigneV(44,1,"black",4);
+        creerLigneV(48,3,"black",2);
+        creerLigneH(45,0,"black",3);
+        creerLigneH(45,5,"black",3);
+        creerLigneH(46,3,"black",2);
+    }
+    lettreG(0,0);
+    */
+
+
+    lettre =  function(x,y){
+        creerLigneV(x,y+1,"black",3);
+        creerLigneV(x+3,y+2,"black",2);
+        creerLigneH(x+1,y,"black",2);
+        creerLigneH(x+1,y+4,"black",2);
+        creerLigneH(x+2,y+2,"black",1);
+
+    }
+    lettre(0,0);
+>>>>>>> fed802a98ce974340f8302fc4c1610aba3364b73
 });
