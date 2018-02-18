@@ -255,9 +255,12 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
 
     }
 
+<<<<<<< HEAD
 
     btnPixel(5,9,48,43, "first");
 
+=======
+>>>>>>> e615406f852880675c18a696bd45fa6853662f7b
     //btnPixel(5,9,6,4, "first");
     /*
     lettreA = function(x,y){
@@ -318,6 +321,7 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
     */
 
 
+<<<<<<< HEAD
     lettre =  function(x,y){
         creerLigneV(x,y+1,"black",3);
         creerLigneV(x+3,y+2,"black",2);
@@ -326,5 +330,9 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
         creerLigneH(x+2,y+2,"black",1);
 
     }
+=======
+    lettre = function(x,y){
+    },
+>>>>>>> e615406f852880675c18a696bd45fa6853662f7b
     lettre(0,0);
 });
