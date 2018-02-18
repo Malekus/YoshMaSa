@@ -1,33 +1,41 @@
 app.controller('PlanController', function($scope){
-    const canvasPremier = document.getElementById('premierPlan');
+    /* Premier plan */
+    const canvasPremier = document.getElementById('plan');
     const ctxPremier = canvasPremier.getContext('2d');
-    let width, height;
+    /*
+    const canvasDeuxieme = document.getElementById('deuxiemePlan');
+    const ctxDeuxieme = canvasDeuxieme.getContext('2d');
+    const canvasTroisieme = document.getElementById('troisiemePlan');
+    const ctxTroisieme = canvasTroisieme.getContext('2d');
+    */
+
+    let width = window.innerWidth, height = window.innerHeight;
     let caddrillage = [];
     let size = 10;
-    canvasPremier.height = size;
-    canvasPremier.width = size;
-    for(var y = 0; y < size; y++){
-        for(var x = 0; x < size; x++){
-            caddrillage.push([x * size, y * size]);
+    canvasPremier.height = height;
+    canvasPremier.width = width;
+    
+
+    for(var y = 0; y < height / size; y++){
+        for(var x = 0; x < width / size; x++){
+            caddrillage.push([x * size, y * size, size-1, size-1, 0]);
         }
     }
 
-
     for(var i = 0; i < caddrillage.length; i++){
         ctxPremier.globalAlpha = 1; // Opacité
-
-        i % 2 == 0 ? ctxPremier.fillStyle = 'black' : ctxPremier.fillStyle = 'white';
-        console.log(ctxPremier.fillStyle);
-        ctxPremier.fillRect(caddrillage[i][0], caddrillage[i][1],  size-1, size-1);
+        ctxPremier.fillStyle = 'black';
+        ctxPremier.fillRect(caddrillage[i][0], caddrillage[i][1],  caddrillage[i][2], caddrillage[i][3]);
     }
 
+    console.log(caddrillage[0][0], caddrillage[0][1],  caddrillage[0][2], caddrillage[0][3], caddrillage[0][4])
 
-/*
-    const canvasDeuxieme = document.getElementById('deuxiemePlan');
-    const ctxDeuxieme = canvasDeuxieme.getContext('2d');
 
-    const canvasTroisieme = document.getElementById('troisiemePlan');
-    const ctxTroisieme = canvasTroisieme.getContext('2d');
-*/
-    console.log(Math.floor(window.innerHeight / 10), Math.floor( window.innerWidth / 10));
+    creerPixel = function(x, y, color, order){
+        canvasPremier.fillStyle = color; // couleur du rectange
+        canvasPremier.fillRect(x*size, y*size, size-1, size-1);
+    };
+
+
+
 });
