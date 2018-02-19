@@ -256,10 +256,16 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
     }
 
 
-    btnPixel(5,9,48,43, "first");
+    //btnPixel(5,9,48,43, "first");
 
     //btnPixel(5,9,6,4, "first");
     
-    lettre = function(x,y){creerLigneV(x,y,"black",5);},
-    lettre(0,0);
+    lettre = function(x,y){
+        creerLigneH(x+1,y,"black",1);
+        creerLigneH(x+1,y+4,"black",1);
+        creerLigneV(x+2,y,"black",5);
+        creerLigneV(x,y,"black",5);
+    },
+
+    lettre(5,5);
 });

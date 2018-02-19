@@ -31,13 +31,16 @@ app.service('AlphabetService', function(){
             "x" : function(x,y){creerLigneV(x,y,"black",1);creerLigneV(x+3,y,"black",1);creerLigneV(x,y+3,"black",2);creerLigneV(x+3,y+3,"black",2);creerLigneH(x+1,y+1,"black",2);creerLigneH(x+1,y+2,"black",2);}, 
             "y" : function(x,y){creerLigneV(x,y,"black",2);creerLigneV(x+2,y,"black",2);creerLigneV(x+1,y+2,"black",3);},
             "z" : function(x,y){creerLigneH(x,y,"black",4);creerLigneH(x,y+4,"black",4);creerLigneH(x+1,y+3,"black",1);creerLigneH(x+2,y+2,"black",1);creerLigneV(x+3,y+1,"black",1);},
-            //"1" :
-            //"2" :
-            //"3" :
-       
-       
-       
-       
+            "1" : function(x,y){creerLigneH(x+1,y+1,"black",1);creerLigneV(x+2,y,"black",5);},
+            "2" : function(x,y){creerLigneH(x,y,"black",3);creerLigneH(x,y+4,"black",3);creerLigneH(x,y+2,"black",3);creerLigneH(x,y+3,"black",1);creerLigneH(x+2,y+1,"black",1);},
+            "3" : function(x,y){creerLigneH(x,y,"black",4);creerLigneH(x,y+4,"black",4);creerLigneV(x+3,y+1,"black",3);creerLigneH(x+1,y+2,"black",2);},
+            "4" : function(x,y){creerLigneH(x+1,y+2,"black",1);creerLigneV(x+2,y,"black",5);creerLigneV(x,y,"black",3);},
+            "5" : function(x,y){creerLigneH(x,y,"black",3);creerLigneH(x,y+4,"black",3);creerLigneH(x,y+2,"black",3);creerLigneH(x+2,y+3,"black",1);creerLigneH(x,y+1,"black",1);},
+            "6" : function(x,y){creerLigneH(x,y,"black",3);creerLigneH(x,y+4,"black",3);creerLigneH(x,y+2,"black",3);creerLigneV(x,y+1,"black",4);creerLigneV(x+2,y+3,"black",1);},
+            "7" : function(x,y){creerLigneH(x,y,"black",2);creerLigneV(x+2,y,"black",5);},
+            "8" : function(x,y){creerLigneH(x+1,y,"black",1);creerLigneH(x+1,y+2,"black",1);creerLigneH(x+1,y+4,"black",1);creerLigneV(x+2,y,"black",5);creerLigneV(x,y,"black",5);},
+            "9" : function(x,y){creerLigneH(x+1,y,"black",1);creerLigneH(x+1,y+4,"black",1);creerLigneV(x+2,y,"black",5);creerLigneV(x,y,"black",5);},
+            "0" : function(x,y){creerLigneH(x+1,y,"black",1);creerLigneH(x+1,y+4,"black",1);creerLigneV(x+2,y,"black",5);creerLigneV(x,y,"black",5);},
         };
 
     this.getLettre = function(lettre){
