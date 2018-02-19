@@ -255,6 +255,9 @@ app.controller('MainController', function($scope, $interval, AlphabetService){
 
     }
 
+
+    btnPixel(5,9,48,43, "first");
+
     //btnPixel(5,9,6,4, "first");
     
     lettre = function(x,y){creerLigneV(x,y,"black",5);},
