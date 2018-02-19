@@ -12,7 +12,7 @@ app.service('AlphabetService', function(){
             "e" : function(x,y){creerLigneV(x,y,"black",5);creerLigneH(x,y,"black",3);creerLigneH(x,y+2,"black",2);creerLigneH(x,y+4,"black",3);},
             "f" : function(x,y){creerLigneV(x,y,"black",5);creerLigneH(x,y,"black",3);creerLigneH(x,y+2,"black",2);},
             "g" : function(x,y){creerLigneV(x,y+1,"black",3);creerLigneV(x+3,y+2,"black",2);creerLigneH(x+1,y,"black",2);creerLigneH(x+1,y+4,"black",2);creerLigneH(x+2,y+2,"black",1);},            
-            "i" : function(x,y){creerLigneV(x, y, "black", 5);},
+            "i" : function(x,y){creerLigneV(x,y,"black",5);},
             "h" : function(x,y){creerLigneV(x,y,"black",5);creerLigneV(x+3,y,"black",5);creerLigneH(x+1,y+2,"black",2);},     
             "j" : function(x,y){creerLigneV(x+3,y,"black",4);creerLigneV(x,y+3,"black",1);creerLigneH(x+1,y+4,"black",2);}, 
             "k" : function(x,y){creerLigneV(x,y,"black",5);creerLigneV(x+3,y,"black",1);creerLigneV(x+3,y+4,"black",1);creerLigneV(x+2,y+1,"black",1);creerLigneV(x+2,y+3,"black",1);creerLigneV(x+1,y+2,"black",1);},
@@ -25,12 +25,19 @@ app.service('AlphabetService', function(){
             "r" : function(x,y){creerLigneV(x,y+1,"black",4);creerLigneV(x+3,y+1,"black",1);creerLigneV(x+2,y+3,"black",1);creerLigneV(x+3,y+4,"black",1);creerLigneH(x+1,y,"black",2);creerLigneH(x+1,y+2,"black",2);},
             "s" : function(x,y){creerLigneH(x+1,y,"black",3);creerLigneH(x,y+4,"black",3);creerLigneH(x+1,y+2,"black",3);creerLigneV(x,y+1,"black",1);creerLigneH(x+3,y+3,"black",1);},
             "t" : function(x,y){creerLigneH(x,y,"black",3);creerLigneV(x+1,y+1,"black",4);},
-            "u" : function(x, y){creerLigneV(x, y, "black", 4);creerLigneV(x+3, y, "black", 4);creerLigneH(x+1, y+4, "black", 2);},
+            "u" : function(x,y){creerLigneV(x,y,"black", 4);creerLigneV(x+3, y, "black", 4);creerLigneH(x+1, y+4, "black", 2);},
             "v" : function(x,y){creerLigneV(x,y,"black",4);creerLigneV(x+2,y,"black",4);creerLigneH(x+1,y+4,"black",1);}, 
             "w" : function(x,y){creerLigneV(x,y,"black",4);creerLigneV(x+4,y,"black",4);creerLigneV(x+2,y+2,"black",2);creerLigneH(x+1,y+4,"black",3);},
             "x" : function(x,y){creerLigneV(x,y,"black",1);creerLigneV(x+3,y,"black",1);creerLigneV(x,y+3,"black",2);creerLigneV(x+3,y+3,"black",2);creerLigneH(x+1,y+1,"black",2);creerLigneH(x+1,y+2,"black",2);}, 
             "y" : function(x,y){creerLigneV(x,y,"black",2);creerLigneV(x+2,y,"black",2);creerLigneV(x+1,y+2,"black",3);},
             "z" : function(x,y){creerLigneH(x,y,"black",4);creerLigneH(x,y+4,"black",4);creerLigneH(x+1,y+3,"black",1);creerLigneH(x+2,y+2,"black",1);creerLigneV(x+3,y+1,"black",1);},
+            //"1" :
+            //"2" :
+            //"3" :
+       
+       
+       
+       
         };
 
     this.getLettre = function(lettre){
