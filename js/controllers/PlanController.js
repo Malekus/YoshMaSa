@@ -1,10 +1,12 @@
 app.controller('PlanController', function($scope){
     const canvasPlan = document.getElementById('plan');
     const ctxPlan = canvasPlan.getContext('2d');
+    const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
     const premierPlan = 1, secondPlan = 2, fondPlan = 3;
     let width = 100, height = 100;
     let caddrillage = [];
     let size = 10;
+    let sizeMoins = size - 1;
     canvasPlan.height = height;
     canvasPlan.width = width;    
 
@@ -61,12 +63,14 @@ app.controller('PlanController', function($scope){
         ctxPlan.fillRect(caddrillage[num][0], caddrillage[num][1],  caddrillage[num][2], caddrillage[num][3]);
         
     };
-    
 
-    //creerPixel(0,0, "black", 1);
-    addPixel(0, "black", 3);
-    addPixel(0, "red", 2);
-    deletePixel(0);
-    deletePixel(0);
-    deletePixel(0);
+    window.addEventListener('click', function(e) {
+        var nbCase = Math.sqrt(caddrillage.length);
+        var tailleMaxW = window.innerWidth, tailleMaxH = window.innerHeight;
+        mousePosition.x = e.pageX;
+        mousePosition.y = e.pageY;
+        console.log("Case n° "+ (Math.floor(mousePosition.x / (tailleMaxW / nbCase)) + Math.floor(mousePosition.y / (tailleMaxH / nbCase)) * nbCase));
+    });
+
 });
+
