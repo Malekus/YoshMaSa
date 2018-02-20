@@ -3,9 +3,9 @@ app.controller('PlanController', function($scope){
     const ctxPlan = canvasPlan.getContext('2d');
     const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
     const premierPlan = 1, secondPlan = 2, fondPlan = 3;
-    let width = 100, height = 100;
+    let width = window.innerWidth, height = window.innerHeight;
     let caddrillage = [];
-    let size = 10;
+    let size = 5;
     let sizeMoins = size - 1;
     canvasPlan.height = height;
     canvasPlan.width = width;    
@@ -32,10 +32,7 @@ app.controller('PlanController', function($scope){
 
     for(var y = 0; y < height / size; y++){
         for(var x = 0; x < width / size; x++){
-            if (x % 2 == 0)
-                caddrillage.push([x * size, y * size, size-1, size-1, [['white', 4]]]);
-            else
-                caddrillage.push([x * size, y * size, size-1, size-1, [['white', 4], ['blue', 3]]]);
+            caddrillage.push([x * size, y * size, size-1, size-1, [['white', 4]]]);
         }
     }
 
@@ -46,7 +43,15 @@ app.controller('PlanController', function($scope){
     }
 
     addPixel = function(num, color, order){
-        caddrillage[num][4].push([color, order])
+        var found = caddrillage[0][4].find(function(element){
+            if (element[1] == order){
+                element[0] = color;
+                return true;
+            }
+        });
+        if(found == null){
+            caddrillage[num][4].push([color, order])
+        }
         ctxPlan.fillStyle = orderPassageAsc(caddrillage[num][4]);
         ctxPlan.fillRect(caddrillage[num][0], caddrillage[num][1],  caddrillage[num][2], caddrillage[num][3]);
         
@@ -65,12 +70,14 @@ app.controller('PlanController', function($scope){
     };
 
     window.addEventListener('click', function(e) {
-        var nbCase = Math.sqrt(caddrillage.length);
         var tailleMaxW = window.innerWidth, tailleMaxH = window.innerHeight;
         mousePosition.x = e.pageX;
-        mousePosition.y = e.pageY;
-        console.log("Case n° "+ (Math.floor(mousePosition.x / (tailleMaxW / nbCase)) + Math.floor(mousePosition.y / (tailleMaxH / nbCase)) * nbCase));
+        mousePosition.y = e.pageY;        
+        var nbCaseW = Math.floor(tailleMaxW / size);
+        var nbCaseH = Math.floor(tailleMaxH / size);
+        var caseCourante = (Math.floor(mousePosition.x * nbCaseW / tailleMaxW) +
+        Math.floor(mousePosition.y * nbCaseH / tailleMaxH) * nbCaseW);
+        console.log("Case n° "+ caseCourante);
     });
-
 });
 
