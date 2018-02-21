@@ -1,16 +1,20 @@
-app.controller('PlanController', function($scope){
+app.controller('PlanController', ['$scope', function($scope){
     const canvasPlan = document.getElementById('plan');
     const ctxPlan = canvasPlan.getContext('2d');
+    let size = 5;
+    let sizeMoins = size -1;
     const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
     const premierPlan = 1, secondPlan = 2, fondPlan = 3;    
-    let width = window.innerWidth, height = window.innerHeight;
+    let width = window.innerWidth - window.innerWidth % size, 
+        height = window.innerHeight - window.innerHeight % size;
     let caddrillage = [];
-    let size = 5;
-    let sizeMoins = size;
-    canvasPlan.height = height;
-    canvasPlan.width = width;    
-    const nbCaseW = Math.floor(width / size);
-    const nbCaseH = Math.floor(height / size);
+    
+    canvasPlan.height = height; //640;
+    canvasPlan.width = width; //360;    
+    var nbCaseW = Math.floor(width / size);
+    var nbCaseH = Math.floor(height / size);
+
+    console.log(nbCaseW, nbCaseH );
 
     orderPassageAsc = function(x){
         let min = x[0];
@@ -45,9 +49,11 @@ app.controller('PlanController', function($scope){
     }
 
     window.addEventListener('click', function(e) {
-        var tailleMaxW = window.innerWidth, tailleMaxH = window.innerHeight;
+        var tailleMaxW = width, tailleMaxH = height;
         mousePosition.x = e.pageX;
         mousePosition.y = e.pageY;
+        $scope.nbCaseW = nbCaseW;
+        $scope.nbCaseH = nbCaseH;
         var caseCourante = (Math.floor(mousePosition.x * nbCaseW / tailleMaxW) +
         Math.floor(mousePosition.y * nbCaseH / tailleMaxH) * nbCaseW);
         console.log("Case n° "+ caseCourante);
@@ -63,7 +69,6 @@ app.controller('PlanController', function($scope){
         if(found == null){
             caddrillage[num][4].push([color, order])
         }
-        console.log(orderPassageAsc(caddrillage[num][4]));
         ctxPlan.fillStyle = orderPassageAsc(caddrillage[num][4]);
         ctxPlan.fillRect(caddrillage[num][0], caddrillage[num][1],  caddrillage[num][2], caddrillage[num][3]);
         
@@ -88,13 +93,14 @@ app.controller('PlanController', function($scope){
     };
 
     addColumn = function(num, color, order, pas){
+        
         for(var i = 0; i < pas; i++){
-            console.log(num + i * nbCaseW, color);
+            console.log(num + i * nbCaseW, nbCaseW, nbCaseH);
             addPixel(num + i * nbCaseW, color, order);
         }
     };
 
-    addColumn(0, "green", 2, 5);
-    
-});
+    addColumn(0, "green", 2, 10);
+    addLine(0, "red", 1, 10);
+}]);
 
