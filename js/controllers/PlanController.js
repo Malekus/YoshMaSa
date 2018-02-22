@@ -1,8 +1,8 @@
-app.controller('PlanController', ['$scope', function($scope){
+app.controller('PlanController', ['$scope', '$interval', function($scope,  $interval){
     const canvasPlan = document.getElementById('plan');
     const ctxPlan = canvasPlan.getContext('2d');
     let size = 5;
-    let sizeMoins = size -1;
+    let sizeMoins = size - 1;
     const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
     const premierPlan = 1, secondPlan = 2, fondPlan = 3;    
     let width = window.innerWidth - window.innerWidth % size, 
@@ -13,8 +13,6 @@ app.controller('PlanController', ['$scope', function($scope){
     canvasPlan.width = width; //360;    
     var nbCaseW = Math.floor(width / size);
     var nbCaseH = Math.floor(height / size);
-
-    console.log(nbCaseW, nbCaseH );
 
     orderPassageAsc = function(x){
         let min = x[0];
@@ -38,7 +36,7 @@ app.controller('PlanController', ['$scope', function($scope){
 
     for(var y = 0; y < height / size; y++){
         for(var x = 0; x < width / size; x++){
-            caddrillage.push([x * size, y * size, sizeMoins, sizeMoins, [['white', 4]]]);
+            caddrillage.push([x * size, y * size, sizeMoins, sizeMoins, [['white', 10]]]);
         }
     }
 
@@ -77,7 +75,7 @@ app.controller('PlanController', ['$scope', function($scope){
     deletePixel = function(num){
         if (caddrillage[num][4].length <= 1) return;
         var found = caddrillage[num][4].find(function(element){
-           return  element[0] == orderPassageAsc(caddrillage[num][4]) && element[0] != "white"
+           return  element[0] == orderPassageAsc(caddrillage[num][4]) && element[0] != "white" && element[1] != 10;
             
         });
         caddrillage[num][4].splice(caddrillage[num][4].indexOf(found), 1);
@@ -92,15 +90,39 @@ app.controller('PlanController', ['$scope', function($scope){
         }
     };
 
-    addColumn = function(num, color, order, pas){
-        
+    addColumn = function(num, color, order, pas){        
         for(var i = 0; i < pas; i++){
-            console.log(num + i * nbCaseW, nbCaseW, nbCaseH);
             addPixel(num + i * nbCaseW, color, order);
         }
     };
 
-    addColumn(0, "green", 2, 10);
-    addLine(0, "red", 1, 10);
+    fondDecran = function(){
+        var placeBleu = Math.round(nbCaseH * 70 / 100);
+        var placeVert = Math.round(nbCaseH * 30 / 100);
+        for(var i = 0; i < nbCaseW; i++){
+            addColumn(i, "darkcyan", 5, placeBleu);            
+            addColumn(i + placeBleu * nbCaseW , "green", 5, placeVert);
+        }
+        
+    };
+    //10064
+
+    console.log(nbCaseW, nbCaseH, (nbCaseH * 80 / 100), (nbCaseH * 20 / 100));
+    fondDecran();
+    
+    nuage = function(x){
+        addLine(x+5, "white", 3, 6);
+        addLine(x+140, "white", 3, 8);
+        addLine(x+275, "white", 3, 10);
+        addLine(x+410, "white", 3, 12);
+        addLine(x+546, "white", 3, 12);
+    }
+
+    x = 0;
+    anini = $interval(function(x){
+        
+        nuage(2000 - x);
+        x++;
+    }, 1000);
 }]);
 
