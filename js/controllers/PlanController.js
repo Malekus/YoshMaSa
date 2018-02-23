@@ -72,10 +72,12 @@ app.controller('PlanController', ['$scope', '$interval', function($scope,  $inte
         
     };
 
+    
+
     deletePixel = function(num){
         if (caddrillage[num][4].length <= 1) return;
         var found = caddrillage[num][4].find(function(element){
-           return  element[0] == orderPassageAsc(caddrillage[num][4]) && element[0] != "white" && element[1] != 10;
+           return  element[0] == orderPassageAsc(caddrillage[num][4]) && (element[0] != "white" && element[1] != 10);
             
         });
         caddrillage[num][4].splice(caddrillage[num][4].indexOf(found), 1);
@@ -90,10 +92,27 @@ app.controller('PlanController', ['$scope', '$interval', function($scope,  $inte
         }
     };
 
+    deleteLine = function (num, pas) {
+        for(var i = 0; i <= pas; i++){
+            deletePixel(num + i);
+        }
+    }
+
     addColumn = function(num, color, order, pas){        
         for(var i = 0; i < pas; i++){
             addPixel(num + i * nbCaseW, color, order);
         }
+    };
+
+    deleteForm = function(tab){
+        tab.forEach(function(element){
+            deleteLine(element[0], element[1]);
+        });
+    }
+
+    goToPixel = function(start, end){
+        deletePixel(start);
+        addPixel(end, "red", 2);
     };
 
     fondDecran = function(){
@@ -105,24 +124,56 @@ app.controller('PlanController', ['$scope', '$interval', function($scope,  $inte
         }
         
     };
-    //10064
 
-    console.log(nbCaseW, nbCaseH, (nbCaseH * 80 / 100), (nbCaseH * 20 / 100));
+    console.log("nb case W "+nbCaseW, "nb case H "+nbCaseH);
     fondDecran();
     
-    nuage = function(x){
-        addLine(x+5, "white", 3, 6);
-        addLine(x+140, "white", 3, 8);
-        addLine(x+275, "white", 3, 10);
-        addLine(x+410, "white", 3, 12);
-        addLine(x+546, "white", 3, 12);
+    nuage = function(x, mode){
+        if(mode){
+            addLine(x+nbCaseW*2+2, "red", 3, 6);
+            addLine(x+nbCaseW*3+2, "red", 3, 6);
+            addLine(x+nbCaseW*4+2, "red", 3, 6);
+            addLine(x+nbCaseW*5+2, "red", 3, 6);
+            return;
+        }
+        else{
+            var nuage = [];
+            nuage.push([x+nbCaseW*2+2, 6]);
+            nuage.push([x+nbCaseW*3+2, 6]);
+            nuage.push([x+nbCaseW*4+2, 6]);
+            nuage.push([x+nbCaseW*5+2, 6]);
+            return nuage;
+        }
     }
 
+
+    /*
+    for(var i = 0; i < 5000; i++){
+        nuage(25000, true);
+    }
+    */
+
+
+    nuage(25000, true);
+    
+    addPixel(20000, "red", 2);
+    addPixel(20001, "red", 2);
     x = 0;
-    anini = $interval(function(x){
-        
-        nuage(2000 - x);
-        x++;
+    var ancien = 20000;
+    var ancien1 = 20001;
+    $interval(function(){        
+        var nouveau = Math.floor(Math.random() * 20000) + 1;
+        var nouveau1 = Math.floor(Math.random() * 20000) + 1;
+        goToPixel(ancien, nouveau);
+        goToPixel(ancien1, nouveau1);
+        ancien = nouveau;
+        ancien1 = nouveau1;
     }, 1000);
+    
+
+    
+    
+    
+
 }]);
 
