@@ -1,4 +1,5 @@
 app.controller('PlanController', ['$scope', '$interval', function($scope,  $interval){
+    /*
     const canvasPlan = document.getElementById('plan');
     const ctxPlan = canvasPlan.getContext('2d');
     let size = 5;
@@ -145,13 +146,7 @@ app.controller('PlanController', ['$scope', '$interval', function($scope,  $inte
             return nuage;
         }
     }
-
-
-    /*
-    for(var i = 0; i < 5000; i++){
-        nuage(25000, true);
-    }
-    */
+    
 
 
     nuage(25000, true);
@@ -171,9 +166,20 @@ app.controller('PlanController', ['$scope', '$interval', function($scope,  $inte
     }, 1000);
     
 
+    */
     
-    
-    
+    $scope.jouer = function(){
+        console.log("Clické sur jouer");
+    };
 
+    let width = window.innerWidth, height = window.innerHeight;
+
+    $scope.sizeFondEcran = {
+        "height": height,
+        "width": width
+    };
+    document.getElementById("fondEcran").height = height;
+    document.getElementById("fondEcran").width = width;
+    
 }]);
 
