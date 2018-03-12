@@ -503,31 +503,6 @@ window.addEventListener('click', function(e) {
 */
 
 app.controller('HomeController',function($scope){
-    /*let width, height;
-    let pixels = [];
-    const mousePosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
-    const canvas = document.getElementById('home');
-    const ctx = canvas.getContext('2d');
-    
-    
-    let size = 5;
-    let sizeMoins = 4;
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    for (var y = 0; y < window.innerHeight/size; y++) {
-        for (var x = 0; x < window.innerHeight/size; x++) {
-        pixels.push([x*size, y*size, sizeMoins, sizeMoins, '#000', 1]);
-        }
-    }
-
-    for (var i = 0, l = pixels.length; i < l; i++) {
-        ctx.globalAlpha = 1; // Opacité
-        ctx.fillStyle = 'white'; // couleur du rectange
-        ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
-    }*/
-
     
     if(window.DeviceOrientationEvent) {
         window.addEventListener("deviceorientation", process, false);
@@ -535,7 +510,6 @@ app.controller('HomeController',function($scope){
             var alpha = event.alpha;
             var beta = event.beta;
             var gamma = event.gamma;
-            
             document.getElementById("log").innerHTML = "<ul><li>Alpha : " + alpha + "</li><li>Beta : " + beta + "</li><li>Gamma : " + gamma + "</li></ul>"; 
         }
       } else {

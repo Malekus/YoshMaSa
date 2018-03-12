@@ -1,0 +1,105 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Score
+ *
+ * @ORM\Table(name="score")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ScoreRepository")
+ */
+class Score
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pseudo", type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $pseudo;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="point", type="integer")
+     * @Assert\NotBlank
+     */
+    private $point;
+
+    public function __construct($pseudo, $point)
+    {
+        $this->setPseudo($pseudo);
+        $this->setScore($point);
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set pseudo
+     *
+     * @param string $pseudo
+     *
+     * @return Score
+     */
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * Get pseudo
+     *
+     * @return string
+     */
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+    /**
+     * Set score
+     *
+     * @param integer $score
+     *
+     * @return Score
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
+    /**
+     * Get score
+     *
+     * @return int
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+}
+
