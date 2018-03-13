@@ -3,7 +3,7 @@
     src:    url('font/slkscr-webfont.woff') format('woff'),
             url('font/slkscrb-webfont.woff') format('woff'),
             url('font/slkscreb-webfont.woff') format('woff'),
-            url('font/slkscre-webfont.woff') format('woff');   
+            url('font/slkscre-webfont.woff') format('woff');
 }
 
 *{
@@ -51,7 +51,7 @@ body{
     font-size: 9vw;
     border: 2px solid red;
     text-align: center;
-    -webkit-user-select: none; /* Safari */        
+    -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none;
@@ -61,7 +61,7 @@ body{
     background-color: white;
     text-decoration: none;
     color: red;
-    -webkit-user-select: none; /* Safari */        
+    -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none;
@@ -72,15 +72,15 @@ body{
 }
 .perso{
     display: block;
-    width: 800px;
-    height: 800px;
-    background: url("img/homme.png") no-repeat;
-    animation: persox 3s steps(18) infinite;
+    width: 30px;
+    height: 32px;
+    background: url("img/femme.png") no-repeat;
+    animation: persox 2s steps(15) infinite;
 }
 
 @keyframes persox {
     from{ background-position-x: 0; }
-    to{ background-position-x: -14400px; }
+    to{ background-position-x: -450px; }
 }
 
 .afficheur{
@@ -91,6 +91,7 @@ body{
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+<<<<<<< HEAD
 
 .ecran{
     position: absolute;
@@ -112,3 +113,5 @@ body{
 }
 
 
+=======
+>>>>>>> 89e88cc35027db0e0fb6935800f480a1e6363d61
