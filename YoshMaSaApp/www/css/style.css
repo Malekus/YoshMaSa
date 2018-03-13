@@ -91,3 +91,24 @@ body{
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+.ecran{
+    position: absolute;
+    background-color: red;
+    height: 100%;
+    width: 100%;
+}
+.fondMenu{
+    position: absolute;
+    height: 640px;
+    width: 360px;
+    background: url("img/Background25-9000x640.png") no-repeat;
+    animation: backgroundFrame 5s steps(25) infinite;
+}
+
+@keyframes backgroundFrame {
+    from{ background-position-x: 0; }
+    to{ background-position-x: -9000px; }
+}
+
+
