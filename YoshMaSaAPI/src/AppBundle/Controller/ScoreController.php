@@ -6,6 +6,7 @@ use AppBundle\Entity\Score;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
@@ -64,4 +65,24 @@ class ScoreController extends FOSRestController
 
         return $this->view($score, Response::HTTP_CREATED, ['Location' => $this->generateUrl('app_score_show', ['id' => $score->getId(), UrlGeneratorInterface::ABSOLUTE_URL])]);
     }
+
+    /**
+     * @Rest\Get(
+     *      path = "/resize/{source}/{destination}/{width}/{height}",
+     *      name = "app_resize"
+     * )
+     * @Rest\View(StatusCode=201)
+     */
+    public function resizeAction($source, $destination, $width, $height)
+    {
+        $source = str_replace("_", "/", $source);
+        $destination = str_replace("_", "/", $destination);
+        $imageSize = getimagesize($source);
+        $imageRessource = imagecreatefrompng($source);
+        $imageFinal = imagecreatetruecolor($width, $height);
+        $final = imagecopyresampled($imageFinal, $imageRessource, 0, 0, 0, 0, $width, $height, $imageSize[0], $imageSize[1]);
+        imagepng($imageFinal, $destination, 9);
+        return new JsonResponse(array("status" => $final));
+    }
+
 }

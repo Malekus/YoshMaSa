@@ -2,7 +2,7 @@ app.controller("HomeController", function($scope, $animateCss, $http){
 
     $scope.canvasH = window.innerHeight;
     $scope.canvasW = window.innerWidth;
-
+/*
     console.log($scope.canvasH, $scope.canvasW);
 
     var c = document.getElementById("myCanvas");
@@ -11,17 +11,18 @@ app.controller("HomeController", function($scope, $animateCss, $http){
     ctx.drawImage(img, 0, 0, $scope.canvasW*24, $scope.canvasH)
     $scope.urlIMG = c.toDataURL({
         format: 'png'
-    });
+    });*/
 
 
-console.log();
     makeFondResize = function(){
-        $http.post(location.pathname+"js/resizeImg.py").then(httpSuccess(response), httpError(error));
+        var source = 'http:__localhost_MesApp_YoshMaSaApp_www_css_img_coco.png';
+        var dest = 'http:__localhost_MesApp_YoshMaSaApp_www_css_img_montest.png'
+        var url = 'http://localhost/YoshMaSaAPI/web/resize/'+source+'/'+dest+'/'+$scope.canvasW+'/'+$scope.canvasH;
+        $http.get(url).then(httpSuccess(response), httpError(error));
     }
 
     httpSuccess = function(response){
-        console.log(response);
-        $scope.python = response.data;
+        //console.log(response.data);
     }
 
     httpError = function(error){
@@ -29,7 +30,7 @@ console.log();
     }
 
     makeFondResize();
-    console.log($scope.python);
+    
     
 /*
     $scope.fond =  {

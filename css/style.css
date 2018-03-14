@@ -91,6 +91,7 @@ body{
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+<<<<<<< HEAD
 
 .ecran{
     position: absolute;
@@ -111,8 +112,6 @@ body{
     to{ background-position-x: -9000px; }
 }
 
-#monBtn {
-    position: absolute;
-    top: 75%; left: 50%;
-    background-color: green;
-}
+
+=======
+>>>>>>> 89e88cc35027db0e0fb6935800f480a1e6363d61
