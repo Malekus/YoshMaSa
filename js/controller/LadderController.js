@@ -3,7 +3,7 @@ app.controller("LadderController", function($scope, $http){
     $scope.classement = {};
 
     $scope.update = function(){
-        var url = "http://localhost/YoshMaSaAPI/web/score/list";
+        var url = "http://localhost/YoshMaSa/YoshMaSaAPI/web/score/list";
         $http.get(url).then(httpSuccess, httpError);
         
     }

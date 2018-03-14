@@ -2,22 +2,11 @@ app.controller("HomeController", function($scope, $animateCss, $http){
 
     $scope.canvasH = window.innerHeight;
     $scope.canvasW = window.innerWidth;
-/*
-    console.log($scope.canvasH, $scope.canvasW);
-
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    var img = document.getElementById("fond");
-    ctx.drawImage(img, 0, 0, $scope.canvasW*24, $scope.canvasH)
-    $scope.urlIMG = c.toDataURL({
-        format: 'png'
-    });*/
-
 
     makeFondResize = function(){
-        var source = 'http:__localhost_MesApp_YoshMaSaApp_www_css_img_coco.png';
-        var dest = 'http:__localhost_MesApp_YoshMaSaApp_www_css_img_montest.png'
-        var url = 'http://localhost/YoshMaSaAPI/web/resize/'+source+'/'+dest+'/'+$scope.canvasW+'/'+$scope.canvasH;
+        var source = 'css_img_coco.png';
+        var dest = 'css_img_MONSTESTTTTT.png'
+        var url = 'http://localhost/YoshMaSa/YoshMaSaAPI/web/resize/'+source+'/'+dest+'/'+$scope.canvasW+'/'+$scope.canvasH;
         $http.get(url).then(httpSuccess(response), httpError(error));
     }
 
@@ -30,34 +19,5 @@ app.controller("HomeController", function($scope, $animateCss, $http){
     }
 
     makeFondResize();
-    
-    
-/*
-    $scope.fond =  {
-        'position' : 'absolute',
-        'height' : $scope.canvasH+'px',
-        'width' : $scope.canvasW*25+'px',
-        'background' : 'url("'+ c.toDataURL() +'") no-repeat',
-        
-        'animation': 'toto 5s steps(25) infinite'
-
-        }
-
-        
-    
-
-        animate("5s", keyframes([
-            style({ backgroundColor: "red", offset: 0 }),
-            style({ backgroundColor: "blue", offset: 0.2 }),
-            style({ backgroundColor: "orange", offset: 0.3 }),
-            style({ backgroundColor: "black", offset: 1 })
-          ])
-*/
-
-
-          /*
-    $scope.frameFond = {
-        '@keyframes backgroundFrame {from{ background-position-x: 0; }    to{ background-position-x: -9000px; }        }'
-    }*/
 });
 
