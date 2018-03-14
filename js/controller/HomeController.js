@@ -13,12 +13,6 @@ app.controller("HomeController", function($scope, $animateCss, $http){
         format: 'png'
     });
 
-    var link = document.createElement("a"); 
-    link.href = $scope.urlIMG;
-    link.id = "toto";
-    link.download = "testtttttt.png";
-    document.body.appendChild(link);
-    document.getElementById("toto").click();
 
 console.log();
     makeFondResize = function(){

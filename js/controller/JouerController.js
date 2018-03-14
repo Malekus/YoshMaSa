@@ -1,4 +1,4 @@
-app.controller("JouerController", function($scope){
+app.controller("JouerController", function($scope, $interval){
     $scope.alpha = 0;
     $scope.beta = 0;
     $scope.gamma = 0;
@@ -7,6 +7,7 @@ app.controller("JouerController", function($scope){
     $scope.z = 0;
     
 
+    /* Gyroscope */
     if(window.DeviceOrientationEvent){
         window.addEventListener('deviceorientation', process, false);
         function process(event){
@@ -21,6 +22,7 @@ app.controller("JouerController", function($scope){
         alert("Votre appareil ne supporte pas les orientations !");
     }
 
+    /* Acceleromètre */
     if(window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", process, false);
         function process(event) {
@@ -28,12 +30,33 @@ app.controller("JouerController", function($scope){
                 $scope.x = parseFloat(event.accelerationIncludingGravity.x).toFixed(8);
                 $scope.y = parseFloat(event.accelerationIncludingGravity.y).toFixed(8);
                 $scope.z = parseFloat(event.accelerationIncludingGravity.z).toFixed(8);
+                
+                
            })
           }
       } else {
         alert("Votre appareil ne supporte pas l'accéléromètre !");
       }
     
-      
+      console.log($scope.x);
 
+      var tab = [];
+      var monInterval;
+      $scope.calculDebut = function(){
+          tab = [];
+          monInterval = $interval(function(){
+            function process(event) {
+                $scope.$apply(function(){
+                    tab.push(parseFloat(event.accelerationIncludingGravity.x).toFixed(5));
+                    tab.push(parseFloat(event.accelerationIncludingGravity.y).toFixed(5));
+                    tab.push(parseFloat(event.accelerationIncludingGravity.z).toFixed(5));
+                })
+              }
+          }, 100)
+      };
+
+      $scope.calculFin = function(){
+          $interval.cancel(monInterval);
+          console.log(tab);
+      }
 });
