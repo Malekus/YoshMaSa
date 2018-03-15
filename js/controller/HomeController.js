@@ -3,10 +3,12 @@ app.controller("HomeController", function($scope, $animateCss, $http){
     $scope.canvasH = window.innerHeight;
     $scope.canvasW = window.innerWidth;
 
-    makeFondResize = function(){
-        var source = '.._.._css_img_coco.png';
-        var dest = '.._.._css_img_MONSTESTTTTT.png'
-        var url = 'http://localhost/YoshMaSa/YoshMaSaAPI/web/resize/'+source+'/'+dest+'/'+$scope.canvasW+'/'+$scope.canvasH;
+console.log($scope.canvasW , $scope.canvasH);
+
+    makeFondResize = function(nbFramme){
+        var source = '.._.._css_img_fond_home.png';
+        var dest = '.._.._css_img_fond_home.png'
+        var url = 'http://localhost/YoshMaSa/YoshMaSaAPI/web/resize/'+source+'/'+dest+'/'+$scope.canvasW * nbFramme+'/'+$scope.canvasH;
         $http.get(url).then(httpSuccess, httpError);
     }
 
@@ -18,6 +20,6 @@ app.controller("HomeController", function($scope, $animateCss, $http){
         alert("Impossible de récuprérer les informations");
     }
 
-    makeFondResize();
+    //makeFondResize(25);
 });
 

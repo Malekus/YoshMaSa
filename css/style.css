@@ -19,7 +19,7 @@ a{
 body{
     font-family: 'Silkscreen', Fallback, sans-serif;
     overflow: hidden;
-    background-color: aquamarine;
+    background-color: royalblue;
     height: 100%;
     width: 100%;
     color: white;
@@ -90,7 +90,6 @@ body{
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
-<<<<<<< HEAD
 
 .ecran{
     position: absolute;
@@ -112,5 +111,29 @@ body{
 }
 
 
-=======
->>>>>>> 89e88cc35027db0e0fb6935800f480a1e6363d61
+.fullScreen{
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+}
+
+.loader{
+    position: absolute;
+    margin: 0 auto;
+    left: 50%;top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.loader h1{
+    color: red;
+    text-align: center;
+    background-color: white;
+    border: 2px solid red;
+}
+.loader simple-sprite{
+    margin: 0 auto;
+    text-align: center;
+    color: green;
+}
