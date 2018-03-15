@@ -33,6 +33,12 @@ app.config(function($routeProvider){
     
 });
 
+/*
+app.factory('AccelerometreService', function($window, $q, $rootScope){
+    var accelerometre = $window.addEventListener
+});
+
+*/
 
 app.config(function (localStorageServiceProvider) {
     localStorageServiceProvider
