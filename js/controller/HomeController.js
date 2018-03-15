@@ -7,11 +7,11 @@ app.controller("HomeController", function($scope, $animateCss, $http){
         var source = '.._.._css_img_coco.png';
         var dest = '.._.._css_img_MONSTESTTTTT.png'
         var url = 'http://localhost/YoshMaSa/YoshMaSaAPI/web/resize/'+source+'/'+dest+'/'+$scope.canvasW+'/'+$scope.canvasH;
-        $http.get(url).then(httpSuccess(response), httpError(error));
+        $http.get(url).then(httpSuccess, httpError);
     }
 
     httpSuccess = function(response){
-        //console.log(response.data);
+        console.log(response.data);
     }
 
     httpError = function(error){

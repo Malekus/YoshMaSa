@@ -4,8 +4,7 @@ app.controller("LadderController", function($scope, $http){
 
     $scope.update = function(){
         var url = "http://localhost/YoshMaSa/YoshMaSaAPI/web/score/list";
-        $http.get(url).then(httpSuccess, httpError);
-        
+        $http.get(url).then(httpSuccess, httpError);        
     }
     
     httpSuccess = function(response){
