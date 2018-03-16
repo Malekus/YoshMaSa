@@ -14,7 +14,6 @@ app.controller("HomeController", function($scope, $animateCss, $http){
     });
 
 
-console.log();
     makeFondResize = function(){
         $http.post(location.pathname+"js/resizeImg.py").then(httpSuccess(response), httpError(error));
     }
@@ -28,7 +27,7 @@ console.log();
         alert("Impossible de récuprérer les informations");
     }
 
-    makeFondResize();
+    //makeFondResize();
     console.log($scope.python);
     
 /*

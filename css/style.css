@@ -69,6 +69,7 @@ body{
     top: 10px;
     left: 10px;
     border: 2px solid red;
+    z-index: 9;
 }
 .perso{
     display: block;
@@ -93,17 +94,55 @@ body{
 }
 
 .ecran{
-    position: absolute;
     background-color: red;
     height: 100%;
     width: 100%;
 }
 .fondMenu{
-    position: absolute;
     height: 640px;
     width: 360px;
     background: url("img/Background25-9000x640.png") no-repeat;
     animation: backgroundFrame 5s steps(25) infinite;
+}
+
+.backg{
+    height: 640px;
+    width: 360px;
+    background: url("img/Backg.png") no-repeat;
+    animation: totoFramme 5s steps(9) infinite;
+}
+
+@@keyframes totoFramme {
+  from{ background-position-x: 0; }
+  to{ background-position-x: -3240px; }
+}
+
+.choixhomme{
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background: url("img/homme_tete.png") no-repeat;
+    left: 50%;
+    margin-left: -125px;
+    top: 10%;
+}
+
+.choixfemme{
+    bottom: 10%;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background: url("img/femme_tete.png") no-repeat;
+    left: 50%;
+    margin-left: -125px;
+}
+
+.choixhomme:active{
+    background: url("img/homme_tete_eye.png") no-repeat;
+}
+
+.choixfemme:active{
+    background: url("img/femme_tete_eye.png") no-repeat;
 }
 
 @keyframes backgroundFrame {
@@ -115,4 +154,14 @@ body{
     position: absolute;
     top: 75%; left: 50%;
     background-color: green;
+}
+
+#toto{
+  left: 50%;
+  bottom: 10%;
+  position: absolute;
+}
+
+#mo{
+  position: absolute;
 }
