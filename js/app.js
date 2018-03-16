@@ -1,8 +1,8 @@
 document.addEventListener('deviceready', function(){
-
+    console.log("On est pret !!");
 }, false);
 
-var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite']);
+var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule']);
 
 app.config(function($routeProvider){
     $routeProvider
@@ -29,4 +29,15 @@ app.config(function($routeProvider){
     .otherwise({
         redirectTo: '/'
     })
+
+    
 });
+
+
+app.config(function (localStorageServiceProvider) {
+    localStorageServiceProvider
+      .setPrefix('YoshMaSaApp')
+      .setStorageType('sessionStorage')
+      .setNotify(true, true)
+});
+

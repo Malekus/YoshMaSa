@@ -19,7 +19,7 @@ a{
 body{
     font-family: 'Silkscreen', Fallback, sans-serif;
     overflow: hidden;
-    background-color: aquamarine;
+    background-color: royalblue;
     height: 100%;
     width: 100%;
     color: white;
@@ -27,7 +27,6 @@ body{
 
 #menu{
     position: absolute;
-    background-color: aquamarine;
     height: 15%;
     width: 75%;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -87,7 +86,7 @@ body{
 .afficheur{
     position: absolute;
     background-color: white;
-    height: 20%; width: 75%;
+    width: 75%;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -150,12 +149,23 @@ body{
     to{ background-position-x: -9000px; }
 }
 
-#monBtn {
+
+.fullScreen{
     position: absolute;
-    top: 75%; left: 50%;
-    background-color: green;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
 }
 
+.loader{
+    position: absolute;
+    margin: 0 auto;
+    left: 50%;top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+<<<<<<< HEAD
 #toto{
   left: 50%;
   bottom: 10%;
@@ -165,3 +175,16 @@ body{
 #mo{
   position: absolute;
 }
+=======
+.loader h1{
+    color: red;
+    text-align: center;
+    background-color: white;
+    border: 2px solid red;
+}
+.loader simple-sprite{
+    margin: 0 auto;
+    text-align: center;
+    color: green;
+}
+>>>>>>> 3a37240e5932b110b43cbf626c9014f44a9b686f

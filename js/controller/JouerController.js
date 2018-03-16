@@ -1,4 +1,4 @@
-app.controller("JouerController", function($scope, $interval){
+app.controller("JouerController", function($scope){
     $scope.alpha = 0;
     $scope.beta = 0;
     $scope.gamma = 0;
@@ -7,7 +7,6 @@ app.controller("JouerController", function($scope, $interval){
     $scope.z = 0;
 
 
-    /* Gyroscope */
     if(window.DeviceOrientationEvent){
         window.addEventListener('deviceorientation', process, false);
         function process(event){
@@ -22,7 +21,6 @@ app.controller("JouerController", function($scope, $interval){
         alert("Votre appareil ne supporte pas les orientations !");
     }
 
-    /* Acceleromètre */
     if(window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", process, false);
         function process(event) {
@@ -30,13 +28,17 @@ app.controller("JouerController", function($scope, $interval){
                 $scope.x = parseFloat(event.accelerationIncludingGravity.x).toFixed(8);
                 $scope.y = parseFloat(event.accelerationIncludingGravity.y).toFixed(8);
                 $scope.z = parseFloat(event.accelerationIncludingGravity.z).toFixed(8);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3a37240e5932b110b43cbf626c9014f44a9b686f
            })
           }
       } else {
         alert("Votre appareil ne supporte pas l'accéléromètre !");
       }
+<<<<<<< HEAD
 
 
       var tab = [];
@@ -60,3 +62,9 @@ app.controller("JouerController", function($scope, $interval){
 
       }
 });
+=======
+    
+      
+
+});
+>>>>>>> 3a37240e5932b110b43cbf626c9014f44a9b686f

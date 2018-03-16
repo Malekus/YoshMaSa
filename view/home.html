@@ -1,25 +1,20 @@
-<div ng-show="false">
-    <canvas id="myCanvas" width="{{canvasW}}" height="{{canvasH}}"></canvas>
-    <img id="fond" ng-show="false" ng-src="css/img/Background25-9000x640.png">
+<div class="fullScreen" ng-show="loader">
+    <div class="loader">
+        <h1>Chargement...</h1>
+        <simple-sprite
+            src="css/img/loader100.png" 
+            frame-width="100" 
+            frame-height="100" 
+            frames="4" 
+            frames-per-row="4" 
+            repeat="true" 
+            speed="250">
+        </simple-sprite>
+    </div>
 </div>
 
-<!--
-
-
-
-
-<canvas ng-show="false" id="myCanvas" width="{{canvasW}}" height="{{canvasH}}"></canvas>
-<img id="fond" ng-src="css/img/Background25-9000x640.png" ng-style="fond">
-
-
-
-
-
-
--->
-
 <simple-sprite
-    src="css/img/Background25-9000x640.png" 
+    src="css/img/fond/home.png" 
     frame-width="{{canvasW}}" 
     frame-height="{{canvasH}}" 
     frames="25" 
@@ -28,13 +23,11 @@
     speed="500">
 </simple-sprite>
 
-<!--<div class="fondMenu"></div>
-
-ng-src="css/img/Background25-9000x640.png"
--->
 <div id="menu">
     <div><a href="#!jouer">JOUER</a></div>
     <div><a href="#!ladder">LADDER</a></div>
     <div><a href="#!perso">PERSO</a></div>
     <div><a href="#!option">OPTION</a></div>
 </div>
+
+

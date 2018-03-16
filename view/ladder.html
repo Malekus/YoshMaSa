@@ -1,6 +1,33 @@
+<div class="fullScreen" ng-show="loader">
+    <div class="loader">
+        <h1>Chargement...</h1>
+        <simple-sprite
+            src="css/img/loader100.png" 
+            frame-width="100" 
+            frame-height="100" 
+            frames="4" 
+            frames-per-row="4" 
+            repeat="true" 
+            speed="250">
+        </simple-sprite>
+    </div>
+</div>
+
 <a class="retourMenu" href="#!/"><<</a>
+
+<simple-sprite
+    src="css/img/fond/ladder.png" 
+    frame-width="360" 
+    frame-height="640" 
+    frames="6" 
+    frames-per-row="6" 
+    repeat="true" 
+    speed="250">
+</simple-sprite>
 
 <div class="afficheur">
      <a ng-click="update()">Classement</a>
-     {{ classement }}
+     <p ng-repeat="c in classement">{{c.pseudo}} - {{c.point}}</p>
 </div>
+
+
