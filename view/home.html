@@ -1,7 +1,21 @@
+<div class="fullScreen" ng-show="loader">
+    <div class="loader">
+        <h1>Chargement...</h1>
+        <simple-sprite
+            src="css/img/loader100.png" 
+            frame-width="100" 
+            frame-height="100" 
+            frames="4" 
+            frames-per-row="4" 
+            repeat="true" 
+            speed="250">
+        </simple-sprite>
+    </div>
+</div>
 
 <simple-sprite
     src="css/img/fond/home.png" 
-    frame-width="360" 
+    frame-width="{{canvasW}}" 
     frame-height="{{canvasH}}" 
     frames="25" 
     frames-per-row="25" 

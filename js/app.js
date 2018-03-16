@@ -1,5 +1,5 @@
 document.addEventListener('deviceready', function(){
-
+    console.log("On est pret !!");
 }, false);
 
 var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule']);
@@ -33,16 +33,11 @@ app.config(function($routeProvider){
     
 });
 
-/*
-app.factory('AccelerometreService', function($window, $q, $rootScope){
-    var accelerometre = $window.addEventListener
-});
-
-*/
 
 app.config(function (localStorageServiceProvider) {
     localStorageServiceProvider
       .setPrefix('YoshMaSaApp')
       .setStorageType('sessionStorage')
       .setNotify(true, true)
-  });
+});
+

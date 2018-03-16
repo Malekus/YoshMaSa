@@ -16,7 +16,7 @@
 <a class="retourMenu" href="#!/"><<</a>
 
 <simple-sprite
-    src="css/img/fond/fondGalaxieLadder2140.png" 
+    src="css/img/fond/ladder.png" 
     frame-width="360" 
     frame-height="640" 
     frames="6" 
@@ -27,7 +27,7 @@
 
 <div class="afficheur">
      <a ng-click="update()">Classement</a>
-     {{ classement }}
+     <p ng-repeat="c in classement">{{c.pseudo}} - {{c.point}}</p>
 </div>
 
 

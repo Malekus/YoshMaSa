@@ -1,14 +1,11 @@
-app.controller("HomeController", function($scope, $animateCss, $http){
+app.controller("HomeController", function($scope, $animateCss, $http, localStorageService, $rootScope){
 
-    $scope.canvasH = window.innerHeight;
-    $scope.canvasW = window.innerWidth;
+    $rootScope.canvasH = window.innerHeight;
+    $rootScope.canvasW = window.innerWidth;
 
-console.log($scope.canvasW , $scope.canvasH);
-
-    makeFondResize = function(nbFramme){
-        var source = '.._.._css_img_fond_home.png';
-        var dest = '.._.._css_img_fond_home.png'
-        var url = 'http://localhost/YoshMaSa/YoshMaSaAPI/web/resize/'+source+'/'+dest+'/'+$scope.canvasW * nbFramme+'/'+$scope.canvasH;
+    makeFondResize = function(nbFramme, source, destination){
+        var url = 'https://www.yoshmasaapi.malekus.fr/resize.php?source='+source+'&destination='+destination+'&width='+$rootScope.canvasW * nbFramme+'&height='+$rootScope.canvasH;
+        console.log(url);
         $http.get(url).then(httpSuccess, httpError);
     }
 
@@ -20,6 +17,19 @@ console.log($scope.canvasW , $scope.canvasH);
         alert("Impossible de récuprérer les informations");
     }
 
-    //makeFondResize(25);
+
+
+    initialisation = function(){
+        $scope.loader = true;  
+        if(localStorageService.get("declared") === null){
+            localStorageService.set("declared", true);
+            makeFondResize(25, '.._.._css_img_fond_home.png', '.._.._css_img_fond_home.png' );
+            makeFondResize(6, '.._.._css_img_fond_ladder.png', '.._.._css_img_fond_ladder.png' );
+        }
+        $scope.loader = false;
+    }
+    
+    initialisation();
+    console.log(localStorageService.keys());
 });
 
