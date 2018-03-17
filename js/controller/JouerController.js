@@ -28,17 +28,14 @@ app.controller("JouerController", function($scope){
                 $scope.x = parseFloat(event.accelerationIncludingGravity.x).toFixed(8);
                 $scope.y = parseFloat(event.accelerationIncludingGravity.y).toFixed(8);
                 $scope.z = parseFloat(event.accelerationIncludingGravity.z).toFixed(8);
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 3a37240e5932b110b43cbf626c9014f44a9b686f
            })
           }
       } else {
         alert("Votre appareil ne supporte pas l'accéléromètre !");
       }
-<<<<<<< HEAD
+
 
 
       var tab = [];
@@ -62,9 +59,6 @@ app.controller("JouerController", function($scope){
 
       }
 });
-=======
     
       
 
-});
->>>>>>> 3a37240e5932b110b43cbf626c9014f44a9b686f
