@@ -1,5 +1,4 @@
-app.controller("OptionController", function($scope){
-    $scope.toto = "Toto";
+app.controller("OptionController", function($scope, localStorageService){
     
     
 });
