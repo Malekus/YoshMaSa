@@ -56,8 +56,6 @@ app.controller("HomeController", function($scope, $http, localStorageService, $d
                 
                 var imgg = image.replace("data:image/png;base64,","");
 
-               writeFile('tototest.png', imgg);
-
                 /*
                 FileSaver.saveAs(file, '/css/img/fond/toto.png');*/
 
