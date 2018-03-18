@@ -152,7 +152,7 @@ body{
 
 .fullScreen{
     position: absolute;
-    background-color: black;
+    background-color: royalblue;
     height: 100%;
     width: 100%;
     z-index: 10000;
@@ -165,26 +165,15 @@ body{
     transform: translateX(-50%) translateY(-50%);
 }
 
-<<<<<<< HEAD
-#toto{
-  left: 50%;
-  bottom: 10%;
-  position: absolute;
-}
-
-#mo{
-  position: absolute;
-}
-=======
 .loader h1{
     color: red;
     text-align: center;
     background-color: white;
     border: 2px solid red;
 }
+
 .loader simple-sprite{
     margin: 0 auto;
     text-align: center;
     color: green;
 }
->>>>>>> 3a37240e5932b110b43cbf626c9014f44a9b686f

@@ -1,4 +1,4 @@
-app.controller("JouerController", function($scope){
+app.controller("JouerController", function($scope, $interval){
     $scope.alpha = 0;
     $scope.beta = 0;
     $scope.gamma = 0;
@@ -22,7 +22,7 @@ app.controller("JouerController", function($scope){
     }
 
     if(window.DeviceMotionEvent) {
-        window.addEventListener("devicemotion", process, false);
+        window.addEventListener("devicemotion", process, true);
         function process(event) {
             $scope.$apply(function(){
                 $scope.x = parseFloat(event.accelerationIncludingGravity.x).toFixed(8);
@@ -44,19 +44,15 @@ app.controller("JouerController", function($scope){
           tab = [];
           monInterval = $interval(function(){
             function process(event) {
-                $scope.$apply(function(){
-                    tab.push(parseFloat(event.accelerationIncludingGravity.x).toFixed(5));
-                    tab.push(parseFloat(event.accelerationIncludingGravity.y).toFixed(5));
-                    tab.push(parseFloat(event.accelerationIncludingGravity.z).toFixed(5));
-                })
+                    return event.acceleration.x, event.acceleration.y ,event.acceleration.z;
+
               }
           }, 100)
       };
 
       $scope.calculFin = function(){
         console.log(tab);
-          $interval.cancel(monInterval);
-
+        $interval.cancel(monInterval);
       }
 });
     

@@ -2,7 +2,7 @@
     <div class="loader">
         <h1>Chargement...</h1>
         <simple-sprite
-            src="css/img/loader100.png" 
+            src="css/img/loader/loader100.png" 
             frame-width="100" 
             frame-height="100" 
             frames="4" 
@@ -14,9 +14,9 @@
 </div>
 
 <simple-sprite
-    src="css/img/fond/home.png" 
-    frame-width="{{canvasW}}" 
-    frame-height="{{canvasH}}" 
+    src="{{backgroundHome}}" 
+    frame-width="{{widthScreen}}" 
+    frame-height="{{heightScreen}}" 
     frames="25" 
     frames-per-row="25" 
     repeat="true" 
@@ -29,3 +29,4 @@
     <div><a href="#!perso">PERSO</a></div>
     <div><a href="#!option">OPTION</a></div>
 </div>
+
