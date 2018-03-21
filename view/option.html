@@ -6,13 +6,59 @@
     <div class="loader">
         <h1>Chargement...</h1>
         <simple-sprite
-            src="css/img/loader/loader100.png" 
-            frame-width="100" 
-            frame-height="100" 
-            frames="4" 
-            frames-per-row="4" 
-            repeat="true" 
+            src="css/img/loader/loader100.png"
+            frame-width="100"
+            frame-height="100"
+            frames="4"
+            frames-per-row="4"
+            repeat="true"
             speed="250">
         </simple-sprite>
     </div>
 </div>
+
+<div id="options">
+    <div onclick="afficher_div('img_credits');"><a>CREDITS</a></div>
+</div>
+
+<img id="img_credits" src="css/img/fond/credits.png" />
+
+<!--
+<div class="option_fond">
+<simple-sprite
+  src="css/img/fond/Background_jeu.png"
+  frame-width="{widthScreen}"
+  frame-height="{heightScreen}"
+  frames="26"
+  frames-per-row="26"
+  repeat="true"
+  speed="500">
+</simple-sprite>
+</div>
+
+<div class="option_bonhomme">
+<simple-sprite
+  src="css/img/fond/H_options.png"
+  frame-width="360"
+  frame-height="640"
+  frames="1"
+  frames-per-row="1"
+  repeat="false"
+  speed="0">
+</simple-sprite>
+</div>
+-->
+
+<script type="text/javascript">
+  function afficher_div(id)
+  {
+  if (document.getElementById(id).style.display == 'none')
+  {
+       document.getElementById(id).style.display = 'block';
+  }
+  else
+  {
+       document.getElementById(id).style.display = 'none';
+  }
+  }
+</script>
