@@ -1,6 +1,7 @@
 <?php
 
     if( isset($_GET['source'], $_GET['destination'], $_GET['width'] ,$_GET['height'])){
+        
         header("Access-Control-Allow-Origin: *");
         function resize($source, $destination, $width, $height){
             $source = str_replace("_", "/", $source);
@@ -9,6 +10,7 @@
             $imageRessource = imagecreatefrompng($source);
             $imageFinal = imagecreatetruecolor($width, $height);
             $final = imagecopyresampled($imageFinal, $imageRessource, 0, 0, 0, 0, $width, $height, $imageSize[0], $imageSize[1]);
+            unlink($destination);
             imagepng($imageFinal, $destination, 9);
         };
         resize($_GET['source'], $_GET['destination'], $_GET['width'] ,$_GET['height']);

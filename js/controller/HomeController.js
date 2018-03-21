@@ -1,15 +1,10 @@
-app.controller("HomeController", function($scope, $http, localStorageService){
+app.controller("HomeController", function($scope, $http, localStorageService, $q, $rootScope){
 
-    $scope.loader = false;
-
-    $scope.initialisation = function(){
-        localStorageService.set("widthScreen", window.innerWidth);
-        localStorageService.set("heightScreen", window.innerHeight);
-        $scope.widthScreen = localStorageService.get("widthScreen");
-        $scope.heightScreen = localStorageService.get("heightScreen");            
-    };
-
+    $rootScope.height = window.innerHeight;
+    $rootScope.width = window.innerWidth;
     
+    $scope.heightScreen = $rootScope.height;
+    $scope.widthScreen = $rootScope.width;
 
     $scope.resizePicture = function(source, destination, frame){
         var url = "resize.php?source=" + source + "&destination=" + destination + "&width="
@@ -25,22 +20,46 @@ app.controller("HomeController", function($scope, $http, localStorageService){
         alert("Impossible de récuprérer les informations");
     };
 
-    if((localStorageService.get("widthScreen") || localStorageService.get("heightScreen")) === null ){
-        $scope.initialisation();
+    /*
+        if(1){ //localStorageService.get("declared") === null
+    }
+    */
+
+    promisesResize = function(source, destination, frame){
+        /*
+            var url = "resize.php?source=" + source + "&destination=" + destination + "&width="
+            + localStorageService.get("widthScreen") * frame + "&height=" + localStorageService.get("heightScreen");
+        */
+       var url = "resize.php?source=" + source + "&destination=" + destination + "&width=" + $rootScope.width * frame + "&height=" + $rootScope.height;
+        var deferred = $q.defer();
+        $http.get(url)
+        .then(function(response){
+            deferred.resolve(response);},
+            function(error){
+            deferred.reject("Impossible de récuprérer les informations");
+        });
+
+        return deferred.promise;
     }
 
-    $scope.widthScreen = localStorageService.get("widthScreen");
-    $scope.heightScreen = localStorageService.get("heightScreen");
-
-    if(localStorageService.get("declared") === null){
-        
-    $scope.loader = true;
-        localStorageService.set("declared", true);
-        $scope.resizePicture("css/img/fond/home.png", "css/img/testResize/homeR.png", 25);
-        $scope.resizePicture("css/img/fond/ladder.png", "css/img/testResize/ladderR.png", 6);
-        
-    $scope.loader = false;
-    }
+    console.log(localStorageService.get("declared"));
     
-    console.log(localStorageService.clearAll());
+    if(localStorageService.get("declared") === null){
+        localStorageService.set("declared", true);
+        $q.all([
+            $rootScope.loader = true,
+            promisesResize("css/img/fond/home.png", "css/img/testResize/homeR.png", 25),
+            promisesResize("css/img/fond/ladder.png", "css/img/testResize/ladderR.png", 6)
+        ]).then(function(){
+            $rootScope.loader = false;
+            console.log("OK go forwardd !!");
+        }, function(){
+            $rootScope.loader = false;
+            console.log("Impossible de récuprérer les informations");
+        });        
+    }
+
+    //console.log(localStorageService.clearAll());
+
+
 });
