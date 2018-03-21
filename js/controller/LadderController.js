@@ -1,5 +1,8 @@
-app.controller("LadderController", function($scope, $http){
+app.controller("LadderController", function($scope, $http, localStorageService){
     
+    $scope.widthScreen = localStorageService.get("widthScreen");
+    $scope.heightScreen = localStorageService.get("heightScreen");
+
     $scope.classement = {};
 
     $scope.update = function(){
