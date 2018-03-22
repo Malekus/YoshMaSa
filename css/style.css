@@ -197,22 +197,25 @@ body{
 
 #options{
     position: absolute;
-    height: 15%;
-    width: 75%;
+    height: 80%;
+    width: 80%;
     top: 0; left: 0; right: 0; bottom: 0;
     margin: auto;
     overflow: hidden;
+    z-index:3;
 }
 
 #options > div{
-    height: 50%;
+    height: auto;
     width: 50%;
-    float: left;
+    float: top;
     color: blue;
     display: flex;
+    margin: auto;
+    margin-top: 5%;
 }
 
-#options > div > a{
+#options > div > .bt{
     background-color: white;
     text-decoration: none;
     color: blue;
@@ -233,6 +236,23 @@ body{
   z-index:8;
   display: none;
 }
+
+#options > div > .bt_flag{
+    margin: 0;
+    text-align: center;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
+}
+
+.flags{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+/* FIN CSS OPTIONS */
 
 .title{
     color: red;
