@@ -1,4 +1,4 @@
-app.controller("JouerController", function($scope){
+app.controller("JouerController", function($scope,localStorageService,$interval){
     $scope.alpha = 0;
     $scope.beta = 0;
     $scope.gamma = 0;
@@ -28,7 +28,7 @@ app.controller("JouerController", function($scope){
                 $scope.x = parseFloat(event.accelerationIncludingGravity.x).toFixed(8);
                 $scope.y = parseFloat(event.accelerationIncludingGravity.y).toFixed(8);
                 $scope.z = parseFloat(event.accelerationIncludingGravity.z).toFixed(8);
-
+                //console.log($scope.x, $scope.y, $scope.z);
 
            })
           }
@@ -36,29 +36,25 @@ app.controller("JouerController", function($scope){
         alert("Votre appareil ne supporte pas l'accéléromètre !");
       }
 
-
-
+    
+      var cpt = 0;
       var tab = [];
       var monInterval;
-      $scope.calculDebut = function(){
-          tab = [];
-          monInterval = $interval(function(){
-            function process(event) {
-                $scope.$apply(function(){
-                    tab.push(parseFloat(event.accelerationIncludingGravity.x).toFixed(5));
-                    tab.push(parseFloat(event.accelerationIncludingGravity.y).toFixed(5));
-                    tab.push(parseFloat(event.accelerationIncludingGravity.z).toFixed(5));
-                })
-              }
-          }, 100)
+      $scope.calculDebut = function(x, y, z){
+            tab = [];
+            monInterval = $interval(function(){
+                tab.push([x,y,z]);
+            }, 100)
       };
 
       $scope.calculFin = function(){
+        $interval.cancel(monInterval);
         console.log(tab);
-          $interval.cancel(monInterval);
-
       }
 });
+
+
+
     
       
 
