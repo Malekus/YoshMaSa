@@ -1,4 +1,4 @@
-app.controller("HomeController", function($scope, $http, localStorageService, $q, $rootScope){
+app.controller("HomeController", function($scope, $http, localStorageService, $q, $rootScope, $timeout){
 
     $rootScope.height = window.innerHeight;
     $rootScope.width = window.innerWidth;
@@ -42,24 +42,36 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
         return deferred.promise;
     }
 
-    console.log(localStorageService.get("declared"));
     
-    if(localStorageService.get("declared") === null){
+
+    $scope.onLoadPage = function(){
+        if(localStorageService.get("declared")){
+            console.log("On est declaré !!");
+            return;
+        }
         localStorageService.set("declared", true);
         $q.all([
             $rootScope.loader = true,
             promisesResize("css/img/fond/home.png", "css/img/testResize/homeR.png", 25),
-            promisesResize("css/img/fond/ladder.png", "css/img/testResize/ladderR.png", 6)
+            promisesResize("css/img/fond/ladder.png", "css/img/testResize/ladderR.png", 6),
+            $timeout(function(){
+                console.log("Attente 1sec");
+            }, 1000)
         ]).then(function(){
             $rootScope.loader = false;
-            console.log("OK go forwardd !!");
+            console.log("OK go forwardd !!");            
         }, function(){
             $rootScope.loader = false;
             console.log("Impossible de récuprérer les informations");
         });        
+        
     }
 
-    //console.log(localStorageService.clearAll());
+    
+    
 
+       //          console.log(localStorageService.clearAll());
+    console.log(localStorageService.keys());
+    
 
 });

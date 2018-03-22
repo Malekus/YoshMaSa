@@ -167,6 +167,7 @@ body{
 
 .loader h1{
     color: red;
+    font-size: 9vw;
     text-align: center;
     background-color: white;
     border: 2px solid red;

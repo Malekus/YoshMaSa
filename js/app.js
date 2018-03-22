@@ -8,13 +8,12 @@ var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStora
 app.config(function($routeProvider){
     $routeProvider
     .when('/',{
+        templateUrl: 'view/present.html',
+        controller: 'PresentController'
+    })
+    .when('/home',{
         templateUrl: 'view/home.html',
-        controller: 'HomeController',
-        resolve: {
-            init: ['InitService', function(Init) {
-                return Init.promise;
-            }]
-          }
+        controller: 'HomeController'
     })
     .when('/jouer',{
         templateUrl: 'view/jouer.html',
@@ -44,19 +43,3 @@ app.config(function (localStorageServiceProvider) {
       .setStorageType('sessionStorage')
       .setNotify(true, true)
 });
-
-
-app.run(['$timeout', 'InitService', function ($timeout, Init) {
-    $timeout(function() {
-      Init.defer.resolve();
-    }, 2000);
-  }]);
-
-app.service('InitService', ['$q', function ($q) {
-var d = $q.defer();
-return {
-    defer: d,
-    promise: d.promise 
-};
-}]);
-  
