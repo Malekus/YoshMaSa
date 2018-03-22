@@ -6,6 +6,18 @@ app.controller("JouerController", function($scope,localStorageService,$interval)
     $scope.y = 0;
     $scope.z = 0;
 
+    var tabX = [];
+    var tabY = [];
+    var tabZ = [];
+    var MontabX = [];
+    var MontabY = [];
+    var MontabZ = [];
+    var tableau = [];
+    var avgX;
+    var avgY;
+    var avgZ;
+    var monInterval;
+
 
     if(window.DeviceOrientationEvent){
         window.addEventListener('deviceorientation', process, false);
@@ -25,31 +37,63 @@ app.controller("JouerController", function($scope,localStorageService,$interval)
         window.addEventListener("devicemotion", process, false);
         function process(event) {
             $scope.$apply(function(){
-                $scope.x = parseFloat(event.accelerationIncludingGravity.x).toFixed(8);
-                $scope.y = parseFloat(event.accelerationIncludingGravity.y).toFixed(8);
-                $scope.z = parseFloat(event.accelerationIncludingGravity.z).toFixed(8);
-                //console.log($scope.x, $scope.y, $scope.z);
+                $scope.x = parseFloat(event.accelerationIncludingGravity.x).toFixed(2);
+                $scope.y = parseFloat(event.accelerationIncludingGravity.y).toFixed(2);
+                $scope.z = parseFloat(event.accelerationIncludingGravity.z).toFixed(2);
 
-           })
-          }
+            })
+        }
       } else {
         alert("Votre appareil ne supporte pas l'accéléromètre !");
       }
 
-    
-      var cpt = 0;
-      var tab = [];
-      var monInterval;
       $scope.calculDebut = function(x, y, z){
-            tab = [];
+            tabX = [];
+            tabY = [];
+            tabZ = [];
+            MontabX = [];
+            MontabY = [];
+            MontabZ = [];
+     
+                     
             monInterval = $interval(function(){
-                tab.push([x,y,z]);
+                tabX.push(parseFloat(x));
+                tabY.push(parseFloat(y));
+                tabZ.push(parseFloat(z));
+              
             }, 100)
       };
 
+
+      moyenne = function(tab){
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        return tab.reduce(reducer);
+      }
+
       $scope.calculFin = function(){
         $interval.cancel(monInterval);
-        console.log(tab);
+
+        MontabX.push(Math.min(...tabX), Math.max(...tabX), moyenne(tabX));
+        MontabY.push(Math.min(...tabY), Math.max(...tabY), moyenne(tabY));
+        MontabZ.push(Math.min(...tabZ), Math.max(...tabZ), moyenne(tabZ));
+        tableau = [];
+        tableau.push(MontabX);
+        tableau.push(MontabY);
+        tableau.push(MontabZ);
+        
+        console.log(tableau);
+    
+       /*
+        console.log(Math.min(...tabX));
+        console.log(Math.max(...tabX));
+    
+        console.log(Math.min(...tabY));
+        console.log(Math.max(...tabY));
+        
+        console.log(Math.min(...tabZ));
+        console.log(Math.max(...tabZ));
+        
+       */
       }
 });
 
