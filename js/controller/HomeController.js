@@ -42,7 +42,7 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
         return deferred.promise;
     }
 
-    
+/*
 
     $scope.onLoadPage = function(){
         if(localStorageService.get("declared")){
@@ -67,11 +67,7 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
         
     }
 
-    
-    
-
-       //          console.log(localStorageService.clearAll());
-    console.log(localStorageService.keys());
+    */
     
 
 });

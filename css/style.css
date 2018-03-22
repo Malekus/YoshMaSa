@@ -233,3 +233,22 @@ body{
   z-index:8;
   display: none;
 }
+
+.title{
+    color: red;
+    background-color: white;
+    border: 2px solid red;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+table{
+    width: 100%;
+    border: 2px solid red;
+}
+
+table tr{
+    text-align: center;
+}
