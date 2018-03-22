@@ -9,6 +9,7 @@ app.controller("JouerController", function($scope,localStorageService,$interval)
     var tabX = [];
     var tabY = [];
     var tabZ = [];
+   // var tab = [];
     var MontabX = [];
     var MontabY = [];
     var MontabZ = [];
