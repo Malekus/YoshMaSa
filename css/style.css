@@ -120,9 +120,9 @@ body{
     position: absolute;
     height: 250px;
     width: 150px;
-    background: url("img/tete_H_brun.png") no-repeat;
-    left: 50%;
-    margin-left: -75px;
+    background: url("img/perso/tete_H_brun.png") no-repeat;
+    display: flex;
+    left: 5%;
 
 }
 
@@ -130,20 +130,36 @@ body{
     position: absolute;
     height: 250px;
     width: 150px;
-    background: url("img/mailloche_M.png") no-repeat;
-    top: 45%;
-    left: 50%;
-    margin-left: -75px;
+    background: url("img/perso/mailloche_M.png") no-repeat;
+    right: 0%;
 }
 
-.choixhomme:active{
-    background: url("img/homme_tete_eye.png") no-repeat;
+.defilerhomme{
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  bottom: 5%;
 }
 
-.choixfemme:active{
-    background: url("img/femme_tete_eye.png") no-repeat;
+.defilerhomme > div{
+  text-align: center;
+  line-height: 0px;
+  margin: 10px;
 }
 
+
+.defilermailloche{
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  bottom: 20%;
+}
+
+.defilermailloche > div{
+  text-align: center;
+  line-height: 0px;
+  margin: 10px;
+}
 @keyframes backgroundFrame {
     from{ background-position-x: 0; }
     to{ background-position-x: -9000px; }
