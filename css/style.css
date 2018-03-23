@@ -165,20 +165,6 @@ body{
     transform: translateX(-50%) translateY(-50%);
 }
 
-<<<<<<< HEAD
-
-#toto{
-  left: 50%;
-  bottom: 10%;
-  position: absolute;
-}
-
-#mo{
-  position: absolute;
-}
-
-=======
->>>>>>> f64d5b98f86b758d0ca901fadfccc4dcec4ec1c5
 .loader h1{
     color: red;
     font-size: 9vw;
@@ -193,16 +179,6 @@ body{
     color: green;
 }
 
-<<<<<<< HEAD
-.button{
-    color: white;
-    position : absolute;
-    background-color: green;
-    bottom: 50%;
-
-}
-
-=======
 /* CSS OPTIONS */
 
 .option_fond{
@@ -321,4 +297,3 @@ table{
 table tr{
     text-align: center;
 }
->>>>>>> f64d5b98f86b758d0ca901fadfccc4dcec4ec1c5
