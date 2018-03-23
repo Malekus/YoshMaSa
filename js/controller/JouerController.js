@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 app.controller("JouerController", function($scope, $interval, $rootScope){
     $scope.heightScreen = $rootScope.height;
-    $scope.widthScreen = $rootScope.width
-    
-=======
-<<<<<<< HEAD
-app.controller("JouerController", function($scope,localStorageService,$interval){
-=======
-app.controller("JouerController", function($scope, $interval){
->>>>>>> f64d5b98f86b758d0ca901fadfccc4dcec4ec1c5
->>>>>>> 65135b7c564129387e751f7f6a0e750d7a88177e
+    $scope.widthScreen = $rootScope.width;
+
     $scope.alpha = 0;
     $scope.beta = 0;
     $scope.gamma = 0;
@@ -75,13 +67,10 @@ app.controller("JouerController", function($scope, $interval){
               
             }, 100)
       };
-
-
-<<<<<<< HEAD
       moyenne = function(tab){
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         return tab.reduce(reducer);
-      }
+      };
 
       $scope.calculFin = function(){
         $interval.cancel(monInterval);
@@ -95,40 +84,9 @@ app.controller("JouerController", function($scope, $interval){
         tableau.push(MontabZ);
         
         console.log(tableau);
-    
-       /*
-        console.log(Math.min(...tabX));
-        console.log(Math.max(...tabX));
-    
-        console.log(Math.min(...tabY));
-        console.log(Math.max(...tabY));
-        
-        console.log(Math.min(...tabZ));
-        console.log(Math.max(...tabZ));
-        
-       */
-=======
-      var tab = [];
-      var monInterval;
-      $scope.calculDebut = function(){
-          tab = [];
-          monInterval = $interval(function(){
-            function process(event) {
-                    return event.acceleration.x, event.acceleration.y ,event.acceleration.z;
-
-              }
-          }, 100)
-      };
-
-      $scope.calculFin = function(){
-        console.log(tab);
-        $interval.cancel(monInterval);
->>>>>>> f64d5b98f86b758d0ca901fadfccc4dcec4ec1c5
-      }
-});
+     
+        };
 
 
 
-    
-      
-
+    });
