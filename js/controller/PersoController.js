@@ -1,3 +1,3 @@
-app.controller("PersoController", function($scope){    
-    
+app.controller("PersoController", function($scope){
+
 });

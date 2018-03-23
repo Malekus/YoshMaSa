@@ -18,15 +18,15 @@
 <div id="options">
     <div><a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/flags.png" /></a></div>
     <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()">MUET</a></div>
-    <div><a class="bt" onclick="aff_credits()">CREDITS</a></div>
+    <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
 </div>
 
-<a class="img_credits" onclick="del_credits()"><img id="img_credits" src="css/img/fond/credit.png" /></a>
+<img class="img_credits" ng-class="{credits : crd}" ng-click="aff_credits()" src="css/img/fond/credit.png" />
 
 <div class="option_fond">
   <simple-sprite
     src="css/img/fond/bg_jeu.png"
-    frame-width="{{widhtScreen}}"
+    frame-width="{{widthScreen}}"
     frame-height="{{heightScreen}}"
     frames="26"
     frames-per-row="26"
