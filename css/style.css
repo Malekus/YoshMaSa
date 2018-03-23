@@ -198,91 +198,95 @@ body{
 /* CSS OPTIONS */
 
 .option_fond{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index:1;
-}
-
-.option_bonhomme{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index:2;
-}
-
-#options{
     position: absolute;
-    height: 70%;
-    width: 80%;
-    top: 5%; left: 0; right: 0; bottom: 20%;
-    margin: auto;
-    overflow: hidden;
-    z-index:3;
-}
-
-#options > div{
-    height: auto;
-    width: 50%;
-    float: top;
-    color: royalblue;
-    display: flex;
-    margin: auto;
-    margin-top: 5%;
-}
-
-#options > div > .bt{
-    background-color: white;
-    text-decoration: none;
-    color: royalblue;
-    margin: auto;
-    font-size: 9vw;
-    border: 2px solid royalblue;
-    text-align: center;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none;
-}
-
-#options > div > .bt_muted{
-    background-color: white;
-    text-decoration: none;
-    color: royalblue;
-    margin: auto;
-    font-size: 9vw;
-    border: 2px solid royalblue;
-    text-align: center;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none;
-}
-
-#img_credits{
-  position: absolute;
-  height: 100%;
-  width : 100%;
-  z-index:8;
-  display: none;
-}
-
-#options > div > .bt_flag{
+    width: 100%;
+    height: 100%;
+    z-index:1;
+  }
+  
+  .option_bonhomme{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index:2;
+  }
+  
+  #options{
+      position: absolute;
+      height: 70%;
+      width: 80%;
+      top: 5%; left: 0; right: 0; bottom: 20%;
+      margin: auto;
+      overflow: hidden;
+      z-index:3;
+  }
+  
+  #options > div{
+      height: auto;
+      width: 50%;
+      float: top;
+      color: royalblue;
+      display: flex;
+      margin: auto;
+      margin-top: 5%;
+  }
+  
+  #options > div > .bt{
+      background-color: white;
+      text-decoration: none;
+      color: royalblue;
+      margin: auto;
+      font-size: 9vw;
+      border: 2px solid royalblue;
+      text-align: center;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none;
+  }
+  
+  .bt_muted{
+      background-color: white;
+      text-decoration: none;
+      color: royalblue;
+      margin: auto;
+      font-size: 9vw;
+      border: 2px solid royalblue;
+      text-align: center;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none;
+  }
+  
+  .estActif{
+    background-color : black;
+  }
+  
+  #img_credits{
+    position: absolute;
+    height: 100%;
+    width : 100%;
+    z-index:8;
+    display: none;
+  }
+  
+  #options > div > .bt_flag{
+      margin: 0;
+      text-align: center;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none;
+  }
+  
+  .flags{
+    width: 100%;
+    height: 100%;
     margin: 0;
-    text-align: center;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none;
-}
-
-.flags{
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-
-/* FIN CSS OPTIONS */
+  }
+  
+  /* FIN CSS OPTIONS */
 
 .title{
     color: red;
