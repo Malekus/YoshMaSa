@@ -1,58 +1,73 @@
-app.controller("HomeController", function($scope, $http, localStorageService, resizeService, $document, $log, Upload){
+app.controller("HomeController", function($scope, $http, localStorageService, $q, $rootScope, $timeout){
 
-    initialisation = function(){
-        $scope.loader = true;  
-        if(localStorageService.get("declared") === null){
-            localStorageService.set("declared", true);
-            localStorageService.set("widthScreen", window.innerWidth);
-            localStorageService.set("heightScreen", window.innerHeight);
-            
-        }
-        $scope.loader = false;
-    }
-
-    //initialisation();
+    $rootScope.height = window.innerHeight;
+    $rootScope.width = window.innerWidth;
     
+    $scope.heightScreen = $rootScope.height;
+    $scope.widthScreen = $rootScope.width;
+
+    $scope.resizePicture = function(source, destination, frame){
+        var url = "resize.php?source=" + source + "&destination=" + destination + "&width="
+        + localStorageService.get("widthScreen") * frame + "&height=" + localStorageService.get("heightScreen");
+        $http.get(url).then(httpSuccess, httpError);
+    };
+
+    httpSuccess = function(response){
+        console.log(response.data);
+    };
+
+    httpError = function(error){
+        alert("Impossible de récuprérer les informations");
+    };
+
+    /*
+        if(1){ //localStorageService.get("declared") === null
+    }
+    */
+
+    promisesResize = function(source, destination, frame){
+        /*
+            var url = "resize.php?source=" + source + "&destination=" + destination + "&width="
+            + localStorageService.get("widthScreen") * frame + "&height=" + localStorageService.get("heightScreen");
+        */
+       var url = "resize.php?source=" + source + "&destination=" + destination + "&width=" + $rootScope.width * frame + "&height=" + $rootScope.height;
+        var deferred = $q.defer();
+        $http.get(url)
+        .then(function(response){
+            deferred.resolve(response);},
+            function(error){
+            deferred.reject("Impossible de récuprérer les informations");
+        });
+
+        return deferred.promise;
+    }
 
 /*
-    dataURItoBlob = function(dataURI) {
-        var byteString = dataURI;
-        var ab = new ArrayBuffer(byteString.length);
-        var ia = new Uint8Array(ab);
-        for (var i = 0; i < byteString.length; i++) {
-            ia[i] = byteString.charCodeAt(i);
+
+    $scope.onLoadPage = function(){
+        if(localStorageService.get("declared")){
+            console.log("On est declaré !!");
+            return;
         }
-        var blob = new Blob([ab], {type: 'image/png'}); //or mimeString if you want
-        return blob;
+        localStorageService.set("declared", true);
+        $q.all([
+            $rootScope.loader = true,
+            promisesResize("css/img/fond/home.png", "css/img/testResize/homeR.png", 25),
+            promisesResize("css/img/fond/ladder.png", "css/img/testResize/ladderR.png", 6),
+            $timeout(function(){
+                console.log("Attente 1sec");
+            }, 1000)
+        ]).then(function(){
+            $rootScope.loader = false;
+            console.log("OK go forwardd !!");            
+        }, function(){
+            $rootScope.loader = false;
+            console.log("Impossible de récuprérer les informations");
+        });        
+        
     }
 
-    resize = function(){
-        resizeService
-            .resizeImage('css/img/fond/home.png', {
-                height: window.innerHeight, 
-                width: window.innerWidth,
-                outputFormat: 'image/png'
-            })
-            .then(function(image){
-                //console.log(image);
-                // image.replace("data:image/png;base64,", "")
-                
-                var blob = dataURItoBlob(image.replace("data:image/png;base64,", ""));
-                var images = new File([blob], 'css/img/fond/OOOOO.png');
-
-                $scope.upload(images)
-
-            })
-            .catch($log.error);
-    }
-
-
-    resize();
-*/
+    */
     
-    
-
-    
-
 
 });

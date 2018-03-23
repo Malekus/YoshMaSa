@@ -1,12 +1,17 @@
 document.addEventListener('deviceready', function(){
     console.log("On est pret !!");
+    navigator.splashscreen.hide();
 }, false);
 
-var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule', 'images-resizer', 'ngFileUpload']);
+var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule']);
 
 app.config(function($routeProvider){
     $routeProvider
     .when('/',{
+        templateUrl: 'view/present.html',
+        controller: 'PresentController'
+    })
+    .when('/home',{
         templateUrl: 'view/home.html',
         controller: 'HomeController'
     })
@@ -30,9 +35,7 @@ app.config(function($routeProvider){
         redirectTo: '/'
     })
 
-    
 });
-
 
 app.config(function (localStorageServiceProvider) {
     localStorageServiceProvider
@@ -40,4 +43,3 @@ app.config(function (localStorageServiceProvider) {
       .setStorageType('sessionStorage')
       .setNotify(true, true)
 });
-

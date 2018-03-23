@@ -1,4 +1,14 @@
-<a class="retourMenu" href="#!/"><<</a>
+<a class="retourMenu" href="#!/home"><<</a>
+
+<simple-sprite
+        src="css/img/testResize/jouR.png" 
+        frame-width="{{widthScreen}}" 
+        frame-height="{{heightScreen}}" 
+        frames="26" 
+        frames-per-row="26" 
+        repeat="true" 
+        speed="500">
+</simple-sprite>
 
 <div class="afficheur">
         Position alpha : {{ alpha }}<br>
@@ -7,8 +17,14 @@
         Position x : {{ x }}<br>
         Position y : {{ y }}<br>
         Position z : {{ z }}<br>
+<<<<<<< HEAD
         <div>
                 <button ng-mousedown="calculDebut(x, y, z)" ng-mouseup="calculFin()">JOOUER</button>
         </div>
 </div>
 
+=======
+</div>
+
+<button ng-mousedown="calculDebut()" ng-mouseup="calculFin()">JOUER</button>
+>>>>>>> f64d5b98f86b758d0ca901fadfccc4dcec4ec1c5
