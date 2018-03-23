@@ -119,21 +119,21 @@ body{
 .choixhomme{
     position: absolute;
     height: 250px;
-    width: 250px;
-    background: url("img/homme_tete.png") no-repeat;
+    width: 150px;
+    background: url("img/tete_H_brun.png") no-repeat;
     left: 50%;
-    margin-left: -125px;
-    top: 10%;
+    margin-left: -75px;
+
 }
 
-.choixfemme{
-    bottom: 10%;
+.choixmailloche{
     position: absolute;
     height: 250px;
-    width: 250px;
-    background: url("img/femme_tete.png") no-repeat;
+    width: 150px;
+    background: url("img/mailloche_M.png") no-repeat;
+    top: 45%;
     left: 50%;
-    margin-left: -125px;
+    margin-left: -75px;
 }
 
 .choixhomme:active{
