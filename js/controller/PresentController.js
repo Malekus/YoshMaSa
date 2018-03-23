@@ -31,6 +31,15 @@ app.controller("PresentController", function($scope, $http, localStorageService,
 
        
 
+
+     
+
+
+
+ 
+
+
+    
     $scope.onLoadPage = function(){
         if(localStorageService.get("declared")){
             console.log("On est declaré !!");
@@ -53,26 +62,17 @@ app.controller("PresentController", function($scope, $http, localStorageService,
             console.log("Impossible de récuprérer les informations");
         });                
     }
-
-     
-
-
-
- 
-
-
-
-    
-
     
 });
 
 /*
    
+   
+
+
     console.log(localStorageService.clearAll());
 
-
-
+  
  
 
 

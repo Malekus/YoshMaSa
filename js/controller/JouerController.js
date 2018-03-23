@@ -1,4 +1,7 @@
-app.controller("JouerController", function($scope, $interval){
+app.controller("JouerController", function($scope, $interval, $rootScope){
+    $scope.heightScreen = $rootScope.height;
+    $scope.widthScreen = $rootScope.width
+    
     $scope.alpha = 0;
     $scope.beta = 0;
     $scope.gamma = 0;

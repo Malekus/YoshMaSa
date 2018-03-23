@@ -1,4 +1,5 @@
-app.controller("OptionController", function($scope, localStorageService){
-    
+app.controller("OptionController", function($scope, $rootScope){
+    $scope.heightScreen = $rootScope.height;
+    $scope.widthScreen = $rootScope.width;
     
 });
