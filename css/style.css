@@ -116,6 +116,7 @@ body{
   to{ background-position-x: -3240px; }
 }
 
+/* CSS PERSO */
 .choixhomme{
     position: absolute;
     height: 250px;
@@ -160,6 +161,64 @@ body{
   line-height: 0px;
   margin: 10px;
 }
+
+/*chefDeProjet*/
+
+.displayChoix{
+    background-color: brown;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+}
+
+.choixPerso{
+    background-color: green;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+}
+
+.showItem{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+
+.showItem img{
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.displayItem{
+    height: 50%;
+    overflow-x: scroll;
+    background-color: turquoise;
+    white-space: nowrap;
+    margin: 0 5%;
+}
+
+.displayItem div{
+    height: 100%;
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+}
+
+
+.itemImg{
+    height: 90%;
+    width: 90%;
+    margin: 5% 5%;
+}
+
+/* CSS fin PERSO */
+
 @keyframes backgroundFrame {
     from{ background-position-x: 0; }
     to{ background-position-x: -9000px; }

@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 app.controller("JouerController", function($scope, $interval, $rootScope){
     $scope.heightScreen = $rootScope.height;
     $scope.widthScreen = $rootScope.width;
 
-=======
-
-app.controller("JouerController", function($scope, $interval, $rootScope){
-    $scope.heightScreen = $rootScope.height;
-    $scope.widthScreen = $rootScope.width
-    
->>>>>>> cf42e62914046b1611b5f83a4aefc50ff9eb6c4b
     $scope.alpha = 0;
     $scope.beta = 0;
     $scope.gamma = 0;
@@ -75,11 +67,6 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
               
             }, 100)
       };
-<<<<<<< HEAD
-=======
-
-
->>>>>>> cf42e62914046b1611b5f83a4aefc50ff9eb6c4b
       moyenne = function(tab){
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         return tab.reduce(reducer);
@@ -97,26 +84,8 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
         tableau.push(MontabZ);
         
         console.log(tableau);
-<<<<<<< HEAD
      
         };
-=======
-    
-       /*
-        console.log(Math.min(...tabX));
-        console.log(Math.max(...tabX));
-    
-        console.log(Math.min(...tabY));
-        console.log(Math.max(...tabY));
-        
-        console.log(Math.min(...tabZ));
-        console.log(Math.max(...tabZ));
-        
-       */
-      }
-});
-
->>>>>>> cf42e62914046b1611b5f83a4aefc50ff9eb6c4b
 
 
 
