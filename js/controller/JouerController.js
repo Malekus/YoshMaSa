@@ -1,18 +1,7 @@
-<<<<<<< HEAD
-app.controller("JouerController", function($scope, $interval, $rootScope){
-    $scope.heightScreen = $rootScope.height;
-    $scope.widthScreen = $rootScope.width;
-
-=======
-
 app.controller("JouerController", function($scope, $interval, $rootScope){
     $scope.heightScreen = $rootScope.height;
     $scope.widthScreen = $rootScope.width
-    
->>>>>>> cf42e62914046b1611b5f83a4aefc50ff9eb6c4b
-    $scope.alpha = 0;
-    $scope.beta = 0;
-    $scope.gamma = 0;
+
     $scope.x = 0;
     $scope.y = 0;
     $scope.z = 0;
@@ -20,30 +9,11 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
     var tabX = [];
     var tabY = [];
     var tabZ = [];
-   // var tab = [];
     var MontabX = [];
     var MontabY = [];
     var MontabZ = [];
     var tableau = [];
-    var avgX;
-    var avgY;
-    var avgZ;
-    var monInterval;
-
-
-    if(window.DeviceOrientationEvent){
-        window.addEventListener('deviceorientation', process, false);
-        function process(event){
-            $scope.$apply(function(){
-                $scope.alpha = event.alpha;
-                $scope.beta = event.beta;
-                $scope.gamma = event.gamma;
-           })
-
-        }
-    }else{
-        alert("Votre appareil ne supporte pas les orientations !");
-    }
+    var monInterval;    
 
     if(window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", process, true);
@@ -62,32 +32,24 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
       $scope.calculDebut = function(x, y, z){
             tabX = [];
             tabY = [];
-            tabZ = [];
-            MontabX = [];
-            MontabY = [];
-            MontabZ = [];
-     
-                     
+            tabZ = [];              
             monInterval = $interval(function(){
                 tabX.push(parseFloat(x));
                 tabY.push(parseFloat(y));
-                tabZ.push(parseFloat(z));
-              
+                tabZ.push(parseFloat(z));         
             }, 100)
       };
-<<<<<<< HEAD
-=======
 
-
->>>>>>> cf42e62914046b1611b5f83a4aefc50ff9eb6c4b
       moyenne = function(tab){
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        return tab.reduce(reducer);
+        return tab.reduce(reducer) / tab.length;
       };
 
       $scope.calculFin = function(){
         $interval.cancel(monInterval);
-
+        MontabX = [];
+        MontabY = [];
+        MontabZ = [];      
         MontabX.push(Math.min(...tabX), Math.max(...tabX), moyenne(tabX));
         MontabY.push(Math.min(...tabY), Math.max(...tabY), moyenne(tabY));
         MontabZ.push(Math.min(...tabZ), Math.max(...tabZ), moyenne(tabZ));
@@ -97,27 +59,16 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
         tableau.push(MontabZ);
         
         console.log(tableau);
-<<<<<<< HEAD
-     
-        };
-=======
     
-       /*
-        console.log(Math.min(...tabX));
-        console.log(Math.max(...tabX));
-    
-        console.log(Math.min(...tabY));
-        console.log(Math.max(...tabY));
-        
-        console.log(Math.min(...tabZ));
-        console.log(Math.max(...tabZ));
-        
-       */
       }
+      
+      $scope.calibre = function(){
+
+    }
+
 });
 
->>>>>>> cf42e62914046b1611b5f83a4aefc50ff9eb6c4b
 
 
 
-    });
+   

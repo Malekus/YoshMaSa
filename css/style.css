@@ -149,7 +149,6 @@ body{
     to{ background-position-x: -9000px; }
 }
 
-
 .fullScreen{
     position: absolute;
     background-color: royalblue;
@@ -297,3 +296,25 @@ table{
 table tr{
     text-align: center;
 }
+
+/*Jouer CSS*/
+
+.btnJouer{
+    position:relative;
+    color: red;
+    background-color: white;
+    border: 2px solid red;    
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
+}
+
+.afficheurBtn{
+    position:absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*fin Jouer CSS*/
