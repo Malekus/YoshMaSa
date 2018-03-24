@@ -39,7 +39,6 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
                 tabZ.push(parseFloat(z));         
             }, 100)
       };
-
       moyenne = function(tab){
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         return tab.reduce(reducer) / tab.length;

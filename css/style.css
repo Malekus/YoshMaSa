@@ -116,13 +116,14 @@ body{
   to{ background-position-x: -3240px; }
 }
 
+/* CSS PERSO */
 .choixhomme{
     position: absolute;
     height: 250px;
     width: 150px;
-    background: url("img/tete_H_brun.png") no-repeat;
-    left: 50%;
-    margin-left: -75px;
+    background: url("img/perso/tete_H_brun.png") no-repeat;
+    display: flex;
+    left: 5%;
 
 }
 
@@ -130,19 +131,93 @@ body{
     position: absolute;
     height: 250px;
     width: 150px;
-    background: url("img/mailloche_M.png") no-repeat;
-    top: 45%;
+    background: url("img/perso/mailloche_M.png") no-repeat;
+    right: 0%;
+}
+
+.defilerhomme{
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  bottom: 5%;
+}
+
+.defilerhomme > div{
+  text-align: center;
+  line-height: 0px;
+  margin: 10px;
+}
+
+
+.defilermailloche{
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  bottom: 20%;
+}
+
+.defilermailloche > div{
+  text-align: center;
+  line-height: 0px;
+  margin: 10px;
+}
+
+/*chefDeProjet*/
+
+.displayChoix{
+    background-color: brown;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+}
+
+.choixPerso{
+    background-color: green;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+}
+
+.showItem{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+
+.showItem img{
+    background-color: white;
+    position: absolute;
+    top: 50%;
     left: 50%;
-    margin-left: -75px;
+    width: 60%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
-.choixhomme:active{
-    background: url("img/homme_tete_eye.png") no-repeat;
+.displayItem{
+    height: 50%;
+    overflow-x: scroll;
+    background-color: turquoise;
+    white-space: nowrap;
+    margin: 0 5%;
 }
 
-.choixfemme:active{
-    background: url("img/femme_tete_eye.png") no-repeat;
+.displayItem div{
+    height: 100%;
+    width: 25%;
+    display: inline-block;
+    text-align: center;
 }
+
+
+.itemImg{
+    height: 90%;
+    width: 90%;
+    margin: 5% 5%;
+}
+
+/* CSS fin PERSO */
 
 @keyframes backgroundFrame {
     from{ background-position-x: 0; }
@@ -181,91 +256,101 @@ body{
 /* CSS OPTIONS */
 
 .option_fond{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index:1;
-}
-
-.option_bonhomme{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index:2;
-}
-
-#options{
     position: absolute;
-    height: 70%;
-    width: 80%;
-    top: 5%; left: 0; right: 0; bottom: 20%;
-    margin: auto;
-    overflow: hidden;
-    z-index:3;
-}
+    width: 100%;
+    height: 100%;
+    z-index:1;
+  }
 
-#options > div{
-    height: auto;
-    width: 50%;
-    float: top;
-    color: royalblue;
-    display: flex;
-    margin: auto;
-    margin-top: 5%;
-}
+  .option_bonhomme{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index:2;
+  }
 
-#options > div > .bt{
-    background-color: white;
-    text-decoration: none;
-    color: royalblue;
-    margin: auto;
-    font-size: 9vw;
-    border: 2px solid royalblue;
-    text-align: center;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none;
-}
+  #options{
+      position: absolute;
+      height: 60%;
+      width: 80%;
+      top: 0; left: 0; right: 0; bottom: 15%;
+      margin: auto;
+      overflow: hidden;
+      z-index:3;
+  }
 
-#options > div > .bt_muted{
-    background-color: white;
-    text-decoration: none;
-    color: royalblue;
-    margin: auto;
-    font-size: 9vw;
-    border: 2px solid royalblue;
-    text-align: center;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none;
-}
+  #options > div{
+      height: auto;
+      width: 50%;
+      float: top;
+      color: red;
+      display: flex;
+      margin: auto;
+      margin-top: 15%;
+  }
 
-#img_credits{
-  position: absolute;
-  height: 100%;
-  width : 100%;
-  z-index:8;
-  display: none;
-}
+  #options > div > .bt{
+      background-color: white;
+      text-decoration: none;
+      color: red;
+      margin: auto;
+      font-size: 9vw;
+      border: 2px solid red;
+      text-align: center;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none;
+  }
 
-#options > div > .bt_flag{
+  .bt_muted{
+      background-color: white;
+      text-decoration: none;
+      color: red;
+      margin: auto;
+      font-size: 9vw;
+      border: 2px solid red;
+      text-align: center;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none;
+  }
+
+  .estActif{
+    background-color : black;
+  }
+
+  .img_credits{
+    position: absolute;
+    height: 100%;
+    width : 100%;
+    z-index:8;
+    display: none;
+  }
+
+  .credits{
+    display : block;
+  }
+
+  #options > div > .bt_flag{
+      margin: 0;
+      text-align: center;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none;
+  }
+
+  .flags{
+    border: 2px solid red;
+    width: 100%;
+    height: 100%;
     margin: 0;
-    text-align: center;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none;
-}
+    padding-top : -10%;
+  }
 
-.flags{
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-
-/* FIN CSS OPTIONS */
+  /* FIN CSS OPTIONS */
 
 .title{
     color: red;
