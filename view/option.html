@@ -1,7 +1,11 @@
 <a class="retourMenu" href="#!/home"><<</a>
 
 <div id="options">
-    <div><a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/flags.png" /></a></div>
+    <div>
+      <a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/FR.png" /></a>
+      <a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/England.png" /></a>
+    </div>
+    <div><a class="bt">PSEUDO</a></div>
     <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()">MUET</a></div>
     <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
 </div>
@@ -22,7 +26,7 @@
 
 <div class="option_bonhomme">
   <simple-sprite
-    src="{{urlJouer}}"
+    src="css/img/fond/option1.png"
     frame-width="{{widhtScreen}}"
     frame-height="{{heightScreen}}"
     frames="1"
