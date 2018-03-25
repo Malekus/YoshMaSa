@@ -397,9 +397,13 @@ table tr{
 
 .afficheurBtn{
     position:absolute;
-    top: 75%;
+    top: 90%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.actif{
+    background-color: green;
 }
 
 /*fin Jouer CSS*/
