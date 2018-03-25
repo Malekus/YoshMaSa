@@ -3,12 +3,14 @@ app.controller("LadderController", function($scope, $http, localStorageService, 
     $scope.heightScreen = $rootScope.height;
     $scope.widthScreen = $rootScope.width;
 
+    $scope.url = $rootScope.url.ladder;
+
     $scope.classement = {};
 
     $scope.update = function(){
         var url = "https://www.yoshmasaapi.malekus.fr/list.php";
         $rootScope.loader = true;
-        $http.get(url).then(httpSuccess, httpError);        
+        $http.post(url).then(httpSuccess, httpError);        
     }
     
     httpSuccess = function(response){
