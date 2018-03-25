@@ -1,6 +1,9 @@
 app.controller("OptionController", function($scope, $rootScope){
     $scope.heightScreen = window.innerHeight;
     $scope.widthScreen = window.innerWidth;
+    $scope.urlCredit = $rootScope.url.credit;
+    $scope.urlJouer = $rootScope.url.jouer;
+    $scope.urlOption = $rootScope.url.option;
 
     $scope.couleur = false;
     $scope.on_off = function(){

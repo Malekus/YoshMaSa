@@ -1,8 +1,8 @@
 <a class="retourMenu" href="#!/home"><<</a>
 
 <simple-sprite
-        src="css/img/testResize/jeuR.png" 
-        frame-width="{{widthScreen}}" 
+        src="{{url}}"
+        frame-width="{{widthScreen}}"
         frame-height="{{heightScreen}}" 
         frames="26" 
         frames-per-row="26" 
@@ -10,15 +10,15 @@
         speed="500">
 </simple-sprite>
 
+
+
 <div class="afficheur">
-        Position alpha : {{ alpha }}<br>
-        Position beta : {{ beta }}<br>
-        Position gamma : {{ gamma }}<br>
         Position x : {{ x }}<br>
         Position y : {{ y }}<br>
         Position z : {{ z }}<br>
-        <div>
-                <button ng-mousedown="calculDebut(x, y, z)" ng-mouseup="calculFin()">JOOUER</button>
-        </div>
 </div>
 
+<div class="afficheurBtn">
+        <a class="btnJouer" ng-mousedown="calculDebut(x, y, z)" ng-mouseup="calculFin()">jouer</a>
+        <a class="btnJouer" ng-click="calibre()">calibrer</a>
+</div>

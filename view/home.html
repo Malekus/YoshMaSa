@@ -1,19 +1,20 @@
-
-<simple-sprite
-src="css/img/testResize/homeR.png"
-frame-width="{{widthScreen}}"
-frame-height="{{heightScreen}}"
-frames="25"
-frames-per-row="25"
-repeat="true"
-speed="500">
+<div data-ng-init="onLoadPage()">
+    <simple-sprite
+    src="{{url}}"
+    frame-width="{{widthScreen}}"
+    frame-height="{{heightScreen}}"
+    frames="26"
+    frames-per-row="26"
+    repeat="true"
+    speed="500">
 </simple-sprite>
 
-
-
 <div id="menu">
-<div><a href="#!jouer">JOUER</a></div>
-<div><a href="#!ladder">LADDER</a></div>
-<div><a href="#!perso">PERSO</a></div>
-<div><a href="#!option">OPTION</a></div>
+    <div><a href="#!jouer">JOUER</a></div>
+    <div><a href="#!ladder">LADDER</a></div>
+    <div><a href="#!perso">PERSO</a></div>
+    <div><a href="#!option">OPTION</a></div>
 </div>
+</div>
+
+
