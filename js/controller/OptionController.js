@@ -15,4 +15,9 @@ app.controller("OptionController", function($scope, $rootScope){
       $scope.crd = !$scope.crd;
     }
 
+    $scope.pseudoVar = false;
+    $scope.pseudo = function(){
+      $scope.pseudoVar = !$scope.pseudoVar;
+    }
+
 });

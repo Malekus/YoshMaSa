@@ -351,6 +351,28 @@ body{
     padding-top : -10%;
   }
 
+  .formulaire{
+    position : absolute;
+    top: 45%; left: 10%; right: 10%; bottom: 35%;
+    z-index : 9;
+    background-color : yellow;
+    border: 2px solid red;
+    text-align : center;
+    display : none;
+  }
+
+  .pseudoForm{
+    display : block;
+  }
+
+  #form{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width : 100%;
+  }
+
+
   /* FIN CSS OPTIONS */
 
 .title{
