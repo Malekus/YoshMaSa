@@ -1,5 +1,5 @@
 app.controller("HomeController", function($scope, $http, localStorageService, $q, $rootScope, $timeout, $sce, images){
-    
+
     if(localStorageService.get("first") !== true){
         localStorageService.set("first", true);
         window.location.href = "#!home";
@@ -15,12 +15,14 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
 
     $rootScope.height = window.innerHeight;
     $rootScope.width = window.innerWidth;
-    
-    $rootScope.url = images; 
+
+    $rootScope.url = images;
 
     console.log($rootScope.url);
     $scope.heightScreen = $rootScope.height;
     $scope.widthScreen = $rootScope.width;
 
-    
+    console.log(localStorageService.get("pseudo"));
+
+
 });

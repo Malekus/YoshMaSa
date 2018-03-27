@@ -1,11 +1,20 @@
 <a class="retourMenu" href="#!/home"><<</a>
 
+<div class="formulaire" ng-class=" {pseudoForm : pseudoVar}">
+  <form ng-submit="submission()">
+    <label for="pseudo">Pseudo : </label>
+    <input ng-model="psd" type="text" name="pseudo" id="pseudo" />
+    <br><br>
+    <input id="bt_pseudo" type="submit" value="Envoyer" />
+  </form>
+</div>
+
 <div id="options">
     <div>
       <a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/FR.png" /></a>
       <a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/England.png" /></a>
     </div>
-    <div><a class="bt">PSEUDO</a></div>
+    <div><a class="bt" ng-click="pseudo()">PSEUDO</a></div>
     <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()">MUET</a></div>
     <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
 </div>
