@@ -20,4 +20,7 @@ app.controller("OptionController", function($scope, $rootScope){
       $scope.pseudoVar = !$scope.pseudoVar;
     }
 
+    $scope.submission = function(){
+      console.log($scope.psd);
+    }
 });
