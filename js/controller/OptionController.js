@@ -1,4 +1,4 @@
-app.controller("OptionController", function($scope, $rootScope){
+app.controller("OptionController", function($scope, $rootScope, localStorageService){
     $scope.heightScreen = window.innerHeight;
     $scope.widthScreen = window.innerWidth;
     $scope.urlCredit = $rootScope.url.credit;
@@ -21,6 +21,6 @@ app.controller("OptionController", function($scope, $rootScope){
     }
 
     $scope.submission = function(){
-      console.log($scope.psd);
+      localStorageService.set("pseudo", $scope.psd);
     }
 });
