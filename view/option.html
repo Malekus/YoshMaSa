@@ -1,7 +1,7 @@
 <a class="retourMenu" href="#!/home"><<</a>
 
 <div class="formulaire" ng-class=" {pseudoForm : pseudoVar}">
-  <form ng-submit="submission()">
+  <form ng-submit="submission()" id="form">
     <label for="pseudo">Pseudo : </label>
     <input ng-model="psd" type="text" name="pseudo" id="pseudo" />
     <br><br>
@@ -23,7 +23,7 @@
 
 <div class="option_fond">
   <simple-sprite
-    src="{{urlJouer}}"
+    src="css/img/fond/plan_jeu_new.png"
     frame-width="{{widthScreen}}"
     frame-height="{{heightScreen}}"
     frames="26"
@@ -35,12 +35,12 @@
 
 <div class="option_bonhomme">
   <simple-sprite
-    src="css/img/fond/option1.png"
+    src="css/img/fond/options_anime.png"
     frame-width="{{widhtScreen}}"
     frame-height="{{heightScreen}}"
-    frames="1"
-    frames-per-row="1"
-    repeat="false"
-    speed="0">
+    frames="14"
+    frames-per-row="14"
+    repeat="true"
+    speed="500">
   </simple-sprite>
 </div>
