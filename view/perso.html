@@ -1,50 +1,26 @@
 <a class="retourMenu" href="#!/home"><<</a>
 
-<div style="text-align:center; height:500px; width:500px;">
-        <div class="perso"></div>
+<div class="displayChoix">
+	<div class="showItem"><img ng-src={{main_tete}}></div>
+	<div class="showItem"><img ng-src={{main_maill}}></div>
+</div>
 
-        <div class="choixhomme"></div>
-        <div class="choixmailloche"></div>
+<div class="choixPerso">
+	<div class="displayItem">
+		<div><img class="itemImg" ng-click="H_change_brun()" ng-src="css/img/perso/tete_H_brun.png"></div>
+		<div><img class="itemImg" ng-click="H_change_blond()" ng-src="css/img/perso/tete_H_blond.png"></div>
+		<div><img class="itemImg" ng-click="H_change_roux()" ng-src="css/img/perso/tete_H_roux.png"></div>
+		<div><img class="itemImg" ng-click="F_change_brun()" ng-src="css/img/perso/tete_F_brun.png"></div>
+		<div><img class="itemImg" ng-click="F_change_blond()" ng-src="css/img/perso/tete_F_blond.png"></div>
+		<div><img class="itemImg" ng-click="F_change_roux()" ng-src="css/img/perso/tete_F_roux.png"></div>
 
+	</div>
+	<div class="displayItem">
+		<div><img class="itemImg" ng-class="{itemImgChg : maill_M}" ng-click="maill_change_M()" ng-src="css/img/perso/mailloche_M.png"></div>
+		<div><img class="itemImg" ng-class="{itemImgChg : maill_Md}" ng-click="maill_change_Md()" ng-src="css/img/perso/mailloche_M_dot.png"></div>
+		<div><img class="itemImg" ng-class="{itemImgChg : maill_MY}" ng-click="maill_change_MY()" ng-src="css/img/perso/mailloche_MY.png"></div>
+		<div><img class="itemImg" ng-class="{itemImgChg : maill_N}" ng-click="maill_change_N()" ng-src="css/img/perso/mailloche_N.png"></div>
+		<div><img class="itemImg" ng-class="{itemImgChg : maill_Nd}" ng-click="maill_change_Nd()" ng-src="css/img/perso/mailloche_N_dot.png"></div>
+  </div>
 
-
-        <section class="defilerhomme">
-          <div>
-            <img src="css/img/perso/tete_H_brun.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/tete_H_blond.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/tete_H_roux.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/tete_F_brun.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/tete_F_blond.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/tete_F_roux.png" width="100%">
-          </div>
-        </section>
-
-        <section class="defilermailloche">
-          <div>
-            <img src="css/img/perso/mailloche_M.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/mailloche_N.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/mailloche_MY.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/mailloche_M_dot.png" width="100%">
-          </div>
-          <div>
-            <img src="css/img/perso/mailloche_N_dot.png" width="100%">
-          </div>
-        </section>
-
-        </div>
+</div>
