@@ -18,10 +18,13 @@
         Position x : {{ x }}<br>
         Position y : {{ y }}<br>
         Position z : {{ z }}<br>
-        CalculForce : {{ force}}<br>
+        Acc x : {{ accX }}<br>
+        Acc y : {{ accY }}<br>
+        Acc z : {{ accZ }}<br>
+        CalculForceXYZ : {{ forceXYZ }}<br>
+        CalculForceYZ : {{ forceYZ }}<br>
 </div>
 
 <div class="afficheurBtn">
-        <a class="btnJouer" ng-class="{actif : actif}" ng-mousedown="calculDebut(x, y, z)" ng-mouseup="calculFin()">jouer</a>
-        <a class="btnJouer" ng-click="calibre()">calibrer</a>
+        <button class="btnJouer" ng-class="{actif : actif}" ng-mousedown="calculDebut(x, y, z)" ng-mouseup="calculFin()">jouer</button>
 </div>
