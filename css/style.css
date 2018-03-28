@@ -438,9 +438,14 @@ table tr{
 
 .afficheurBtn{
     position:absolute;
-    top: 90%;
+    top: 80%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.afficheurBtn button{
+    height: 80px;
+    width: 160px;
 }
 
 .actif{

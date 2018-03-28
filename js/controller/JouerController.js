@@ -23,6 +23,11 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
     var MontabZ = [];
     var tableau = [];
     var monInterval;    
+    var record = {
+        x : [],
+        y : [],
+        z : []
+    };
 
     if(window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", process, true);
@@ -54,17 +59,26 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
                 tabZ.push(parseFloat(z));
                 $scope.tableauXYZ.x.push(parseFloat(x));
                 $scope.tableauXYZ.y.push(parseFloat(y));
-                $scope.tableauXYZ.z.push(parseFloat(z));
-                
+                $scope.tableauXYZ.z.push(parseFloat(z));                
             }, 100)
       };
+
+     
 
       moyenne = function(tab){
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         return tab.reduce(reducer);
       };
 
+      addCumul = function(tab){
+        var r = 0;  
+        for(var i = 1; i < tab.length; i++){
+                r += tab[i] - tab[i-1];
+          }
+        return r;
+      }
 
+      
     $scope.calculFin = function(){
         $interval.cancel(monInterval);
         MontabX = [];
@@ -79,11 +93,11 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
         tableau.push(MontabX);
         tableau.push(MontabY);
         tableau.push(MontabZ);
-        
-        console.log(tableau);        
-        console.log($scope.tableauXYZ);
+        $scope.accX = addCumul($scope.tableauXYZ.x);
+        $scope.accY = 5; //addCumul($scope.tableauXYZ.y);
+        $scope.accZ = 3;//addCumul($scope.tableauXYZ.z);
+        $scope.forceXYZ = $scope.accY + $scope.accZ - Math.abs($scope.accX);
+        $scope.forceYZ = $scope.accY + $scope.accZ;
      
         };
-
-
     })
