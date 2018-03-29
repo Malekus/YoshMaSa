@@ -5,17 +5,21 @@ app.controller("OptionController", function($scope, $rootScope, localStorageServ
     $scope.urlJouer = $rootScope.url.jouer;
     $scope.urlOption = $rootScope.url.option;
 
-    $scope.couleur = false;
     $scope.on_off = function(){
-      $scope.couleur = !$scope.couleur;
+      localStorageService.load("bt_muted", $scope.couleur);
+      if ($scope.couleur == true){
+        $scope.couleur = false;
+      } else {
+        $scope.couleur = true;
+      }
+      localStorageService.set("bt_muted", $scope.couleur);
+      console.log(localStorageService.get("bt_muted",$scope.couleur));
     }
 
-    $scope.crd = false;
     $scope.aff_credits = function(){
       $scope.crd = !$scope.crd;
     }
 
-    $scope.pseudoVar = false;
     $scope.pseudo = function(){
       $scope.pseudoVar = !$scope.pseudoVar;
     }
