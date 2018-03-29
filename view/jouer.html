@@ -1,5 +1,6 @@
 <a class="retourMenu" href="#!/home"><<</a>
 
+<!-- 
 <simple-sprite
         src="{{url}}"
         frame-width="{{widthScreen}}"
@@ -9,6 +10,8 @@
         repeat="true" 
         speed="500">
 </simple-sprite>
+
+-->
 
 
 <div class="afficheur">
@@ -25,5 +28,10 @@
 </div>
 
 <div class="afficheurBtn">
-        <button class="btnJouer" ng-class="{actif : actif}" ng-touchstart="calculDebut()" ng-touchend="calculFin()">jouer</button>     
+        <button class="btnJouer" ng-class="{actif : actif}" ng-touchstart="calculDebut()" ng-touchend="calculFin()">jouer</button>
+
+        <span ng-if="CalculFin()" class="animate-if">
+  Si NAN recommencer le gestte.
+</span>
+
 </div>
