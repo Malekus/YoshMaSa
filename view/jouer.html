@@ -15,27 +15,16 @@
 
 
 <div class="afficheur">
-        <input ng-model="poids" type="number"/>
-        <input ng-model="coeffY" type="number"/>
-        <input ng-model="coeffZ" type="number"/>
         Position x : {{ x }}<br>
         Position y : {{ y }}<br>
         Position z : {{ z }}<br>
-        Diff y : {{ diffY }}<br>
-        Diff z : {{ diffZ }}<br>
-        Second s : {{ seconde }}<br>
-        Force Y : {{ forceY }}<br>
-        Force Z : {{ forceZ }}<br>
-        Force YZ : {{ forceYZ }}<br>
-        Force Y coef : {{ forceYcoeff }}<br>
-        Force Z coef : {{ forceZcoeff }}<br>
-        Force YZ coef : {{ forceYZcoeff }}<br>
-        Force Y coef cumul: {{ forceYcoeffCumul }}<br>
-        Force Z coef cumul: {{ forceZcoeffCumul }}<br>
-        Force YZ coef cumul: {{ forceYZcoeffCumul }}<br>
+        Acc x : {{ accX }}<br>
+        Acc y : {{ accY }}<br>
+        Acc z : {{ accZ }}<br>
+        CalculForceXYZ : {{ forceXYZ }}<br>
+        CalculForceYZ : {{ forceYZ }}<br>
 </div>
 
 <div class="afficheurBtn">
-        <button class="btnJouer" ng-class="{actif : actif}" ng-click="clickBtn()" ng-mousedown="calculDebut(x, y, z)" ng-mouseup="calculFin()">jouer</button>
-        <a class="btnJouer" ng-click="calibre()">calibrer</a>
+        <button class="btnJouer" ng-class="{actif : actif}" ng-touchstart="calculDebut()" ng-touchend="calculFin()">jouer</button>     
 </div>

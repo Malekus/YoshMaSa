@@ -22,5 +22,9 @@ app.controller("OptionController", function($scope, $rootScope, localStorageServ
 
     $scope.submission = function(){
       localStorageService.set("pseudo", $scope.psd);
+      location.reload();
     }
+
+	  $scope.text = localStorageService.get("pseudo", $scope.psd);
+
 });
