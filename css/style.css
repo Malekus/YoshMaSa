@@ -10,6 +10,8 @@
     padding: 0;
     margin: 0;
     color: black;
+    font-family: 'Silkscreen', Fallback, sans-serif;
+
 }
 
 a{
@@ -165,14 +167,14 @@ body{
 /*chefDeProjet*/
 
 .displayChoix{
-    background-color: brown;
+    background-color: black;
     height: 50%;
     width: 100%;
     position: absolute;
 }
 
 .choixPerso{
-    background-color: green;
+    background-color: black;
     height: 50%;
     width: 100%;
     position: absolute;
@@ -192,13 +194,14 @@ body{
     top: 50%;
     left: 50%;
     width: 60%;
-    transform: translateX(-50%) translateY(-50%);
+    height: 50%;
+    transform: translateX(-50%) translateY(-50%) ;
 }
 
 .displayItem{
     height: 50%;
     overflow-x: scroll;
-    background-color: turquoise;
+    background-color: black;
     white-space: nowrap;
     margin: 0 5%;
 }
@@ -216,6 +219,7 @@ body{
     width: 90%;
     margin: 5% 5%;
 }
+
 
 /* CSS fin PERSO */
 
@@ -303,6 +307,18 @@ body{
       user-select: none;
   }
 
+.bjr {
+  position : absolute;
+  text-align : center;
+  width : 40%;
+  top: 83%;
+  bottom : 10%;
+  left : 40%;
+  right : 20%;
+  margin : 0;
+  z-index : 9;
+}
+
   .bt_muted{
       background-color: white;
       text-decoration: none;
@@ -334,7 +350,8 @@ body{
   }
 
   #options > div > .bt_flag{
-      margin: 0;
+      margin : 0;
+      padding : 5%;
       text-align: center;
       -webkit-user-select: none; /* Safari */
       -moz-user-select: none; /* Firefox */
@@ -343,11 +360,38 @@ body{
   }
 
   .flags{
-    border: 2px solid red;
     width: 100%;
     height: 100%;
     margin: 0;
     padding-top : -10%;
+  }
+
+  .formulaire{
+    position : absolute;
+    top: 45%; left: 10%; right: 10%; bottom: 35%;
+    z-index : 9;
+    background-color : yellow;
+    border: 2px solid red;
+    text-align : center;
+    display : none;
+  }
+
+  .pseudoForm{
+    display : block;
+  }
+
+  #form{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width : 100%;
+  }
+
+  #bt_pseudo{
+    background-color: white;
+    color: red;
+    font-size: 4.5vw;
+    border: 2px solid red;
   }
 
   /* FIN CSS OPTIONS */
@@ -388,7 +432,7 @@ table tr{
     position:relative;
     color: red;
     background-color: white;
-    border: 2px solid red;    
+    border: 2px solid red;
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
@@ -397,9 +441,21 @@ table tr{
 
 .afficheurBtn{
     position:absolute;
-    top: 75%;
+    top: 80%;
     left: 50%;
     transform: translateX(-50%);
+    height: 8%;
+    width: 20%;
+}
+
+.afficheurBtn button{
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+}
+
+.actif{
+    background-color: green;
 }
 
 /*fin Jouer CSS*/

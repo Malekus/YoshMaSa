@@ -1,19 +1,19 @@
 document.addEventListener('deviceready', function(){
     console.log("On est pret !!");
-    navigator.splashscreen.hide();
 }, false);
 
-var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule']);
+var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule', 'ngSanitize', 'ngTouch']);
 
 app.config(function($routeProvider){
     $routeProvider
-    .when('/',{
-        templateUrl: 'view/present.html',
-        controller: 'PresentController'
-    })
     .when('/home',{
         templateUrl: 'view/home.html',
-        controller: 'HomeController'
+        controller: 'HomeController',
+        resolve: {
+            images : function(ImageService){
+                return ImageService.getImages(window.innerHeight, window.innerWidth);
+            }
+        }
     })
     .when('/jouer',{
         templateUrl: 'view/jouer.html',
@@ -32,7 +32,7 @@ app.config(function($routeProvider){
         controller: 'OptionController'
     })
     .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
     })
 
 });
