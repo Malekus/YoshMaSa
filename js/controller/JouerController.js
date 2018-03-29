@@ -37,8 +37,27 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
 
             monInterval = $interval(function(){
                 $scope.tableauXYZ.x.push(parseFloat($scope.x));
-                $scope.tableauXYZ.y.push(parseFloat($scope.y));
-                $scope.tableauXYZ.z.push(parseFloat($scope.z));                
+
+                if($scope.tableauXYZ.y.length == 0){
+                    if(0 < parseFloat($scope.y) && 10 > parseFloat($scope.y)){
+                        $scope.tableauXYZ.y.push(parseFloat($scope.y));
+                    }
+                }else{
+                    if(parseFloat($scope.y) < $scope.tableauXYZ.y[$scope.tableauXYZ.y.length - 1]  && 0 < parseFloat($scope.y) && 10 > parseFloat($scope.y)){
+                        $scope.tableauXYZ.y.push(parseFloat($scope.y));
+                    }
+                }
+
+                if($scope.tableauXYZ.z.length == 0){
+                    if(0 < parseFloat($scope.z) && 10 > parseFloat($scope.z)){
+                        $scope.tableauXYZ.z.push(parseFloat($scope.z));
+                    }
+                }else{
+                    if(parseFloat($scope.z) > $scope.tableauXYZ.z[$scope.tableauXYZ.z.length - 1]  && 0 < parseFloat($scope.z) && 10 > parseFloat($scope.z)){
+                        $scope.tableauXYZ.z.push(parseFloat($scope.z));
+                    }
+                }
+
             }, 100);
       };
 
@@ -49,35 +68,6 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
         return tab.reduce(reducer);
       };
 
-<<<<<<< HEAD
-      $scope.calculFin = function(){
-        $interval.cancel(monInterval);
-        MontabX = [];
-        MontabY = [];
-        MontabZ = [];      
-        MontabX.push(Math.min(...tabX), Math.max(...tabX), moyenne(tabX));
-        MontabY.push(Math.min(...tabY), Math.max(...tabY), moyenne(tabY));
-        MontabZ.push(Math.min(...tabZ), Math.max(...tabZ), moyenne(tabZ));
-        tableau = [];
-        tableau.push(MontabX);
-        tableau.push(MontabY);
-        tableau.push(MontabZ);
-        
-        console.log(tableau[1][1]*9.81);
-    
-      }
-      
-      $scope.calibre = function(){
-
-    }
-
-
-
-});
-
-
-
-=======
       addCumul = function(tab){
         var r = 0;  
         for(var i = 1; i < tab.length; i++){
@@ -85,15 +75,17 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
           }
         return r;
       };
->>>>>>> 4096e463d3af15a57fbe042822bc9bcd2561ac08
 
       
     $scope.calculFin = function(){
         $interval.cancel(monInterval);
-        $scope.accX = addCumul($scope.tableauXYZ.x);
-        $scope.accY = addCumul($scope.tableauXYZ.y);
-        $scope.accZ = addCumul($scope.tableauXYZ.z);
-        $scope.forceXYZ = $scope.accY + $scope.accZ - Math.abs($scope.accX);
-        $scope.forceYZ = $scope.accY + $scope.accZ;     
+        $scope.accX = parseFloat(Math.abs(addCumul($scope.tableauXYZ.x))).toFixed(2);
+        $scope.accY = parseFloat(Math.abs(addCumul($scope.tableauXYZ.y))).toFixed(2);
+        $scope.accZ = parseFloat(addCumul($scope.tableauXYZ.z)).toFixed(2);
+        $scope.forceYZ = parseFloat($scope.accY + $scope.accZ).toFixed(2);
+        $scope.forceXYZ = parseFloat($scope.forceYZ - $scope.accX).toFixed(2);
+        $scope.forceYZD = parseFloat(($scope.accY / $scope.tableauXYZ.y.length) + ($scope.accZ/ $scope.tableauXYZ.z.length)).toFixed(2);
+        $scope.forceXYZD = parseFloat($scope.forceYZD - ($scope.accX / $scope.tableauXYZ.x.length)).toFixed(2);
+
     };
 });
