@@ -11,17 +11,16 @@
 
 <div id="options">
     <div>
-      <a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/FR.png" /></a>
-      <a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/England.png" /></a>
+      <a class="bt_flag" href="#!/option" onclick="fr()"><img class="flags" src="css/img/fond/FR.png" /></a>
+      <a class="bt_flag" href="#!/option" onclick="eng()"><img class="flags" src="css/img/fond/England.png" /></a>
     </div>
     <div><a class="bt" ng-click="pseudo()">PSEUDO</a></div>
-    <div><a class="bt_muted" id="btn" onclick="mute()">MUET</a></div>
-<!--    <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
+    <div><a class="bt_muted" id="btn" onclick="mute()">MUET</a></div> <!-- <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
     <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
 </div>
 
 <div class="bjr">
-  <a>BONJOUR</a><br><br>
+  <a id="bjr">BONJOUR</a><br><br>
   <a>{{text}}</a>
 </div>
 
@@ -56,12 +55,9 @@
   var audio = document.getElementById("audio");
   var btn = document.getElementById("btn");
 
-  if (audio.muted == false) {
-    btn.style.backgroundColor="white";
-  }
-  else {
-    btn.style.backgroundColor="black";
-  }
+  //Test si le son est déjà mute ou non !
+  if (audio.muted == false) {btn.style.backgroundColor="white";}
+  else {btn.style.backgroundColor="black";}
 
   function mute() {
     if (audio.muted == false) {
@@ -73,5 +69,37 @@
       btn.style.backgroundColor="white";
     }
   }
-  
+  // FIN MUTED
+
+// TEST DES LANGUES
+// **************************************************
+  if(localStorage !== null){
+    if(localStorage.lang == "MUTED"){
+      btn.innerHTML = "MUTED";
+      document.getElementById("bjr").innerHTML = "Hello";
+    }
+
+    if(localStorage.lang == "MUET"){
+      btn.innerHTML = "MUET";
+      document.getElementById("bjr").innerHTML = "Bonjour";
+    }
+  }
+// *****************************************************
+
+  function eng() {
+    var en = btn.innerHTML = "MUTED";
+    document.getElementById("bjr").innerHTML = "Hello";
+
+    localStorage.setItem("lang", en);
+    //console.log(localStorage.lang);
+  }
+
+  function fr() {
+    var fr = btn.innerHTML = "MUET";
+    document.getElementById("bjr").innerHTML = "Bonjour";
+
+    localStorage.setItem("lang", fr);
+    //console.log(localStorage.lang);
+  }
+
 </script>

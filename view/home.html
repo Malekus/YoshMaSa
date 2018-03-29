@@ -10,9 +10,27 @@
 </simple-sprite>
 
 <div id="menu">
-    <div><a href="#!jouer">JOUER</a></div>
-    <div><a href="#!ladder">LADDER</a></div>
+    <div><a id="jou" href="#!jouer">JOUER</a></div>
+    <div><a id="lad" href="#!ladder">LADDER</a></div>
     <div><a href="#!perso">PERSO</a></div>
-    <div><a href="#!option">OPTION</a></div>
+    <div><a id="opt" href="#!option">OPTION</a></div>
 </div>
 </div>
+
+<script type="text/javascript">
+
+  if(localStorage !== null){
+    if(localStorage.lang == "MUTED"){
+      document.getElementById("jou").innerHTML = "PLAY";
+      document.getElementById("lad").innerHTML = "RANK";
+      document.getElementById("opt").innerHTML = "SET";
+    }
+
+    if(localStorage.lang == "MUET"){
+      document.getElementById("jou").innerHTML = "JOUER";
+      document.getElementById("lad").innerHTML = "LADDER";
+      document.getElementById("opt").innerHTML = "OPTION";
+    }
+  }
+
+</script>
