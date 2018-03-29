@@ -15,13 +15,14 @@
       <a class="bt_flag" href="#!"><img class="flags" src="css/img/fond/England.png" /></a>
     </div>
     <div><a class="bt" ng-click="pseudo()">PSEUDO</a></div>
-    <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()">MUET</a></div>
+    <div><a class="bt_muted" id="btn" onclick="mute()">MUET</a></div>
+<!--    <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
     <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
 </div>
 
 <div class="bjr">
   <a>BONJOUR</a><br><br>
-  <a ng-model="afficherPsd">{{text}}</a>
+  <a>{{text}}</a>
 </div>
 
 <img class="img_credits" ng-class="{credits : crd}" ng-click="aff_credits()" src="{{urlCredit}}" />
@@ -49,3 +50,28 @@
     speed="200">
   </simple-sprite>
 </div>
+
+<script type="text/javascript">
+
+  var audio = document.getElementById("audio");
+  var btn = document.getElementById("btn");
+
+  if (audio.muted == false) {
+    btn.style.backgroundColor="white";
+  }
+  else {
+    btn.style.backgroundColor="black";
+  }
+
+  function mute() {
+    if (audio.muted == false) {
+      audio.muted= true;
+      btn.style.backgroundColor="black";
+    }
+    else {
+      audio.muted= false;
+      btn.style.backgroundColor="white";
+    }
+  }
+  
+</script>
