@@ -2,7 +2,7 @@ document.addEventListener('deviceready', function(){
     console.log("On est pret !!");
 }, false);
 
-var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule', 'ngSanitize']);
+var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule', 'ngSanitize', 'ngTouch']);
 
 app.config(function($routeProvider){
     $routeProvider

@@ -1,33 +1,18 @@
 app.controller("JouerController", function($scope, $interval, $rootScope){
     $scope.heightScreen = $rootScope.height;
     $scope.widthScreen = $rootScope.width;
-
     $scope.x = 0;
     $scope.y = 0;
     $scope.z = 0;
-
     $scope.tableauXYZ = {
         x : [],
         y : [],
         z : []
-    }
-    /*Calcul */
+    };
+    var tableau = [];
+    var monInterval;
     $scope.force = 0;
     $scope.actif = false;
-
-    var tabX = [];
-    var tabY = [];
-    var tabZ = [];
-    var MontabX = [];
-    var MontabY = [];
-    var MontabZ = [];
-    var tableau = [];
-    var monInterval;    
-    var record = {
-        x : [],
-        y : [],
-        z : []
-    };
 
     if(window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", process, true);
@@ -43,24 +28,18 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
         alert("Votre appareil ne supporte pas l'accéléromètre !");
       }
 
-      $scope.calculDebut = function(x, y, z){
+      $scope.calculDebut = function(){
             $scope.tableauXYZ = {
                 x : [],
                 y : [],
                 z : []
-            }
+            };
 
-            tabX = [];
-            tabY = [];
-            tabZ = [];              
             monInterval = $interval(function(){
-                tabX.push(parseFloat(x));
-                tabY.push(parseFloat(y));
-                tabZ.push(parseFloat(z));
-                $scope.tableauXYZ.x.push(parseFloat(x));
-                $scope.tableauXYZ.y.push(parseFloat(y));
-                $scope.tableauXYZ.z.push(parseFloat(z));                
-            }, 100)
+                $scope.tableauXYZ.x.push(parseFloat($scope.x));
+                $scope.tableauXYZ.y.push(parseFloat($scope.y));
+                $scope.tableauXYZ.z.push(parseFloat($scope.z));                
+            }, 100);
       };
 
      
@@ -76,28 +55,15 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
                 r += tab[i] - tab[i-1];
           }
         return r;
-      }
+      };
 
       
     $scope.calculFin = function(){
         $interval.cancel(monInterval);
-        MontabX = [];
-        MontabY = [];
-        MontabZ = [];              
-        
-
-        MontabX.push(Math.min(...tabX), Math.max(...tabX), moyenne(tabX));
-        MontabY.push(Math.min(...tabY), Math.max(...tabY), moyenne(tabY));
-        MontabZ.push(Math.min(...tabZ), Math.max(...tabZ), moyenne(tabZ));
-        tableau = [];
-        tableau.push(MontabX);
-        tableau.push(MontabY);
-        tableau.push(MontabZ);
         $scope.accX = addCumul($scope.tableauXYZ.x);
-        $scope.accY = 5; //addCumul($scope.tableauXYZ.y);
-        $scope.accZ = 3;//addCumul($scope.tableauXYZ.z);
+        $scope.accY = addCumul($scope.tableauXYZ.y);
+        $scope.accZ = addCumul($scope.tableauXYZ.z);
         $scope.forceXYZ = $scope.accY + $scope.accZ - Math.abs($scope.accX);
-        $scope.forceYZ = $scope.accY + $scope.accZ;
-     
-        };
-    })
+        $scope.forceYZ = $scope.accY + $scope.accZ;     
+    };
+});
