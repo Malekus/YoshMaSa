@@ -57,13 +57,15 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
         tableau.push(MontabY);
         tableau.push(MontabZ);
         
-        console.log(tableau);
+        console.log(tableau[1][1]*9.81);
     
       }
       
       $scope.calibre = function(){
 
     }
+
+
 
 });
 
