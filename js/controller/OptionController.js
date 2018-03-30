@@ -24,14 +24,20 @@ app.controller("OptionController", function($scope, $rootScope, localStorageServ
       $scope.pseudoVar = !$scope.pseudoVar;
     }
 
+    $scope.text = localStorageService.get("pseudo", $scope.psd);
+
     $scope.submission = function(){
       localStorageService.set("pseudo", $scope.psd);
-      location.reload();
+      //location.reload();
+      $scope.text = $scope.psd;
+      $scope.pseudoVar = !$scope.pseudoVar;
     }
 
-	  $scope.text = localStorageService.get("pseudo", $scope.psd);
+    $scope.lang = localStorageService.get("langue");
+    console.log($scope.langue);
 
     $scope.langue = function(langue){
       localStorageService.set("langue", langue);
     }
+
 });

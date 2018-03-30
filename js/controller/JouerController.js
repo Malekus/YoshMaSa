@@ -1,11 +1,14 @@
-app.controller("JouerController", function($scope, $interval, $rootScope){
+app.controller("JouerController", function($scope, $interval, $rootScope, localStorageService){
     $scope.heightScreen = $rootScope.height;
     $scope.widthScreen = $rootScope.width;
 
     $scope.url = $rootScope.url.jouer;
 
     console.log($scope.url);
-    
+
+    $scope.lang = localStorageService.get("langue");
+    console.log($scope.lang);
+
     $scope.x = 0;
     $scope.y = 0;
     $scope.z = 0;
@@ -66,7 +69,7 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
             }, 10);
       };
 
-     
+
 
       moyenne = function(tab){
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -74,7 +77,7 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
       };
 
       addCumul = function(tab){
-        var r = 0;  
+        var r = 0;
         for(var i = 1; i < tab.length; i++){
                 r += tab[i] - tab[i-1];
           }
@@ -97,4 +100,6 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
 
 
     };
+
+
 });

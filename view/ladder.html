@@ -10,7 +10,8 @@
     speed="250">
 </simple-sprite>
 
-<h1 id="clas" class="title" ng-click="update()">Classement</h1>
+<div ng-if="langue == 'fr'"><h1 id="clas" class="title" ng-click="update()">Classement</h1></div>
+<div ng-if="langue == 'en'"><h1 id="clas" class="title" ng-click="update()">Ranking</h1></div>
 
 <div class="afficheur">
      <table>

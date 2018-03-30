@@ -1,27 +1,65 @@
 <a class="retourMenu" href="#!/home"><<</a>
 
-<div class="formulaire" ng-class=" {pseudoForm : pseudoVar}">
-  <form ng-submit="submission()" id="form">
-    <label for="pseudo">Pseudo : </label>
-    <input ng-model="psd" type="text" name="pseudo" id="pseudo" />
-    <br><br>
-    <input id="bt_pseudo" type="submit" value="Envoyer"/>
-  </form>
+<div ng-if="lang == 'fr'">
+  <div class="formulaire" ng-class=" {pseudoForm : pseudoVar}">
+    <form ng-submit="submission()" id="form">
+      <label for="pseudo">Pseudo : </label>
+      <input ng-model="psd" type="text" name="pseudo" id="pseudo" />
+      <br><br>
+      <input id="bt_pseudo" type="submit" value="Envoyer"/>
+    </form>
+  </div>
 </div>
 
-<div id="options">
-    <div>
-      <a class="bt_flag" href="#!/option" ng-click="langue('fr')"><img class="flags" src="css/img/fond/FR.png" /></a>
-      <a class="bt_flag" href="#!/option" ng-click="langue('en')"><img class="flags" src="css/img/fond/England.png" /></a>
-    </div>
-    <div><a class="bt" ng-click="pseudo()">PSEUDO</a></div>
-    <div><a class="bt_muted" id="btn" onclick="mute()">MUET</a></div> <!-- <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
-    <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
+<div ng-if="lang == 'en'">
+  <div class="formulaire" ng-class=" {pseudoForm : pseudoVar}">
+    <form ng-submit="submission()" id="form">
+      <label for="pseudo">Name : </label>
+      <input ng-model="psd" type="text" name="pseudo" id="pseudo" />
+      <br><br>
+      <input id="bt_pseudo" type="submit" value="Envoyer"/>
+    </form>
+  </div>
 </div>
 
-<div class="bjr">
-  <a id="bjr">BONJOUR</a><br><br>
-  <a>{{text}}</a>
+<div ng-if="lang == 'fr'">
+  <div id="options">
+      <div>
+        <a class="bt_flag" href="#!/home" ng-click="langue('fr')"><img class="flags" src="css/img/fond/FR.png" /></a>
+        <a class="bt_flag" href="#!/home" ng-click="langue('en')"><img class="flags" src="css/img/fond/England.png" /></a>
+      </div>
+      <div><a class="bt" ng-click="pseudo()">PSEUDO</a></div>
+      <div><a class="bt_muted" id="btn" onclick="mute()">MUET</a></div>
+      <!-- <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
+      <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
+  </div>
+</div>
+
+<div ng-if="lang == 'en'">
+  <div id="options">
+      <div>
+        <a class="bt_flag" href="#!/home" ng-click="langue('fr')"><img class="flags" src="css/img/fond/FR.png" /></a>
+        <a class="bt_flag" href="#!/home" ng-click="langue('en')"><img class="flags" src="css/img/fond/England.png" /></a>
+      </div>
+      <div><a class="bt" ng-click="pseudo()">NAME</a></div>
+      <div><a class="bt_muted" id="btn" onclick="mute()">MUTE</a></div>
+      <!-- <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
+      <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
+  </div>
+</div>
+
+<div ng-if="lang == 'fr'">
+  <div class="bjr">
+    <a id="bjr">BONJOUR</a><br><br>
+    <a>{{text}}</a>
+  </div>
+</div>
+
+<div ng-if="lang == 'en'">
+  <div class="bjr">
+    <a id="bjr">Hello</a><br><br>
+    <a>{{text}}</a>
+  </div>
 </div>
 
 <img class="img_credits" ng-class="{credits : crd}" ng-click="aff_credits()" src="{{urlCredit}}" />

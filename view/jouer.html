@@ -3,10 +3,10 @@
 <simple-sprite
         src="{{url}}"
         frame-width="{{widthScreen}}"
-        frame-height="{{heightScreen}}" 
-        frames="26" 
-        frames-per-row="26" 
-        repeat="true" 
+        frame-height="{{heightScreen}}"
+        frames="26"
+        frames-per-row="26"
+        repeat="true"
         speed="500">
 </simple-sprite>
 
@@ -23,11 +23,24 @@
         Calcul Force Dv XYZ : {{ forceXYZD }}<br>
 </div>
 
-<div class="afficheurBtn">
-        <button class="btnJouer" ng-class="{actif : actif}" ng-touchstart="calculDebut()" ng-touchend="calculFin()">jouer</button>
+<div ng-if="lang == 'fr'">
+  <div class="afficheurBtn">
+      <button class="btnJouer" ng-class="{actif : actif}" ng-touchstart="calculDebut()" ng-touchend="calculFin()">Appuyer</button>
 
-        <span ng-if="CalculFin()" class="animate-if">
-  Si NAN recommencer le gestte.
-</span>
+      <span ng-if="CalculFin()" class="animate-if">
+        Si NAN, recommencez le geste.
+      </span>
+  </div>
+</div>
+
+<div ng-if="lang == 'en'">
+  <div class="afficheurBtn">
+      <button class="btnJouer" ng-class="{actif : actif}" ng-touchstart="calculDebut()" ng-touchend="calculFin()">Push</button>
+
+      <span ng-if="CalculFin()" class="animate-if">
+        If NAN, try again.
+      </span>
+  </div>
+</div>
 
 </div>

@@ -1,5 +1,5 @@
 app.controller("LadderController", function($scope, $http, localStorageService, $rootScope){
-    
+
     $scope.heightScreen = $rootScope.height;
     $scope.widthScreen = $rootScope.width;
 
@@ -10,9 +10,9 @@ app.controller("LadderController", function($scope, $http, localStorageService, 
     $scope.update = function(){
         var url = "https://www.yoshmasaapi.malekus.fr/list.php";
         $rootScope.loader = true;
-        $http.post(url).then(httpSuccess, httpError);        
+        $http.post(url).then(httpSuccess, httpError);
     }
-    
+
     httpSuccess = function(response){
         $rootScope.loader = false;
         $scope.classement = response.data;
@@ -24,4 +24,7 @@ app.controller("LadderController", function($scope, $http, localStorageService, 
     }
 
     $scope.update();
+
+    $scope.langue = localStorageService.get("langue");
+    console.log($scope.langue);
 });
