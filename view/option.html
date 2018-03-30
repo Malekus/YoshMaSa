@@ -1,26 +1,19 @@
 <a class="retourMenu" href="#!/home"><<</a>
 
-<div ng-if="lang == 'fr'">
-  <div class="formulaire" ng-class=" {pseudoForm : pseudoVar}">
-    <form ng-submit="submission()" id="form">
-      <label for="pseudo">Pseudo : </label>
-      <input ng-model="psd" type="text" name="pseudo" id="pseudo" />
-      <br><br>
-      <input id="bt_pseudo" type="submit" value="Envoyer"/>
-    </form>
-  </div>
-</div>
 
-<div ng-if="lang == 'en'">
   <div class="formulaire" ng-class=" {pseudoForm : pseudoVar}">
     <form ng-submit="submission()" id="form">
-      <label for="pseudo">Name : </label>
+      <div ng-if="lang == 'fr'">
+        <label for="pseudo">Pseudo : </label><br><br>
+      </div>
+      <div ng-if="lang == 'en'">
+        <label for="pseudo">Name : </label><br><br>
+      </div>
       <input ng-model="psd" type="text" name="pseudo" id="pseudo" />
       <br><br>
       <input id="bt_pseudo" type="submit" value="Envoyer"/>
     </form>
   </div>
-</div>
 
 <div ng-if="lang == 'fr'">
   <div id="options">

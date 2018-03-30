@@ -5,6 +5,8 @@ app.controller("OptionController", function($scope, $rootScope, localStorageServ
     $scope.urlJouer = $rootScope.url.jouer;
     $scope.urlOption = $rootScope.url.option;
 
+    $scope.lang = localStorageService.get("langue");
+
     $scope.on_off = function(){
       localStorageService.load("bt_muted", $scope.couleur);
       if ($scope.couleur == true){
@@ -24,17 +26,18 @@ app.controller("OptionController", function($scope, $rootScope, localStorageServ
       $scope.pseudoVar = !$scope.pseudoVar;
     }
 
+    console.log($scope.psd);
     $scope.text = localStorageService.get("pseudo", $scope.psd);
 
     $scope.submission = function(){
       localStorageService.set("pseudo", $scope.psd);
-      //location.reload();
+    //location.reload();
       $scope.text = $scope.psd;
       $scope.pseudoVar = !$scope.pseudoVar;
+      console.log($scope.psd);
     }
 
-    $scope.lang = localStorageService.get("langue");
-    console.log($scope.langue);
+
 
     $scope.langue = function(langue){
       localStorageService.set("langue", langue);
