@@ -2,15 +2,15 @@
 
 <simple-sprite
     src="{{url}}"
-    frame-width="{{widthScreen}}" 
-    frame-height="{{heightScreen}}" 
-    frames="6" 
-    frames-per-row="6" 
-    repeat="true" 
+    frame-width="{{widthScreen}}"
+    frame-height="{{heightScreen}}"
+    frames="6"
+    frames-per-row="6"
+    repeat="true"
     speed="250">
 </simple-sprite>
 
-<h1 class="title" ng-click="update()">Classement</h1>
+<h1 id="clas" class="title" ng-click="update()">Classement</h1>
 
 <div class="afficheur">
      <table>
@@ -30,5 +30,17 @@
          </tbody>
      </table>
 </div>
+<!--
+<script type="text/javascript">
 
+  if(localStorage !== null){
+    if(localStorage.lang == "MUTED"){
+      document.getElementById("clas").innerHTML = "RANKING";
+    }
 
+    if(localStorage.lang == "MUET"){
+      document.getElementByid("clas").innerHTML = "CLASSEMENT";
+    }
+  }
+
+</script>
