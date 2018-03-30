@@ -24,5 +24,7 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
 
     console.log(localStorageService.get("pseudo"));
 
+    $scope.langue = localStorageService.get("langue");
 
+    console.log($scope.langue);
 });

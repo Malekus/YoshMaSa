@@ -11,8 +11,8 @@
 
 <div id="options">
     <div>
-      <a class="bt_flag" href="#!/option" onclick="fr()"><img class="flags" src="css/img/fond/FR.png" /></a>
-      <a class="bt_flag" href="#!/option" onclick="eng()"><img class="flags" src="css/img/fond/England.png" /></a>
+      <a class="bt_flag" href="#!/option" ng-click="langue('fr')"><img class="flags" src="css/img/fond/FR.png" /></a>
+      <a class="bt_flag" href="#!/option" ng-click="langue('en')"><img class="flags" src="css/img/fond/England.png" /></a>
     </div>
     <div><a class="bt" ng-click="pseudo()">PSEUDO</a></div>
     <div><a class="bt_muted" id="btn" onclick="mute()">MUET</a></div> <!-- <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
@@ -50,6 +50,10 @@
   </simple-sprite>
 </div>
 
+
+
+
+<!--
 <script type="text/javascript">
 
   var audio = document.getElementById("audio");
@@ -103,3 +107,5 @@
   }
 
 </script>
+
+ -->

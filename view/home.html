@@ -9,14 +9,35 @@
     speed="500">
 </simple-sprite>
 
-<div id="menu">
+
+<div ng-if="langue == 'fr'">
+  <div id="menu">
     <div><a id="jou" href="#!jouer">JOUER</a></div>
     <div><a id="lad" href="#!ladder">LADDER</a></div>
     <div><a href="#!perso">PERSO</a></div>
     <div><a id="opt" href="#!option">OPTION</a></div>
-</div>
+  </div>
 </div>
 
+
+  
+
+<div ng-if="langue == 'en'">
+    <div id="menu">
+      <div><a id="jou" href="#!jouer">PLAY</a></div>
+      <div><a id="lad" href="#!ladder">RANK</a></div>
+      <div><a href="#!perso">PERSO</a></div>
+      <div><a id="opt" href="#!option">SETTINGS</a></div>
+  </div>  
+</div>
+
+
+
+</div>
+
+
+
+<!--
 <script type="text/javascript">
 
   if(localStorage !== null){
@@ -34,3 +55,5 @@
   }
 
 </script>
+
+ -->

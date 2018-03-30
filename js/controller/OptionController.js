@@ -31,4 +31,7 @@ app.controller("OptionController", function($scope, $rootScope, localStorageServ
 
 	  $scope.text = localStorageService.get("pseudo", $scope.psd);
 
+    $scope.langue = function(langue){
+      localStorageService.set("langue", langue);
+    }
 });
