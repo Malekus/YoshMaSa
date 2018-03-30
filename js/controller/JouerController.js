@@ -1,6 +1,11 @@
 app.controller("JouerController", function($scope, $interval, $rootScope){
     $scope.heightScreen = $rootScope.height;
     $scope.widthScreen = $rootScope.width;
+
+    $scope.url = $rootScope.url.jouer;
+
+    console.log($scope.url);
+    
     $scope.x = 0;
     $scope.y = 0;
     $scope.z = 0;

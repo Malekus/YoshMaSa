@@ -21,7 +21,7 @@ a{
 body{
     font-family: 'Silkscreen', Fallback, sans-serif;
     overflow: hidden;
-    background-color: royalblue;
+    background-color: #4271b7;
     height: 100%;
     width: 100%;
     color: white;
@@ -167,18 +167,17 @@ body{
 /*chefDeProjet*/
 
 .displayChoix{
-    background-color: black;
     height: 50%;
     width: 100%;
     position: absolute;
+    top: 0;
 }
 
 .choixPerso{
-    background-color: black;
     height: 50%;
     width: 100%;
     position: absolute;
-    top: 50%;
+    top: 45%;
 }
 
 .showItem{
@@ -189,19 +188,21 @@ body{
 }
 
 .showItem img{
-    background-color: white;
+    background-color: #7996c1;
     position: absolute;
     top: 50%;
     left: 50%;
     width: 60%;
     height: 50%;
     transform: translateX(-50%) translateY(-50%) ;
+    box-sizing: border-box;
+    border : 1px #FFFFFF solid;
 }
 
 .displayItem{
     height: 50%;
     overflow-x: scroll;
-    background-color: black;
+    background-color: #3e577d;
     white-space: nowrap;
     margin: 0 5%;
 }

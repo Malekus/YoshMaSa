@@ -2,6 +2,8 @@ app.controller("PersoController", function($scope, $rootScope){
   $scope.heightScreen = window.innerHeight;
   $scope.widthScreen = window.innerWidth;
 
+  $scope.url = $rootScope.url.jouer;
+
   $scope.main_tete = "css/img/perso/tete_H_brun.png";
 
 
