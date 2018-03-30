@@ -9,8 +9,7 @@
     speed="500">
 </simple-sprite>
 
-
-<div ng-if="langue == 'fr'">
+<div ng-if="langue == 'fr' || langue == null">
   <div id="menu">
     <div><a id="jou" href="#!jouer">JOUER</a></div>
     <div><a id="lad" href="#!ladder">LADDER</a></div>
@@ -18,9 +17,6 @@
     <div><a id="opt" href="#!option">OPTION</a></div>
   </div>
 </div>
-
-
-
 
 <div ng-if="langue == 'en'">
     <div id="menu">
@@ -35,25 +31,15 @@
 
 </div>
 
-
-
-<!--
 <script type="text/javascript">
 
-  if(localStorage !== null){
-    if(localStorage.lang == "MUTED"){
-      document.getElementById("jou").innerHTML = "PLAY";
-      document.getElementById("lad").innerHTML = "RANK";
-      document.getElementById("opt").innerHTML = "SET";
-    }
+// PARTIE QUI SAUVEGARDE SI LA L'APPLI EST MUTE OU NON !!!!!
 
-    if(localStorage.lang == "MUET"){
-      document.getElementById("jou").innerHTML = "JOUER";
-      document.getElementById("lad").innerHTML = "LADDER";
-      document.getElementById("opt").innerHTML = "OPTION";
-    }
+  console.log(localStorage.testaudio);
+  if(localStorage.testaudio == 'true') {
+    audio.muted = true;
   }
-
+  else {
+    audio.muted = false;
+  }
 </script>
-
- -->

@@ -23,7 +23,7 @@
         Calcul Force Dv XYZ : {{ forceXYZD }}<br>
 </div>
 
-<div ng-if="lang == 'fr'">
+<div ng-if="lang == 'fr'  || lang == null">
   <div class="afficheurBtn">
       <button class="btnJouer" ng-class="{actif : actif}" ng-touchstart="calculDebut()" ng-touchend="calculFin()">Appuyer</button>
 

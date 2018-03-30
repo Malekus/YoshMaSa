@@ -7,15 +7,17 @@ app.controller("OptionController", function($scope, $rootScope, localStorageServ
 
     $scope.lang = localStorageService.get("langue");
 
+
+
+    if(localStorageService.get("couleurMute") == true){
+      $scope.couleur = !$scope.couleur;
+    } else {
+      $scope.couleur = false;
+    }
     $scope.on_off = function(){
-      localStorageService.load("bt_muted", $scope.couleur);
-      if ($scope.couleur == true){
-        $scope.couleur = false;
-      } else {
-        $scope.couleur = true;
-      }
-      localStorageService.set("bt_muted", $scope.couleur);
-      console.log(localStorageService.get("bt_muted",$scope.couleur));
+      $scope.couleur = !$scope.couleur;
+      localStorageService.set("couleurMute", $scope.couleur);
+      console.log($scope.couleur);
     }
 
     $scope.aff_credits = function(){
@@ -26,7 +28,6 @@ app.controller("OptionController", function($scope, $rootScope, localStorageServ
       $scope.pseudoVar = !$scope.pseudoVar;
     }
 
-    console.log($scope.psd);
     $scope.text = localStorageService.get("pseudo", $scope.psd);
 
     $scope.submission = function(){

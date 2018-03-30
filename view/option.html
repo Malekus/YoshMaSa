@@ -3,7 +3,7 @@
 
   <div class="formulaire" ng-class=" {pseudoForm : pseudoVar}">
     <form ng-submit="submission()" id="form">
-      <div ng-if="lang == 'fr'">
+      <div ng-if="lang == 'fr' || lang == null">
         <label for="pseudo">Pseudo : </label><br><br>
       </div>
       <div ng-if="lang == 'en'">
@@ -15,14 +15,14 @@
     </form>
   </div>
 
-<div ng-if="lang == 'fr'">
+<div ng-if="lang == 'fr' || lang == null">
   <div id="options">
       <div>
         <a class="bt_flag" href="#!/home" ng-click="langue('fr')"><img class="flags" src="css/img/fond/FR.png" /></a>
         <a class="bt_flag" href="#!/home" ng-click="langue('en')"><img class="flags" src="css/img/fond/England.png" /></a>
       </div>
       <div><a class="bt" ng-click="pseudo()">PSEUDO</a></div>
-      <div><a class="bt_muted" id="btn" onclick="mute()">MUET</a></div>
+      <div><a class="bt_muted" ng-class="{estActif : couleur}" id="btn" onclick="mute()" ng-click="on_off()">MUET</a></div>
       <!-- <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
       <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
   </div>
@@ -35,13 +35,13 @@
         <a class="bt_flag" href="#!/home" ng-click="langue('en')"><img class="flags" src="css/img/fond/England.png" /></a>
       </div>
       <div><a class="bt" ng-click="pseudo()">NAME</a></div>
-      <div><a class="bt_muted" id="btn" onclick="mute()">MUTE</a></div>
+      <div><a class="bt_muted" ng-class="{estActif : couleur}" id="btn" onclick="mute()" ng-click="on_off()">MUTE</a></div>
       <!-- <div><a class="bt_muted" ng-class="{estActif : couleur}" ng-click="on_off()" onclick="mute()">MUET</a></div>  -->
       <div><a class="bt" ng-click="aff_credits()">CREDITS</a></div>
   </div>
 </div>
 
-<div ng-if="lang == 'fr'">
+<div ng-if="lang == 'fr' || lang == null">
   <div class="bjr">
     <a id="bjr">BONJOUR</a><br><br>
     <a>{{text}}</a>
@@ -84,59 +84,23 @@
 
 
 
-<!--
+
 <script type="text/javascript">
 
   var audio = document.getElementById("audio");
   var btn = document.getElementById("btn");
 
-  //Test si le son est déjà mute ou non !
-  if (audio.muted == false) {btn.style.backgroundColor="white";}
-  else {btn.style.backgroundColor="black";}
+  //console.log(localStorage.testaudio);
 
   function mute() {
     if (audio.muted == false) {
-      audio.muted= true;
-      btn.style.backgroundColor="black";
+      var x = audio.muted = true;
+      localStorage.setItem("testaudio", x);
     }
     else {
-      audio.muted= false;
-      btn.style.backgroundColor="white";
+      var x = audio.muted = false;
+      localStorage.setItem("testaudio", x);
     }
-  }
-  // FIN MUTED
-
-// TEST DES LANGUES
-// **************************************************
-  if(localStorage !== null){
-    if(localStorage.lang == "MUTED"){
-      btn.innerHTML = "MUTED";
-      document.getElementById("bjr").innerHTML = "Hello";
-    }
-
-    if(localStorage.lang == "MUET"){
-      btn.innerHTML = "MUET";
-      document.getElementById("bjr").innerHTML = "Bonjour";
-    }
-  }
-// *****************************************************
-
-  function eng() {
-    var en = btn.innerHTML = "MUTED";
-    document.getElementById("bjr").innerHTML = "Hello";
-
-    localStorage.setItem("lang", en);
-    //console.log(localStorage.lang);
-  }
-
-  function fr() {
-    var fr = btn.innerHTML = "MUET";
-    document.getElementById("bjr").innerHTML = "Bonjour";
-
-    localStorage.setItem("lang", fr);
-    //console.log(localStorage.lang);
   }
 
 </script>
-
- -->
