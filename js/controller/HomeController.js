@@ -1,8 +1,11 @@
 app.controller("HomeController", function($scope, $http, localStorageService, $q, $rootScope, $timeout, $sce, images){
 
+
     if(localStorageService.get("first") !== true){
         localStorageService.set("first", true);
+        localStorageService.set("langue", "fr");        
         window.location.href = "#!home";
+
     }
 
     if(localStorageService.get("height") != window.innerHeight || localStorageService.get("width") != window.innerWidth){
@@ -27,3 +30,4 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
     $scope.langue = localStorageService.get("langue");
     console.log($scope.langue);
 });
+

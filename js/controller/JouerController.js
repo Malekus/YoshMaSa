@@ -95,11 +95,7 @@ app.controller("JouerController", function($scope, $interval, $rootScope, localS
         $scope.accZ = parseFloat(addCumul($scope.tableauXYZ.z)).toFixed(2);
         $scope.forceYZ = parseFloat($scope.accY + $scope.accZ).toFixed(2);
         $scope.forceXYZ = parseFloat($scope.forceYZ - $scope.accX).toFixed(2);
-        $scope.forceYZD = 27 * parseFloat(($scope.accY / $scope.tableauXYZ.y.length) + ($scope.accZ/ $scope.tableauXYZ.z.length)+1).toFixed(2) * 27;
+        $scope.forceYZD = parseFloat(Math.exp(($scope.accY / $scope.tableauXYZ.y.length) + ($scope.accZ/ $scope.tableauXYZ.z.length)+1)).toFixed(2) ;
         $scope.forceXYZD =  (parseFloat($scope.forceYZD - 27*($scope.accX / $scope.tableauXYZ.x.length)).toFixed(2));
-
-
     };
-
-
 });
