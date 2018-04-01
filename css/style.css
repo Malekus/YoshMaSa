@@ -21,7 +21,7 @@ a{
 body{
     font-family: 'Silkscreen', Fallback, sans-serif;
     overflow: hidden;
-    background-color: #4271b7;
+    background-color: royalblue;
     height: 100%;
     width: 100%;
     color: white;
@@ -167,17 +167,18 @@ body{
 /*chefDeProjet*/
 
 .displayChoix{
+    background-color: black;
     height: 50%;
     width: 100%;
     position: absolute;
-    top: 0;
 }
 
 .choixPerso{
+    background-color: black;
     height: 50%;
     width: 100%;
     position: absolute;
-    top: 45%;
+    top: 50%;
 }
 
 .showItem{
@@ -188,21 +189,18 @@ body{
 }
 
 .showItem img{
-    background-color: #7996c1;
+    background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     width: 60%;
-    height: 50%;
-    transform: translateX(-50%) translateY(-50%) ;
-    box-sizing: border-box;
-    border : 1px #FFFFFF solid;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .displayItem{
     height: 50%;
     overflow-x: scroll;
-    background-color: #3e577d;
+    background-color: black;
     white-space: nowrap;
     margin: 0 5%;
 }
@@ -281,7 +279,7 @@ body{
       top: 0; left: 0; right: 0; bottom: 15%;
       margin: auto;
       overflow: hidden;
-      z-index:5;
+      z-index:3;
   }
 
   #options > div{
@@ -449,14 +447,22 @@ table tr{
     width: 20%;
 }
 
+/*
 .afficheurBtn button{
     height: 100%;
     width: 100%;
     font-weight: bold;
 }
-
+*/
 .actif{
     background-color: green;
 }
+
+.jouer_bonhomme{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    z-index:2;
+                 }
 
 /*fin Jouer CSS*/
