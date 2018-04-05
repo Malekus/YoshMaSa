@@ -167,14 +167,13 @@ body{
 /*chefDeProjet*/
 
 .displayChoix{
-    background-color: black;
     height: 50%;
     width: 100%;
     position: absolute;
+    top:0;
 }
 
 .choixPerso{
-    background-color: black;
     height: 50%;
     width: 100%;
     position: absolute;
@@ -200,7 +199,6 @@ body{
 .displayItem{
     height: 50%;
     overflow-x: scroll;
-    background-color: black;
     white-space: nowrap;
     margin: 0 5%;
 }

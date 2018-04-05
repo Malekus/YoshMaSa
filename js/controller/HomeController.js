@@ -3,7 +3,8 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
 
     if(localStorageService.get("first") !== true){
         localStorageService.set("first", true);
-        localStorageService.set("langue", "fr");        
+        localStorageService.set("langue", "fr");     
+        localStorageService.set("pseudo", "pseudo");
         window.location.href = "#!home";
 
     }
