@@ -118,6 +118,11 @@ body{
   to{ background-position-x: -3240px; }
 }
 
+.mec{
+    position: absolute;
+    top: 75%;
+}
+
 /* CSS PERSO */
 .choixhomme{
     position: absolute;

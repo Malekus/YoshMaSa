@@ -1,13 +1,14 @@
 <div data-ng-init="onLoadPage()">
-    <simple-sprite
-    src="css/img/fond/plan_menu_new.png"
-    frame-width="{{widthScreen}}"
-    frame-height="{{heightScreen}}"
-    frames="26"
-    frames-per-row="26"
-    repeat="true"
-    speed="500">
-</simple-sprite>
+
+  <simple-sprite
+      src="css/img/fond/plan_menu_new.png"
+      frame-width="{{widthScreen}}"
+      frame-height="{{heightScreen}}"
+      frames="26"
+      frames-per-row="26"
+      repeat="true"
+      speed="500">
+  </simple-sprite>
 
 <div ng-if="langue == 'fr' || langue == null">
   <div id="menu">
@@ -25,6 +26,18 @@
       <div><a href="#!perso">PERSO</a></div>
       <div><a id="opt" href="#!option">SET</a></div>
   </div>
+</div>
+
+<div class="mec">
+  <simple-sprite
+      src="css/img/personnage/transparent_resize_manBlack_6.png"
+      frame-width="72"
+      frame-height="128"
+      frames="6"
+      frames-per-row="6"
+      repeat="true"
+      speed="400">
+  </simple-sprite>
 </div>
 
 
