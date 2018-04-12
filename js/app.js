@@ -2,7 +2,7 @@ document.addEventListener('deviceready', function(){
     console.log("On est pret !!");
 }, false);
 
-var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule', 'ngSanitize', 'ngTouch']);
+var app = angular.module('YoshMaSaApp', ['ngRoute', 'simple-sprite', 'LocalStorageModule', 'ngSanitize', 'ngTouch', 'btford.socket-io']);
 
 app.config(function($routeProvider){
     $routeProvider
@@ -43,3 +43,14 @@ app.config(function (localStorageServiceProvider) {
       .setStorageType('sessionStorage')
       .setNotify(true, true)
 });
+
+
+app.factory('mySocket', function(socketFactory){
+    var mySocket = socketFactory(
+        {
+            ioSocket : io.connect('http://localhost:1234')
+        }
+    );
+    return mySocket;
+})
+

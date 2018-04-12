@@ -1,4 +1,4 @@
-app.controller("HomeController", function($scope, $http, localStorageService, $q, $rootScope, $timeout, $sce, images){
+app.controller("HomeController", function($scope, $http, localStorageService, $q, $rootScope, $timeout, $sce, images, mySocket){
 
 
     if(localStorageService.get("first") !== true){
@@ -29,6 +29,15 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
     console.log(localStorageService.get("pseudo"));
 
     $scope.langue = localStorageService.get("langue");
-    console.log($scope.langue);
+
+    console.log(mySocket);
+
+    mySocket.connect();
+    mySocket.emit('resize', {
+        height:window.innerHeight,
+        width:window.innerWidth
+    })
+
+    
 });
 
