@@ -1,7 +1,11 @@
 <div data-ng-init="onLoadPage()">
 
+    <div class="titreYoshmasa">
+        YOSHMASA
+    </div>
+
   <simple-sprite
-      src="css/img/fond/plan_menu_new.png"
+      src="css/img/fondTmp/26_plan_menu_new.png"
       frame-width="{{widthScreen}}"
       frame-height="{{heightScreen}}"
       frames="26"
@@ -30,14 +34,18 @@
 
 <div class="mec">
   <simple-sprite
-      src="css/img/personnage/transparent_resize_manBlack_6.png"
+      src="{{personneAttend}}"
       frame-width="72"
-      frame-height="128"
+      frame-height="124"
       frames="6"
       frames-per-row="6"
       repeat="true"
       speed="400">
   </simple-sprite>
+</div>
+
+<div class="homeMailloche">  
+    <img ng-src="{{malloche}}">
 </div>
 
 

@@ -27,4 +27,7 @@ app.controller("LadderController", function($scope, $http, localStorageService, 
 
     $scope.langue = localStorageService.get("langue");
     console.log($scope.langue);
+
+    $scope.maxScore = localStorageService.get("maxScore");
+    $scope.pseudo = localStorageService.get("pseudo");
 });

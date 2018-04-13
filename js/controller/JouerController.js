@@ -1,5 +1,6 @@
-app.controller("JouerController", function($scope, $interval, $rootScope){
+app.controller("JouerController", function($scope, $interval, $rootScope, $timeout, localStorageService){
     $scope.heightScreen = $rootScope.height;
+    $scope.ready = false;
     $scope.widthScreen = $rootScope.width;
     $scope.x = 0;
     $scope.y = 0;
@@ -9,6 +10,13 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
         y : [],
         z : []
     };
+
+    $scope.scoreFinal = 0;
+    $scope.scoreCourant = 0;
+
+    $scope.perdu = false;
+
+    $scope.url = $rootScope.url.jouer;
     var tableau = [];
     var monInterval;
     $scope.force = 0;
@@ -61,8 +69,8 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
             }, 10);
       };
 
-    $scope.add = function(){
-        var url = "https://www.yoshmasaapi.malekus.fr/add.php?pseudo=kader&point=2000";
+    addLadder = function(pseudo, point){
+        var url = "https://www.yoshmasaapi.malekus.fr/add.php?pseudo="+pseudo+"&point="+point;
         $http.get(url).then(httpSuccess, httpError);
 
     }
@@ -84,16 +92,46 @@ app.controller("JouerController", function($scope, $interval, $rootScope){
         return parseFloat(v).toFixed(2);
     }
 
+    $scope.go = false;
     $scope.calculFin = function(){
+        $scope.go = true;
+        $timeout(function(){ 
+            $scope.go = false;
+        }, 500);
         $interval.cancel(monInterval);
         $scope.accX = parseFloat(Math.abs(addCumul($scope.tableauXYZ.x))).toFixed(2);
         $scope.accY = parseFloat(Math.abs(addCumul($scope.tableauXYZ.y))).toFixed(2);
         $scope.accZ = parseFloat(addCumul($scope.tableauXYZ.z)).toFixed(2);
         $scope.forceYZ = parseFloat($scope.accY + $scope.accZ).toFixed(2);
-        $scope.forceXYZ = parseFloat($scope.forceYZ - $scope.accX).toFixed(2);
-        $scope.forceYZD = parseFloat(Math.exp(($scope.accY / $scope.tableauXYZ.y.length) + ($scope.accZ/ $scope.tableauXYZ.z.length)+1)).toFixed(2);
-        $scope.forceXYZD =  (parseFloat($scope.forceYZD - ($scope.accX / $scope.tableauXYZ.x.length)).toFixed(2));
-
-
+        $scope.scoreCourant = 13 * parseFloat($scope.forceYZ - $scope.accX).toFixed(2);
+        if($scope.scoreCourant < $scope.but * 1.2 && $scope.scoreCourant > $scope.but * 0.8){
+            $scope.scoreFinal += $scope.scoreCourant;
+            score();
+        }
+        else{
+            $scope.perdu = true;
+            if(localStorageService.get("maxScore") < $scope.scoreFinal){
+                localStorageService.set("maxScore", $scope.scoreFinal);
+                addLadder(localStorageService.get("pseudo", $scope.scoreFinal))
+            }
+        }
+        
     };
+
+    $timeout(function(){ 
+        $scope.ready = true;
+    }, 4900);
+
+    score = function(){
+        $scope.but = 13 * (Math.floor(Math.random() * 10) + 5)
+    }    
+
+    $scope.rego = function(){
+        score();
+        $scope.perdu = false;
+        $scope.scoreCourant = 0;
+        $scope.scoreFinal = 0;
+    }
+
+    $scope.rego();
 });

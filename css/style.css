@@ -94,6 +94,26 @@ body{
     transform: translateX(-50%) translateY(-50%);
 }
 
+.afficheurJouer{
+    position: absolute;
+    background-color: white;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: 2px solid red;
+    text-align: center;
+}
+
+.afficherMaxScore{
+    position: absolute;
+    background-color: white;
+    width: 75%;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%)
+}
+
 .ecran{
     background-color: red;
     height: 100%;
@@ -121,6 +141,7 @@ body{
 .mec{
     position: absolute;
     top: 75%;
+    left: 30%;
 }
 
 /* CSS PERSO */
@@ -461,11 +482,71 @@ table tr{
     background-color: green;
 }
 
-.jouer_bonhomme{
+.jouerHomme{
     position: absolute;
-    width: 50%;
-    height: 50%;
-    z-index:2;
-                 }
+    top: 75%;
+    left: -25%;
+    animation: goCenter 5s normal forwards;
+}
 
+@keyframes goCenter {
+    from{ left: -25; }
+    to{ left: 35%; }
+}
+
+
+.homeMailloche{
+    position: absolute;
+    top: 88%;
+    left: 55%;
+    /*background: url("img/test/Maill_M.png");*/
+    height: 7%;
+    width: 8%;
+
+}
+
+.frappe{
+    animation: hit 1s normal forwards;
+}
+
+@keyframes hit {
+    from{transform: rotate(-90deg); left: 51%; top: 82%}
+    to{transform: rotate(-90deg); left: 51%; top: 84%}
+}
+
+.homeMaillocheAttack{
+    position: absolute;
+    top: 83%;
+    left: 52%;
+    background: url("img/test/Maill_M.png");
+    height: 7%;
+    width: 8%;
+    transform: rotate(-90deg);
+
+}
 /*fin Jouer CSS*/
+
+.titreYoshmasa{
+    background-color: white;
+    position: absolute;
+    left: 25%;
+    top: 30%;
+    color: red;
+    border: 2px solid red;
+    height: 7%;
+    width: 50%;
+    line-height: 145%;
+    font-size: 190%;
+    font-weight: bold;
+}
+
+.partieEnCours{
+    position: absolute;
+    background-color: white;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: 2px solid red;
+    text-align: center;
+}

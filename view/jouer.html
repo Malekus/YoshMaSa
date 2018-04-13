@@ -3,7 +3,7 @@
 <div ng-class="{actif : actif}" ng-touchstart="calculDebut()" ng-touchend="calculFin()">
 
     <simple-sprite
-            src="{{url}}"
+            src="css/img/fondTmp/26_plan_jeu_new.png"
             frame-width="{{widthScreen}}"
             frame-height="{{heightScreen}}"
             frames="26"
@@ -12,39 +12,97 @@
             speed="500">
     </simple-sprite>
 
-
+<div ng-hide="true">
+        Position x : {{ x }}<br>
+        Position y : {{ y }}<br>
+        Position z : {{ z }}<br>
+</div>
 
     <div>
         <!--  <button class="btnJouer" >jouer</button>-->
 
-        <div class="afficheur">
-
-            Position x : {{ x }}<br>
-            Position y : {{ y }}<br>
-            Position z : {{ z }}<br>
-            Acc x : {{ accX }}<br>
-            Acc y : {{ accY }}<br>
-            Acc z : {{ accZ }}<br>
-            Calcul Force XYZ : {{ forceXYZ }}<br>
-            Calcul Force YZ : {{ forceYZ }}<br>
-            Calcul Force Dv YZ : {{ forceYZD }}<br>
-            Calcul Force Dv XYZ : {{ forceXYZD }}<br>
+        <div class="afficheurJouer" ng-show="!perdu">
+                <br>
+            But : {{ but }}<br><br>
+            Appuyez !<br><br>
+            Score : {{ scoreCourant }}<br><br>
+            Score Final : {{ scoreFinal }}<br><br>
         </div>
     </div>
 
 
 
-    <div class="jouer_bonhomme">
-        <simple-sprite
-                src="css/img/perso/H_roux_marche.png"
-                frame-width="304"
-                frame-height="551"
+    <div class="jouerHomme">
+        <div ng-show="!ready">
+            <simple-sprite
+                ng-model="bonhomme"
+                src="{{personneMarche}}"
+                frame-width="72"
+                frame-height="124"
                 frames="6"
                 frames-per-row="6"
                 repeat="true"
                 speed="200">
-        </simple-sprite>
+            </simple-sprite>
+            
+        </div>
+        <div ng-show="ready">
+            <div ng-if="go">
+                <simple-sprite
+                    src="{{personneTape}}"
+                    frame-width="72"
+                    frame-height="124"
+                    frames="5"
+                    frames-per-row="5"
+                    repeat="true"
+                    speed="200">
+                </simple-sprite>
+            </div>
+            <div ng-if="!go">
+                <simple-sprite
+                    src="{{personneTape}}"
+                    frame-width="72"
+                    frame-height="124"
+                    frames="5"
+                    frames-per-row="5"
+                    repeat="false"
+                    speed="200">
+                </simple-sprite>
+            </div> 
+            
+        </div>
     </div>
 
 </div>
 
+<div ng-if="!ready">
+    <div class="homeMailloche">
+        <img ng-src="{{malloche}}">
+    </div>
+</div>
+
+<div ng-if="ready">
+    <div class="homeMaillocheAttack" ng-class="{'frappe' : go}">
+            <img ng-src="{{malloche}}">
+    </div>
+</div>
+
+
+<div ng-show="perdu" class="partieEnCours">
+    
+        <br>
+    Score Final : {{ scoreFinal }}<br>
+    <br>
+    
+    <div ng-touchstart="rego()">
+            Recommenez ?
+    </div>
+    <br>
+    
+</div>
+
+<!--
+    "css/img/test/550x360550x360H_marche_brun.png"
+    "css/img/test/550x360550x360H_tape_brun.png"
+    
+-->
