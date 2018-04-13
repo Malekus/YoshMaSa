@@ -29,9 +29,9 @@ app.controller("PersoController", function($scope, $rootScope,localStorageServic
     $scope.main_tete = "css/img/perso/tete_H_roux.png";
     localStorageService.set("tete", $scope.main_tete);
     localStorageService.set("tete", $scope.main_tete);
-    localStorageService.set("marche", "css/img/test/620x360550x360h_marche_roux.png");
-    localStorageService.set("attend", "css/img/test/620x360550x360h_roux.png");
-    localStorageService.set("frappe", "css/img/test/620x360550x360h_tape_roux.png");
+    localStorageService.set("marche", "css/img/test/620x360550x360H_marche_roux.png");
+    localStorageService.set("attend", "css/img/test/620x360550x360H_roux.png");
+    localStorageService.set("frappe", "css/img/test/620x360550x360H_tape_roux.png");
   }
 
   $scope.F_change_brun = function(){
