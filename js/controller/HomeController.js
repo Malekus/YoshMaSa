@@ -44,19 +44,6 @@ app.controller("HomeController", function($scope, $http, localStorageService, $q
 
     $scope.langue = localStorageService.get("langue");
 
-    /*
-    console.log(mySocket);
-    mySocket.connect();
-    mySocket.emit('resize', {
-        height:window.innerHeight,
-        width:window.innerWidth
-    })
-    mySocket.on('url', function(url){
-        console.log(url);
-    })*/
-    
-    console.log($rootScope.url);
-
 
     
 });

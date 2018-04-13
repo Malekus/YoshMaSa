@@ -99,11 +99,11 @@ app.controller("JouerController", function($scope, $interval, $rootScope, $timeo
             $scope.go = false;
         }, 500);
         $interval.cancel(monInterval);
-        $scope.accX = parseFloat(Math.abs(addCumul($scope.tableauXYZ.x))).toFixed(2);
-        $scope.accY = parseFloat(Math.abs(addCumul($scope.tableauXYZ.y))).toFixed(2);
-        $scope.accZ = parseFloat(addCumul($scope.tableauXYZ.z)).toFixed(2);
-        $scope.forceYZ = parseFloat($scope.accY + $scope.accZ).toFixed(2);
-        $scope.scoreCourant = 13 * parseFloat($scope.forceYZ - $scope.accX).toFixed(2);
+        $scope.accX =  Math.floor(parseFloat(Math.abs(addCumul($scope.tableauXYZ.x))).toFixed(2));
+        $scope.accY =  Math.floor(parseFloat(Math.abs(addCumul($scope.tableauXYZ.y))).toFixed(2));
+        $scope.accZ = Math.floor(parseFloat(addCumul($scope.tableauXYZ.z)).toFixed(2));
+        $scope.forceYZ =  Math.floor(parseFloat($scope.accY + $scope.accZ).toFixed(2));
+        $scope.scoreCourant =  Math.floor(13 * parseFloat($scope.forceYZ - $scope.accX).toFixed(2));
         if($scope.scoreCourant < $scope.but * 1.2 && $scope.scoreCourant > $scope.but * 0.8){
             $scope.scoreFinal += $scope.scoreCourant;
             score();
